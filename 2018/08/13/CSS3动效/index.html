@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -91,7 +91,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     version: '6.4.0',
     sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: false,
@@ -115,13 +115,13 @@
 
 
 
-  <meta name="description" content="transform可以实现元素的形状、角度、位置等的变换 rotate()以x轴，y轴，z轴或者某个合成的矢量轴为旋转轴进行指定角度的旋转，默认情况下是以z轴为旋转轴   rotate(deg) 这是默认情况，以z轴为旋转轴进行旋转。deg是旋转的角度，当角度值为正时，正视图顺时针旋转  rotateX(deg) 以x轴为旋转轴进行旋转。deg是旋转的角度，当角度值为正时，右视图顺时针旋转  ro">
+  <meta name="description" content="CSS3中动画效果介绍">
 <meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS3动效">
 <meta property="og:url" content="http://yoursite.com/2018/08/13/CSS3动效/index.html">
-<meta property="og:site_name" content="秦海涛的个人博客">
-<meta property="og:description" content="transform可以实现元素的形状、角度、位置等的变换 rotate()以x轴，y轴，z轴或者某个合成的矢量轴为旋转轴进行指定角度的旋转，默认情况下是以z轴为旋转轴   rotate(deg) 这是默认情况，以z轴为旋转轴进行旋转。deg是旋转的角度，当角度值为正时，正视图顺时针旋转  rotateX(deg) 以x轴为旋转轴进行旋转。deg是旋转的角度，当角度值为正时，右视图顺时针旋转  ro">
+<meta property="og:site_name" content="qht&#39;s blog">
+<meta property="og:description" content="CSS3中动画效果介绍">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1fske5noljyj30fe07lmwy.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1fskegyj51ij30h308eq2q.jpg">
@@ -134,10 +134,10 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ftab5llbhag30ev0a2jri.gif">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1ftaclbiphgg30go0a5dgw.gif">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft0bx76hmig30mn0c6q42.gif">
-<meta property="og:updated_time" content="2018-08-13T03:39:16.779Z">
+<meta property="og:updated_time" content="2018-08-14T09:30:18.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3动效">
-<meta name="twitter:description" content="transform可以实现元素的形状、角度、位置等的变换 rotate()以x轴，y轴，z轴或者某个合成的矢量轴为旋转轴进行指定角度的旋转，默认情况下是以z轴为旋转轴   rotate(deg) 这是默认情况，以z轴为旋转轴进行旋转。deg是旋转的角度，当角度值为正时，正视图顺时针旋转  rotateX(deg) 以x轴为旋转轴进行旋转。deg是旋转的角度，当角度值为正时，右视图顺时针旋转  ro">
+<meta name="twitter:description" content="CSS3中动画效果介绍">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1fske5noljyj30fe07lmwy.jpg">
 
 
@@ -155,7 +155,7 @@
   };
 </script>
 
-  <title>CSS3动效 | 秦海涛的个人博客</title>
+  <title>CSS3动效 | qht's blog</title>
   
 
 
@@ -213,7 +213,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">秦海涛的个人博客</span>
+        <span class="site-title">qht's blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -364,7 +364,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="秦海涛的个人博客">
+      <meta itemprop="name" content="qht's blog">
     </span>
 
     
@@ -379,6 +379,8 @@
         
 
         <div class="post-meta">
+          <!-- 置顶文字 -->
+          
           <span class="post-time">
 
             
@@ -397,12 +399,24 @@
                 
               
 
-              <time title="创建时间：2018-08-13 11:21:27 / 修改时间：11:39:16" itemprop="dateCreated datePublished" datetime="2018-08-13T11:21:27+08:00">2018-08-13</time>
+              <time title="创建时间：2018-08-13 11:21:27" itemprop="dateCreated datePublished" datetime="2018-08-13T11:21:27+08:00">2018-08-13</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-14 17:30:18" itemprop="dateModified" datetime="2018-08-14T17:30:18+08:00">2018-08-14</time>
               
             
           </span>
@@ -446,6 +460,8 @@
 
           
 
+          
+              <div class="post-description">CSS3中动画效果介绍</div>
           
 
         </div>
@@ -703,7 +719,7 @@
 <h4 id="使用位置"><a href="#使用位置" class="headerlink" title="使用位置"></a>使用位置</h4><p>一个元素从初始状态过渡到最终状态要使用transition属性，那这个transition是设置在初始状态中还是最终状态中呢？这个要根据具体情况而定，推荐设置在最终状态中，这样在状态较多时不容易混乱</p>
 <p>比如：还是以方块的宽高变换为例，现有一宽高100px的方块和三个按钮，点击<code>0.5s</code> 按钮，宽度0.5s变成200px；点击<code>1.0s</code> 按钮，高度1s变成300px；点击<code>origin</code> 按钮，2s回到初始状态</p>
 <p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1ftaclbiphgg30go0a5dgw.gif" alt=""></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .demo &#123;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            top: 100px;</span></span><br><span class="line"><span class="undefined">            left: 200px;</span></span><br><span class="line"><span class="undefined">            width: 100px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            background-color: orange;</span></span><br><span class="line"><span class="undefined">            transition: all 2s linear;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .half-second &#123;</span></span><br><span class="line"><span class="undefined">            width: 200px;</span></span><br><span class="line"><span class="undefined">            transition: width 0.5s linear;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .one-second &#123;</span></span><br><span class="line"><span class="undefined">            width: 300px;</span></span><br><span class="line"><span class="undefined">            transition: width 1s linear;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"half"</span>&gt;</span>0.5s<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span>1.0s<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"origin"</span>&gt;</span>origin<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        $('.half').on('click', function () &#123;</span></span><br><span class="line"><span class="undefined">            $('.demo').addClass('half-second');</span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="undefined">        $('.one').on('click', function () &#123;</span></span><br><span class="line"><span class="undefined">            $('.demo').addClass('one-second');</span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="undefined">        $('.origin').on('click', function () &#123;</span></span><br><span class="line"><span class="undefined">            $('.demo').prop('class', 'demo');</span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .demo &#123;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            top: 100px;</span></span><br><span class="line"><span class="undefined">            left: 200px;</span></span><br><span class="line"><span class="undefined">            width: 100px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            background-color: orange;</span></span><br><span class="line"><span class="undefined">            transition: all 2s linear;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .half-second &#123;</span></span><br><span class="line"><span class="undefined">            width: 200px;</span></span><br><span class="line"><span class="undefined">            transition: width 0.5s linear;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .one-second &#123;</span></span><br><span class="line"><span class="undefined">            width: 300px;</span></span><br><span class="line"><span class="undefined">            transition: width 1s linear;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"half"</span>&gt;</span>0.5s<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span>1.0s<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"origin"</span>&gt;</span>origin<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        $(<span class="string">'.half'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            $(<span class="string">'.demo'</span>).addClass(<span class="string">'half-second'</span>);</span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="javascript">        $(<span class="string">'.one'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            $(<span class="string">'.demo'</span>).addClass(<span class="string">'one-second'</span>);</span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="javascript">        $(<span class="string">'.origin'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            $(<span class="string">'.demo'</span>).prop(<span class="string">'class'</span>, <span class="string">'demo'</span>);</span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>结合代码来讲，<code>.demo</code> 算是方块的初始状态，最终状态有两个 <code>.half-second</code> 和 <code>.one-second</code>，从初始状态到这两个状态的过渡动画是不同的（时间不同），如果把 <code>transition</code> 设置在 <code>.demo</code> 中就无法实现两个状态各自的变换，所以这里把他们的 <code>transition</code> 设置在了最终状态的元素中，不过你一定看到了 <code>.demo</code> 中的 <code>transition</code> 属性，这个属性并不是实现width变大的过渡效果，而是实现从最终状态变回初始状态的过渡效果，这时的两个最终状态就变成了初始状态，而原来的初始状态就成了这次变换中的最终状态，所以这个过程的 <code>transition</code> 属性设置在 <code>.demo</code> 中</p>
 <h3 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h3><p>animation通过动画关键帧来实现过渡动画的效果，是一个复合属性，主要包括下面将要介绍的几个子属性</p>
 <h4 id="关键帧"><a href="#关键帧" class="headerlink" title="关键帧"></a>关键帧</h4><p><strong>说明</strong></p>
@@ -886,7 +902,7 @@
 <p><strong>语法</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/* Single animation */</span><br><span class="line">animation-play-state: running; /* 运行 */</span><br><span class="line">animation-play-state: paused;  /* 暂停 */</span><br><span class="line"> </span><br><span class="line">/* Multiple animations */</span><br><span class="line">animation-play-state: paused, running, running;</span><br><span class="line"> </span><br><span class="line">/* Global values */</span><br><span class="line">animation-play-state: inherited;</span><br><span class="line">animation-play-state: initial;</span><br><span class="line">animation-play-state: unset;</span><br></pre></td></tr></table></figure>
 <p><strong>demo</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        @keyframes demo &#123;</span></span><br><span class="line"><span class="undefined">            to &#123;</span></span><br><span class="line"><span class="undefined">                width: 500px;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        #demo &#123;</span></span><br><span class="line"><span class="undefined">            width: 100px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            background-color: red;</span></span><br><span class="line"><span class="undefined">            animation: demo 3s linear 0s infinite normal;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>running/paused<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        var oBtn = document.getElementsByTagName('button')[0],</span></span><br><span class="line"><span class="undefined">            oDiv = document.getElementById('demo');</span></span><br><span class="line"><span class="undefined">        oBtn.onclick = function () &#123;</span></span><br><span class="line"><span class="undefined">            oDiv.style.animationPlayState = window.getComputedStyle(oDiv, null)['animationPlayState'] == 'running' ? 'paused' : 'running';</span></span><br><span class="line"><span class="undefined">            console.log(window.getComputedStyle(oDiv, null)['animationPlayState']);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        @keyframes demo &#123;</span></span><br><span class="line"><span class="undefined">            to &#123;</span></span><br><span class="line"><span class="undefined">                width: 500px;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        #demo &#123;</span></span><br><span class="line"><span class="undefined">            width: 100px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            background-color: red;</span></span><br><span class="line"><span class="undefined">            animation: demo 3s linear 0s infinite normal;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>running/paused<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oBtn = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'button'</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="javascript">            oDiv = <span class="built_in">document</span>.getElementById(<span class="string">'demo'</span>);</span></span><br><span class="line"><span class="javascript">        oBtn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            oDiv.style.animationPlayState = <span class="built_in">window</span>.getComputedStyle(oDiv, <span class="literal">null</span>)[<span class="string">'animationPlayState'</span>] == <span class="string">'running'</span> ? <span class="string">'paused'</span> : <span class="string">'running'</span>;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="built_in">window</span>.getComputedStyle(oDiv, <span class="literal">null</span>)[<span class="string">'animationPlayState'</span>]);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="animation-fill-mode"><a href="#animation-fill-mode" class="headerlink" title="animation-fill-mode"></a>animation-fill-mode</h4><p><strong>定义</strong></p>
 <blockquote>
 <p>指定在动画执行之前和之后如何给动画的目标应用样式</p>
@@ -1211,7 +1227,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共8.1k字</span>
+  <span class="post-count">已经写了 8.1k 字啦~</span>
 </div>
         
 <div class="busuanzi-count">
@@ -1281,10 +1297,9 @@
 
 
 
+  
 
 
-  
-  
 
 
 
@@ -1313,12 +1328,7 @@
 
   
   
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
