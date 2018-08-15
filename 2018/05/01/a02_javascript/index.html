@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.0',
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类型转换">
+<meta property="og:url" content="http://yoursite.com/2018/05/01/a02_javascript/index.html">
+<meta property="og:site_name" content="码瓜">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fu9l5zd74zj30e30b4wfa.jpg">
+<meta property="og:updated_time" content="2018-08-14T14:16:03.539Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="类型转换">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fu9l5zd74zj30e30b4wfa.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/01/a02_javascript/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>类型转换 | 码瓜</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">码瓜</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/a02_javascript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qin Haitao">
+      <meta itemprop="description" content="搭一座不倒的积木塔">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码瓜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">类型转换
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <!-- 置顶文字 -->
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-01 16:43:34" itemprop="dateCreated datePublished" datetime="2018-05-01T16:43:34+08:00">2018-05-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-14 22:16:03" itemprop="dateModified" datetime="2018-08-14T22:16:03+08:00">2018-08-14</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description"> </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fu9l5zd74zj30e30b4wfa.jpg" alt=""></p>
+<h1 id="显式类型转换"><a href="#显式类型转换" class="headerlink" title="显式类型转换"></a>显式类型转换</h1><h2 id="Number"><a href="#Number" class="headerlink" title="Number()"></a>Number()</h2><p><strong>语法</strong></p>
+<p><code>Number(x)</code></p>
+<p><strong>参数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- x</span><br><span class="line">	被转换的参数</span><br></pre></td></tr></table></figure>
+<p><strong>功能</strong></p>
+<p>将参数 x 转换为数字</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="string">'123.4'</span>);	<span class="comment">// 123.4</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'123a'</span>);		<span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">null</span>);		<span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">undefined</span>);	<span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<h2 id="parseInt"><a href="#parseInt" class="headerlink" title="parseInt()"></a>parseInt()</h2><p><strong>语法</strong></p>
+<p><code>parseInt(x [, radix])</code></p>
+<p><strong>参数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- x</span><br><span class="line">	必填，被转换的参数</span><br><span class="line">- raidx</span><br><span class="line">	选填，被转换的参数的进制，默认是 10 进制</span><br></pre></td></tr></table></figure>
+<p><strong>功能</strong></p>
+<p>将 radix 进制的参数 x，转换为 10 进制的整数</p>
+<p><strong>原则</strong></p>
+<p>参数 x 的第一位必须是当前进制可以是别的字符，如果不是，结果将被转换为 “NaN”；如果可以识别，则从第一位开始，一直到当前进制不能识别的那一位为止，将可识别的部分转为 10 进制整数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">'a111'</span>);	<span class="comment">// NaN</span></span><br><span class="line"><span class="comment">// 第二位参数省略，则当前进制默认是10进制，第一位是10进制无法识别的字符，所以不进行转换，结果是"NaN"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'111a'</span>);	<span class="comment">// 111</span></span><br><span class="line"><span class="comment">// 第二位参数省略，则当前进制默认是10进制，第一位是10进制可以识别的字符，一直到字符'a'为止，10进制无法识</span></span><br><span class="line"><span class="comment">// 识别，所以被转换的部分是"111"，被转为10进制后的结果为"111"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">'4f5da2'</span>, <span class="number">16</span>);	<span class="comment">// 5201314</span></span><br><span class="line"><span class="comment">// 第二位参数是16，则当前进制是16进制，所有字符都是16进制可以是别的字符，所以被转换的部分是"4f5da2"，结</span></span><br><span class="line"><span class="comment">// 果是"5201314"</span></span><br></pre></td></tr></table></figure>
+<h2 id="parseFloat"><a href="#parseFloat" class="headerlink" title="parseFloat()"></a>parseFloat()</h2><p><strong>语法</strong></p>
+<p><code>parseFloat(x)</code></p>
+<p><strong>参数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- x</span><br><span class="line">	被转换的参数</span><br></pre></td></tr></table></figure>
+<p><strong>功能</strong></p>
+<p>将参数 x 转换为小数</p>
+<p><strong>原则</strong></p>
+<p>如果第一位是数字，则可以进行转换，从第一位开始，直到小数点后第一个不是数字的字符为止，将数字部分转换为小数，其余部分舍弃掉；否则将返回 “NaN”；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseFloat</span>(<span class="string">'123.1'</span>)		<span class="comment">// 123.1</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">'123.1aaa'</span>)	<span class="comment">// 123.1</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">'aaa123.1'</span>)	<span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<h2 id="String"><a href="#String" class="headerlink" title="String()"></a>String()</h2><p><strong>语法</strong></p>
+<p><code>String(x)</code></p>
+<p><strong>参数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- x</span><br><span class="line">	被转换的参数</span><br></pre></td></tr></table></figure>
+<p><strong>功能</strong></p>
+<p>将参数 x 转换为字符串类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>(<span class="number">123</span>)			<span class="comment">// '123'</span></span><br><span class="line"><span class="built_in">String</span>(<span class="literal">undefined</span>)	<span class="comment">// 'undefined'</span></span><br><span class="line"><span class="built_in">String</span>(<span class="literal">null</span>)		<span class="comment">// 'null'</span></span><br><span class="line"><span class="built_in">String</span>(&#123;&#125;)			<span class="comment">// '[object Object]'，调用了 toSting() 方法</span></span><br></pre></td></tr></table></figure>
+<h2 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean()"></a>Boolean()</h2><p><strong>语法</strong></p>
+<p><code>Boolean(x)</code></p>
+<p><strong>参数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- x</span><br><span class="line">	被转换的参数</span><br></pre></td></tr></table></figure>
+<p><strong>功能</strong></p>
+<p>将参数 x 转换成 true 或者 false</p>
+<p><strong>原则</strong></p>
+<p>false、undefined、null、’’、0、NaN 会被转换为 false，其他都被转换为 true</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Boolean</span>(<span class="literal">false</span>);		<span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="literal">undefined</span>)	<span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="literal">null</span>)		<span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="string">''</span>)			<span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="number">0</span>)			<span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="literal">NaN</span>)		<span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Boolean</span>(&#123;&#125;)				<span class="comment">// true</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;)	 <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h2><p><strong>语法</strong></p>
+<p><code>x.toString([radix])</code></p>
+<p><strong>参数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- radix</span><br><span class="line">	目标进制</span><br></pre></td></tr></table></figure>
+<p><strong>功能</strong></p>
+<p>无参：没有参数时，其功能类似于 <code>String()</code>，但是 <code>undefined</code>、<code>null</code>、<code>NaN</code> 无法使用 <code>toString()</code> 方法</p>
+<p>有参：将 10 进制变量 x 以参数 radix 为目标进制进行转换</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">true</span>;</span><br><span class="line">a.toString();	<span class="comment">// 'true'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="literal">null</span>;</span><br><span class="line">a.toString();</span><br><span class="line"><span class="keyword">var</span> a = <span class="literal">undefined</span>;</span><br><span class="line">a.toString();</span><br><span class="line"><span class="keyword">var</span> a = <span class="literal">NaN</span>;</span><br><span class="line">a.toString();</span><br><span class="line"><span class="comment">// 以上三种情况都会报错</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1376972</span>;</span><br><span class="line">a.toString(<span class="number">8</span>);	<span class="comment">// 5201314</span></span><br></pre></td></tr></table></figure>
+<h1 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h1><blockquote>
+<p><a href="https://juejin.im/post/5a7172d9f265da3e3245cbca#comment" target="_blank" rel="noopener">https://juejin.im/post/5a7172d9f265da3e3245cbca#comment</a></p>
+</blockquote>
+<p>虽然隐式转换是在内部进行的，我们无法看到，但是在内部也是调用一些列方法实现的，接下来我们看一些隐式转换是通过怎么样的内部调用来实现的</p>
+<h2 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN()"></a>isNaN()</h2><p><strong>功能</strong></p>
+<p>判断一个数据是否是 <code>NaN</code> 类型的数据</p>
+<p><strong>过程</strong></p>
+<p><code>isNaN()</code> 先将数据放在 <code>Number()</code> 里面进行转换，然后针对转换后的结果进行判断</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>);		<span class="comment">// true</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">'123'</span>);	<span class="comment">// false</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">'abc'</span>);	<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="、–、-、"><a href="#、–、-、" class="headerlink" title="++、–、+、-"></a>++、–、+、-</h2><p><strong>说明</strong></p>
+<p>这里的 +、- 不是数学运算符，而是代表正负</p>
+<p><strong>功能</strong></p>
+<p>这些符号会将参与他们运算的数据，放在 <code>Number()</code> 中进行转换</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+<span class="string">'123'</span>;		<span class="comment">// 123</span></span><br><span class="line">+<span class="string">'abc'</span>;		<span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<h2 id="、-、-、"><a href="#、-、-、" class="headerlink" title="-、*、/、%"></a>-、*、/、%</h2><p><strong>功能</strong></p>
+<p>这些符号会将参与他们运算的数据，放在 <code>Number()</code> 中进行转换</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> - <span class="string">'1'</span>;	<span class="comment">// 1</span></span><br><span class="line"><span class="number">2</span> - <span class="string">'a'</span>;	<span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<h2 id=""><a href="#" class="headerlink" title="+"></a>+</h2><p><strong>说明</strong></p>
+<p>这里的 + 不代表正负</p>
+<p><strong>功能</strong></p>
+<p>当 + 两侧的数据，至少有一个是字符串类型的数据，会调用 <code>String()</code> 方法转换成字符类传型的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> + <span class="number">1</span> + <span class="string">'a'</span> + <span class="number">1</span> + <span class="number">1</span>;	<span class="comment">// '2a11'</span></span><br></pre></td></tr></table></figure>
+<h2 id="amp-amp-、-、"><a href="#amp-amp-、-、" class="headerlink" title="&amp;&amp;、||、!"></a>&amp;&amp;、||、!</h2><p><strong>功能</strong></p>
+<p>将每一部分表达式的结果转换为 bool 值，根据 bool 值判断是否要继续进行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> &amp;&amp; <span class="number">1</span> + <span class="number">1</span>;		<span class="comment">// 0</span></span><br><span class="line"><span class="number">0</span> || <span class="number">1</span> + <span class="number">1</span>；	   <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h2 id="gt-、-lt-、-gt-、-lt"><a href="#gt-、-lt-、-gt-、-lt" class="headerlink" title="&gt;、&lt;、&gt;=、&lt;="></a>&gt;、&lt;、&gt;=、&lt;=</h2><p><strong>功能</strong></p>
+<p>将参与运算的数据使用 <code>Number()</code> 进行转换后，进行比较</p>
+<p><strong>注意</strong></p>
+<ul>
+<li><code>NaN</code> 和任何值比较，结果都是 false</li>
+<li>NaN != NaN</li>
+<li>undefined == null</li>
+<li>undefined !== null</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> == <span class="literal">NaN</span>;		<span class="comment">// false</span></span><br><span class="line"><span class="literal">NaN</span> &gt; <span class="number">0</span>;		<span class="comment">// false</span></span><br><span class="line"><span class="literal">NaN</span> &lt; <span class="number">0</span>;		<span class="comment">// false</span></span><br><span class="line"><span class="literal">NaN</span> == <span class="number">0</span>;		<span class="comment">// false</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">null</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">undefined</span> === <span class="literal">null</span> <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h2 id="-1"><a href="#-1" class="headerlink" title="=="></a>==</h2><p><strong>功能</strong></p>
+<p>将两边除去 <code>undefined</code> 和 <code>null</code> 类型以外的原始值类型，用 <code>toNumber()</code> 方法进行转换，结果用于比较；如果除了原始值之外还有引用类型，比如说对象，则使用 <code>toPrimitive()</code> 方法进行转换，其转换规则是：如果对象的 <code>valueOf()</code> 方法的结果是原始值，返回原始值，如果对象的 <code>toString()</code> 方法返回原始值，就返回这个值，其他情况都返回一个错误</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'hello'</span> == <span class="literal">true</span>		<span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h2 id="-2"><a href="#-2" class="headerlink" title="==="></a>===</h2><p><strong>功能</strong></p>
+<p>参与运算的两个数据的类型不同，则直接返回 false，如果类型相同且同为原始值，则数值相同返回 true，如果类型相同且同为引用值，则引用同一个对象时返回 true</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span> == <span class="literal">null</span>;		<span class="comment">// true</span></span><br><span class="line"><span class="literal">undefined</span> === <span class="literal">null</span>;		<span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="string">'1'</span> == <span class="number">1</span>;	<span class="comment">// true</span></span><br><span class="line"><span class="string">'1'</span> === <span class="number">1</span>;	<span class="comment">// false</span></span><br><span class="line"><span class="number">1</span> === <span class="number">1</span>;	<span class="comment">// true</span></span><br><span class="line"><span class="string">'1'</span> === <span class="string">'1'</span>	<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = &#123;&#125;,</span><br><span class="line">    b = &#123;&#125;,</span><br><span class="line">    c = a;</span><br><span class="line"></span><br><span class="line">a === b;	<span class="comment">// false</span></span><br><span class="line">a === c;	<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h1 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h1><p><strong>功能</strong></p>
+<p>用来判断数据类型</p>
+<p><strong>用法</strong></p>
+<p>用法一：<code>typeof(x)</code></p>
+<p>用法二：<code>typeof x</code></p>
+<p><strong>返回值</strong></p>
+<p>返回值是一个<strong>字符串</strong>，所有可能的返回值包括，<code>number</code>、<code>string</code>、<code>undefined</code>、<code>boolean</code>、<code>symbol</code>、<code>object</code>、<code>function</code></p>
+<p><strong>注意</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>;	<span class="comment">// object</span></span><br></pre></td></tr></table></figure>
+<p>原因：</p>
+<p>不同类型的数据在计算机底层用二进制数表示，而 JavaScript 中二进制前三位为 0 则会被判断为 object，null 的二进制表示都是 0，所以 <code>typeof null</code> 结果为 <code>object</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> NULL;	<span class="comment">// "undefined"</span></span><br></pre></td></tr></table></figure>
+<p>原因：</p>
+<p>NULL 不同于 null，NULL 被视为任何其他未定义的变量</p>
+<h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>;</span><br><span class="line"><span class="comment">// "undefined"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span>;</span><br><span class="line"><span class="comment">// "number"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>;</span><br><span class="line"><span class="comment">// "object"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">typeof</span> <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// "string"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span>(a) &amp;&amp; -<span class="literal">true</span> + (+<span class="literal">undefined</span>) + <span class="string">''</span>;</span><br><span class="line"><span class="comment">// "NaN"，typeof 返回值是 "string" 类型，不可能为 false</span></span><br><span class="line"></span><br><span class="line"><span class="number">11</span> + <span class="string">'11'</span> * <span class="number">2</span> == <span class="number">33</span>;</span><br><span class="line"><span class="comment">// true，先乘除，后加减!!!</span></span><br><span class="line"></span><br><span class="line">!!<span class="string">' '</span> + !!<span class="string">''</span> - !!<span class="literal">false</span> || <span class="number">2</span>;</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">3</span>, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// 3 或者 报错，有些浏览器支持0进制，认为0进制就是没有进制，那就是原来的数</span></span><br><span class="line"><span class="comment">// 有些浏览器不支持0进制，看到这种情况会报错</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>  
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"> <i class="fa fa-tag"></i> JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/01/a01_javascript/" rel="next" title="变量、数据类型、运算">
+                <i class="fa fa-chevron-left"></i> 变量、数据类型、运算
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/01/a03_javascript/" rel="prev" title="条件循环语句">
+                条件循环语句 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxOS8xNTM0Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg"
+                alt="Qin Haitao" />
+            
+              <p class="site-author-name" itemprop="name">Qin Haitao</p>
+              <p class="site-description motion-element" itemprop="description">搭一座不倒的积木塔</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/qinhaitao97" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:15634313305@163.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#显式类型转换"><span class="nav-number">1.</span> <span class="nav-text">显式类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Number"><span class="nav-number">1.1.</span> <span class="nav-text">Number()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parseInt"><span class="nav-number">1.2.</span> <span class="nav-text">parseInt()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parseFloat"><span class="nav-number">1.3.</span> <span class="nav-text">parseFloat()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">1.4.</span> <span class="nav-text">String()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boolean"><span class="nav-number">1.5.</span> <span class="nav-text">Boolean()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toString-NaN"><span class="nav-number">1.6.</span> <span class="nav-text">toString()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#隐式类型转换"><span class="nav-number">2.</span> <span class="nav-text">隐式类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#isNaN"><span class="nav-number">2.1.</span> <span class="nav-text">isNaN()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#、–、-、"><span class="nav-number">2.2.</span> <span class="nav-text">++、–、+、-</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#、-、-、"><span class="nav-number">2.3.</span> <span class="nav-text">-、*、/、%</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">2.4.</span> <span class="nav-text">+</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#amp-amp-、-、"><span class="nav-number">2.5.</span> <span class="nav-text">&amp;&amp;、||、!</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gt-、-lt-、-gt-、-lt"><span class="nav-number">2.6.</span> <span class="nav-text">&gt;、&lt;、&gt;=、&lt;=</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">2.7.</span> <span class="nav-text">==</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-2"><span class="nav-number">2.8.</span> <span class="nav-text">===</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#typeof"><span class="nav-number">3.</span> <span class="nav-text">typeof</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#练习"><span class="nav-number">4.</span> <span class="nav-text">练习</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qin Haitao</span>
+
+  
+
+  
+</div>
+
+
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">已经写了 169.7k 字啦~</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=6.4.0"></script>
+
+
+  
+
+  
+
+</body>
+</html>

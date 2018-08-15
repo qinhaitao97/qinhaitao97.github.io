@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.0',
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="CSS3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3弹性盒子">
+<meta property="og:url" content="http://yoursite.com/2018/06/11/d06_css3/index.html">
+<meta property="og:site_name" content="码瓜">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft1ld3iu3qj30fn099t8t.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft28023wp4j30ei048jrc.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft2824e8u1j30ii03hgll.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft2837oogpj30jp06bq2z.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft2837oogpj30jp06bq2z.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3bu9omx0j30dz07iglo.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3pdst65jj30bl08uq2q.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3cmxaa8qj30e40af0st.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3dig29ipj30gx0e10su.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3cmxaa8qj30e40af0st.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3dig29ipj30gx0e10su.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3e5gccekj309n03e0n1.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3h59r8d6j30jo06dmxb.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3hruxfewj30eg07n0sq.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3htfrv3ij30cp07cglo.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3hx87xn9j30dc072q2x.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3kn84n9wj30cf0350m3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3r8t57fnj312r0bkwel.jpg">
+<meta property="og:updated_time" content="2018-08-15T05:52:04.325Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3弹性盒子">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft1ld3iu3qj30fn099t8t.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/11/d06_css3/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>CSS3弹性盒子 | 码瓜</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">码瓜</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/d06_css3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qin Haitao">
+      <meta itemprop="description" content="搭一座不倒的积木塔">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码瓜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS3弹性盒子
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <!-- 置顶文字 -->
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 23:14:12" itemprop="dateCreated datePublished" datetime="2018-06-11T23:14:12+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-15 13:52:04" itemprop="dateModified" datetime="2018-08-15T13:52:04+08:00">2018-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CSS3/" itemprop="url" rel="index"><span itemprop="name">CSS3</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description"> </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="弹性盒子简介"><a href="#弹性盒子简介" class="headerlink" title="弹性盒子简介"></a>弹性盒子简介</h3><blockquote>
+<p>CSS3弹性盒子是一种用于在页面上布置元素的<strong>布局模式</strong>，使得当页面布局必须使用不同的屏幕尺寸和不同的显示设备时，元素可预测的运行。对于许多应用程序，弹性盒子模型提供了对模型的改进，因为它不使元素浮动，flex容器的边缘也不会与其内容的边缘折叠</p>
+</blockquote>
+<h3 id="弹性布局"><a href="#弹性布局" class="headerlink" title="弹性布局"></a>弹性布局</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><blockquote>
+<p>在定义方面来说，弹性布局是指通过调整其内元素的宽高，从而在任何显示设备上实现对可用显示空间最佳填充的能力。弹性容器扩展其内元素来填充可用空间，或将其收缩来避免溢出。</p>
+<p>块级布局更侧重于垂直方向、行内布局更侧重于水平方向，与此相对的，弹性盒子布局算法是方向无关的。虽然块级布局对于单独一个页面来说是行之有效的，但其仍缺乏足够的定义来支持那些必须随用户代理(user agent)不同或设备方向从水平转为垂直等各种变化而变换方向、调整大小、拉伸、收缩的应用程序组件。 弹性盒子布局主要适用于应用程序的组件及小规模的布局，而（新兴的）栅格布局则针对大规模的布局。这二者都是 CSS 工作组为在不同用户代理、不同书写模式和其他灵活性要求下的网页应用程序有更好的互操作性而做出的更广泛的努力的一部分</p>
+<p>弹性布局是一种一维布局模型，说它是一维布局模型是因为一个flexbox一次只能处理一个维度上的元素布局，一行或者一列。作为对比的是另外一个二维布局 网格布局，可以同时处理行和列上的布局</p>
+</blockquote>
+<h4 id="浮动布局的问题"><a href="#浮动布局的问题" class="headerlink" title="浮动布局的问题"></a>浮动布局的问题</h4><ul>
+<li><p>难以控制</p>
+<p>如果站点上存在一些不可预知的内容，则布局将难以维护</p>
+</li>
+<li><p>源码依赖性</p>
+<p>浮动布局依赖HTML源码，在做响应式布局时难以为不同的媒体查询变更布局</p>
+</li>
+<li><p>列等高问题（<strong>这个问题用column解决不就行了？</strong>）</p>
+<p>如果容器中有两到三列不同的内容，并且在任意内容的条件下，都需要设置为相同的高度。浮动布局难以实现这个要求</p>
+</li>
+<li><p>内容居中</p>
+<p>浮动布局中元素的居中方法繁多，相较繁琐</p>
+</li>
+</ul>
+<h4 id="弹性盒子如何处理"><a href="#弹性盒子如何处理" class="headerlink" title="弹性盒子如何处理"></a>弹性盒子如何处理</h4><ul>
+<li>通过将弹性元素拉伸或者缩小充满可用空间或者溢出，这种方式解决了新内容的溢出问题并且以开发者期望的情况实施布局</li>
+<li>给与弹性盒子元素成比例的尺寸</li>
+<li>弹性容器内的弹性元素可以从横、纵方向布局；可以解决在不同媒体查询中元素顺序问题，使得可见内容的顺序独立于HTML的渲染顺序，有利于站点的相应设计</li>
+</ul>
+<h4 id="相关词汇"><a href="#相关词汇" class="headerlink" title="相关词汇"></a>相关词汇</h4><p>在学习弹性盒子强大的功能之前，我们先来了解一下该怎样描述弹性盒子，下图以一个 <code>flex-direction: row;</code> 的弹性容器为例进行描述</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft1ld3iu3qj30fn099t8t.jpg" alt=""></p>
+<h5 id="弹性容器"><a href="#弹性容器" class="headerlink" title="弹性容器"></a>弹性容器</h5><p>包含弹性项目的父元素。通过设置 <code>display: flex;</code> 或者 <code>display: inline-flex</code> 来定义弹性容器</p>
+<h5 id="弹性项目"><a href="#弹性项目" class="headerlink" title="弹性项目"></a>弹性项目</h5><p>弹性容器中的每一个子元素称为弹性项目。弹性容器中直接包含的文本元素被包覆成匿名弹性单元。</p>
+<h5 id="轴"><a href="#轴" class="headerlink" title="轴"></a>轴</h5><p>每个弹性框布局包含两个轴：弹性项目沿其一次排列的那一根叫做<strong>主轴</strong>；垂直于主轴的轴叫做<strong>侧轴</strong>或者<strong>交叉轴</strong></p>
+<h5 id="方向"><a href="#方向" class="headerlink" title="方向"></a>方向</h5><p>弹性项目的<strong>主轴起点</strong>/<strong>主轴终点</strong>和<strong>测轴起点</strong>/<strong>侧轴终点</strong>描述了弹性项目排布的起点与终点。它们具体取决于弹性容器的主轴与侧轴中由 <code>writing-mode</code> 确立的方向</p>
+<h5 id="行"><a href="#行" class="headerlink" title="行"></a>行</h5><p>根据 <code>flex-wrap</code> 属性，弹性项目可以排布在单个行或者多个行中</p>
+<h5 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h5><p>根据弹性容器的主轴与侧轴，弹性项目的宽和高中，对应主轴的称为<strong>主轴尺寸</strong>，对应侧轴的称为<strong>侧轴尺寸</strong></p>
+<h3 id="定义一个弹性盒子"><a href="#定义一个弹性盒子" class="headerlink" title="定义一个弹性盒子"></a>定义一个弹性盒子</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>如果要指定一个盒子为弹性盒子，则需要给他指定CSS样式，按以下方式设置 <code>display</code> 属性</p>
+<p><code>display: flex;</code></p>
+<p>或者</p>
+<p><code>display: inline-flex;</code></p>
+<p>这样将元素定义为弹性容器，其子元素称为弹性项目。值 <code>flex</code> 使弹性容器称为块级元素，值 <code>inline-flex</code> 使弹性容器单个不可分的行内元素</p>
+<h4 id="兼容"><a href="#兼容" class="headerlink" title="兼容"></a>兼容</h4><p>现代浏览器能够很好的支持flexbox，并且大多数浏览器不需要前缀，2个需要注意浏览器兼容的浏览器是：</p>
+<blockquote>
+<p>Internet Explorer 10：使用 -ms- 前缀；</p>
+<p>UC浏览器：使用 -webkit- 前缀</p>
+</blockquote>
+<p>现在IE11已经支持 <code>display: flex;</code> 但是在使用时会有一些bug（不太清楚是什么bug）</p>
+<p>所以一般考虑兼容只需要加上 -webkit- 前缀即可，如果要支持非常旧的浏览器，则在css中加入：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="undefined">        display: -webkit-box;</span></span><br><span class="line"><span class="undefined">        display: -webkit-flex;</span></span><br><span class="line"><span class="undefined">        display: -ms-flexbox;</span></span><br><span class="line"><span class="undefined">        display: flex;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="不影响弹性盒子的属性"><a href="#不影响弹性盒子的属性" class="headerlink" title="不影响弹性盒子的属性"></a>不影响弹性盒子的属性</h4><p>由于弹性盒子采用了不同的布局算法，所以某些属性在弹性盒子上无效</p>
+<ul>
+<li>多栏布局模块的 <code>column-*</code> 属性对弹性项目无效</li>
+<li><code>float</code> 与 <code>clear</code> 属性对弹性项目无效。使用 <code>float</code> 将使元素的 <code>display</code> 属性记为 <code>block</code></li>
+<li><code>vertical-align</code> 对弹性项目的对齐无效</li>
+</ul>
+<h3 id="弹性容器-1"><a href="#弹性容器-1" class="headerlink" title="弹性容器"></a>弹性容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+ flex-direction</span><br><span class="line">+ flex-wrap</span><br><span class="line">+ flex-flow</span><br><span class="line">+ justify-content</span><br><span class="line">+ align-items</span><br><span class="line">+ align-content</span><br></pre></td></tr></table></figure>
+<h4 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h4><p><strong>定义</strong></p>
+<blockquote>
+<p><code>flex-direction</code> 属性通过设置容器主轴来定义弹性元素如何在容器内排列。这个属性确定了弹性元素的排列方向</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<p><code>flex-direction: row(默认) | row-reverse | column | column-reverse;</code></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>主轴方向</th>
+<th>侧轴方向</th>
+<th>书写方向</th>
+<th>起始线</th>
+<th>终止线</th>
+<th>元素排列方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row</td>
+<td>水平反向</td>
+<td>竖直方向</td>
+<td>左-&gt;右</td>
+<td>主轴左侧</td>
+<td>主轴右侧</td>
+<td>左-&gt;右</td>
+</tr>
+<tr>
+<td>row</td>
+<td>水平方向</td>
+<td>竖直方向</td>
+<td>右-&gt;左</td>
+<td>主轴右侧</td>
+<td>主轴左侧</td>
+<td>右-&gt;左</td>
+</tr>
+<tr>
+<td>row-reverse</td>
+<td>水平方向</td>
+<td>竖直方向</td>
+<td>左-&gt;右</td>
+<td>主轴右侧</td>
+<td>主轴左侧</td>
+<td>右-&gt;左</td>
+</tr>
+<tr>
+<td>row-reverse</td>
+<td>水平方向</td>
+<td>竖直方向</td>
+<td>右-&gt;左</td>
+<td>主轴左侧</td>
+<td>主轴右侧</td>
+<td>左-&gt;右</td>
+</tr>
+<tr>
+<td>column</td>
+<td>竖直方向</td>
+<td>水平方向</td>
+<td>上-&gt;下</td>
+<td>主轴上方</td>
+<td>主轴下方</td>
+<td>上-&gt;下</td>
+</tr>
+<tr>
+<td>column</td>
+<td>竖直方向</td>
+<td>水平方向</td>
+<td>下-&gt;上</td>
+<td>主轴下方</td>
+<td>主轴上放</td>
+<td>下-&gt;上</td>
+</tr>
+<tr>
+<td>column-reverse</td>
+<td>竖直方向</td>
+<td>水平方向</td>
+<td>上-&gt;下</td>
+<td>主轴下方</td>
+<td>主轴上方</td>
+<td>下-&gt;上</td>
+</tr>
+<tr>
+<td>column-reverse</td>
+<td>竖直方向</td>
+<td>水平方向</td>
+<td>下-&gt;上</td>
+<td>主轴上方</td>
+<td>主轴现房</td>
+<td>上-&gt;下</td>
+</tr>
+</tbody>
+</table>
+<p><strong>表格解释</strong></p>
+<p>如果选择了 <code>row</code> 或者 <code>row-reverse</code> ，主轴方向将沿水平方向延伸</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft28023wp4j30ei048jrc.jpg" alt=""></p>
+<p>此时的侧轴垂直于主轴，方向沿竖直方向</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft2824e8u1j30ii03hgll.jpg" alt=""></p>
+<p>如果选择 <code>column</code> 或者 <code>column-reverse</code> ，主轴方向沿竖直方向延伸</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft2837oogpj30jp06bq2z.jpg" alt=""></p>
+<p>此时侧轴垂直于主轴，方向沿水平方向</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft2837oogpj30jp06bq2z.jpg" alt=""></p>
+<p>以上描述只是说明了元素再什么方向上排列（水平方向或者竖直方向），但元素具体的排列方向是怎么样的呢？比如如果设置了 <code>flex-direction: row;</code> ，即主轴方向沿水平方向延伸，那元素是从左向右排列呢还是从右向左排列呢？这个就要取决于我们设置的书写方向了：书写方向是从左到右，则元素排列方向是从左到右；书写方向是从右到左，则元素排列方向是从右到左；<code>flex-direction: row-reverse;</code> 与之相反；<code>flex-direction: column;</code> 和 <code>flex-direction: column-reverse;</code> 道理相同</p>
+<blockquote>
+<p>默认的排列方向是从左到右，从上到下</p>
+</blockquote>
+<p>-&gt; 改变元素的排列方向：<a href="http://yunkus.com/css-writing-mode-property/" target="_blank" rel="noopener">参考链接</a></p>
+<h4 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h4><p><strong>定义</strong></p>
+<blockquote>
+<p><code>flex-wrap</code> 属性控制了容器为单行还是多行</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<p><code>flex-wrap: nowrap(默认) | wrap | wrap-reverse;</code></p>
+<ul>
+<li>no-wrap：单行显示</li>
+<li>wrap：多行显示</li>
+<li>wrap-reverse：多行显示，排列方向与 wrap 相反</li>
+</ul>
+<p>设置了 <code>wrap</code> 值，如果项目太大而无法全部显示在一行中，则会换行显示；设置为 <code>nowrap</code>，如果项目过大，它们会缩小以适应容器，如果项目子元素无法缩小，使用 <code>nowrap</code> 会导致溢出，或者缩小的程度还不够</p>
+<h4 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h4><p><strong>定义</strong></p>
+<p><code>flex-direction</code> 和 <code>flex-wrap</code> 属性的简写</p>
+<p><strong>语法</strong></p>
+<p><code>flex-flow: flex-direction || flex-wrap;</code></p>
+<p>默认值是：row nowrap；</p>
+<h4 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h4><p><strong>定义</strong></p>
+<blockquote>
+<p>用于在主轴上对齐伸缩项目。这一行为会在所有可伸缩长度及所有自动边距均被解释后进行。当一行上的所有伸缩项目都不能伸缩或者<em>可伸缩但是都已经达到其最大长度时</em>，这一属性才会对多余的空间进行分配。当项目溢出某一行时，这一属性也会在项目的对其上施加一些控制</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<p><code>justify-content: flex-start(默认) |flex-end | center | space-between | space-around | space-evenly;</code></p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3bu9omx0j30dz07iglo.jpg" alt=""></p>
+<ul>
+<li><p>flex-start</p>
+<p>伸缩项目向一行的起始位置靠齐，该行的第一个伸缩项目在起始线的外边距与起始线对齐，同时所有后续的伸缩项目与前一个项目对齐</p>
+</li>
+<li><p>flex-end</p>
+<p>伸缩项目向一行的结束位置靠齐，该行的最后一个伸缩项目在终止线的外边距与终止线对齐，同时所有前面的伸缩项目与其后一个项目对齐</p>
+</li>
+<li><p>center</p>
+<p>伸缩项目向一行的中间位置靠齐。该行的伸缩项目将相互对齐并在行中相互对齐。第一个项目距起始线的距离与最后一个项目距终止线的距离相同（如果剩余空间是负数，则保持两端溢出长度相等）</p>
+</li>
+<li><p>space-between</p>
+<p>伸缩项目会平均的分配在行里，如果剩余空间是负数或者该行只有一个伸缩项目，则此值等效于<code>flex-start</code>。在其他情况下，第一个项目在起始线的外边距与起始线对齐，最后一个项目在终止线的外边距与终止线对齐，而剩下的伸缩项目在确保两两之间的空白空间相等的情况下平均分布</p>
+</li>
+<li><p>space-around</p>
+<p>伸缩项目会平均地分布在行里，两端保留一半的空间。如果剩余空间是负数，或该行只有一个伸缩项目，则该值等效于center。在其它情况下，伸缩项目在确保两两之间的空白空间相等，同时第一个元素前的空间以及最后一个元素后的空间为其他空白空间的一半下平均分布</p>
+</li>
+<li><p>space-evenly</p>
+<p>flex项都沿着主轴均匀分布在指定的对齐容器中。相邻flex项之间的间距，主轴起始位置到第一个flex项的间距,，主轴结束位置到最后一个flex项的间距，都完全一样 </p>
+</li>
+</ul>
+<h4 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h4><p><strong>定义</strong></p>
+<blockquote>
+<p>可以设置弹性元素在容器侧轴上的对齐方式，与 <code>justify-content</code> 功能相似但是方向垂直。它设置弹性盒子所有子元素的对齐方式，包括匿名弹性元素。元素可以通过单独设置 <code>align-self</code> (后面讲) 来覆盖该属性</p>
+</blockquote>
+<ul>
+<li><p>对于匿名弹性元素，<code>align-self</code> 属性总是与 <code>align-items</code> 相同</p>
+</li>
+<li><p>对于没有文字的弹性子元素来说它的基准线是它dom结构的最下部</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="undefined">            display: flex;</span></span><br><span class="line"><span class="undefined">            width: 400px;</span></span><br><span class="line"><span class="undefined">            height: 300px;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span></span><br><span class="line"><span class="undefined">            align-items: baseline;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.demo</span> &#123;</span></span><br><span class="line"><span class="undefined">            width: 200px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            border: 1px solid red;</span></span><br><span class="line"><span class="undefined">            box-sizing: border-box;</span></span><br><span class="line"><span class="undefined">            </span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>假装有字假装有字假装有字假装有字假装有字假装有字假装有字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>假装有字假装有字假装有字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3pdst65jj30bl08uq2q.jpg" alt=""></p>
+</li>
+</ul>
+<p><strong>语法</strong></p>
+<p><code>align-items: flex-start | flex-end | center | baseline | stretch(默认);</code></p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3cmxaa8qj30e40af0st.jpg" alt=""></p>
+<ul>
+<li><p>flex-start</p>
+<p>所有弹性项目在侧轴起始线的外边距与起始线对齐</p>
+</li>
+<li><p>flex-end</p>
+<p>所有弹性项目在侧轴终止线的外边距与终止线对齐</p>
+</li>
+<li><p>center</p>
+<p>所有伸缩项目在侧轴方向上的外边距距离起始线、终止线的距离相等（如果伸缩项目尺寸大于伸缩行尺寸，则伸缩项目两个方向的溢出量相同）</p>
+</li>
+<li><p>baseline</p>
+<p>如果伸缩项目的行内轴与侧轴为同一条，则该值和<code>flex-start</code>等效。其它情况下，该值将参与基线对齐。所有参与该对齐方式的伸缩项目将按下列方式排列：首先将这些伸缩项目的基线进行对齐，随后其中基线至侧轴起点边的外边距距离最长的那个项目将紧靠住该行在侧轴起点的边</p>
+<blockquote>
+<p>这里的基线指的是弹性项目内的第一行文本</p>
+</blockquote>
+</li>
+<li><p>stretch</p>
+<p>如果侧轴长度属性值是auto，则此值会使项目外边距盒的尺寸在遵照 min/max-width/height 属性的限制下尽可能接近所在行尺寸</p>
+</li>
+</ul>
+<h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p><strong>定义</strong></p>
+<blockquote>
+<p>当伸缩容器的侧轴还有多余空间时，<code>align-content</code>属性可以用来调准伸缩行在伸缩容器里的对齐方式，这与调准伸缩项目在主轴上对齐方式的<code>justify-content</code>属性类似</p>
+</blockquote>
+<p>注意：此属性在只有一行的伸缩容器上没有效果</p>
+<p><strong>语法</strong></p>
+<p><code>align-content: flex-start | flex-end | center | space-between | space-around | space-evenly | stretch(默认);</code></p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3dig29ipj30gx0e10su.jpg" alt=""></p>
+<ul>
+<li><p>flex-start</p>
+<p>各行向伸缩容器的起点位置堆叠。伸缩容器中第一行在侧轴起点的边会紧靠住伸缩容器在侧轴起点的边，之后的每一行都紧靠住前面一行</p>
+</li>
+<li><p>flex-end</p>
+<p>各行向伸缩容器的结束位置堆叠。伸缩容器中最后一行在侧轴终点的边会紧靠住该伸缩容器在侧轴终点的边，之前的每一行都紧靠住后面一行。</p>
+</li>
+<li><p>center</p>
+<p>各行向伸缩容器的中间位置堆叠。各行两两紧靠住同时在伸缩容器中居中对齐，保持伸缩容器在侧轴起点边的内容边和第一行之间的距离与该容器在侧轴终点边的内容边与第最后一行之间的距离相等。（如果剩下的空间是负数，则行的堆叠会向两个方向溢出的相等距离。）</p>
+</li>
+<li><p>space-between</p>
+<p>各行在伸缩容器中平均分布。如果剩余的空间是负数或伸缩容器中只有一行，该值等效于<code>flex-start</code>。在其它情况下，第一行在侧轴起点的边会紧靠住伸缩容器在侧轴起点边的内容边，最后一行在侧轴终点的边会紧靠住伸缩容器在侧轴终点的内容边，剩余的行在保持两两之间的空间相等的状况下排列</p>
+</li>
+<li><p>space-around</p>
+<p>各行在伸缩容器中平均分布，在两边各有一半的空间。如果剩余的空间是负数或伸缩容器中只有一行，该值等效于<code>center</code>。在其它情况下，各行会在保持两两之间的空间相等，同时第一行前面及最后一行后面的空间是其他空间的一半的状况下排列</p>
+</li>
+<li><p>stretch</p>
+<p>各行将会伸展以占用剩余的空间。如果剩余的空间是负数，该值等效于<code>flex-start</code>。在其它情况下，剩余空间被所有行平分，扩大各行的侧轴尺寸</p>
+</li>
+</ul>
+<p><strong>注意</strong></p>
+<p>只有多行的伸缩容器才会在侧轴上有多余的空间以供对齐，因为仅包含一行的伸缩容器中，唯一的一行会自动伸展填充全部的空间</p>
+<p><strong>align-items 和 align-content 的比较</strong></p>
+<ul>
+<li>align-content强调<strong>多行</strong>元素在侧轴方向上<strong>整体</strong>的布局，align-items强调侧轴上<strong>单行</strong>元素的布局方式是怎么样的</li>
+<li>只有一行元素，align-content属性不起作用</li>
+</ul>
+<p>对比下面两张图，图一代表<code>align-items</code> 属性值的效果，图二代表<code>align-content</code>属性值的效果，彩色部分代表弹性项目，可以看出图一每一个部分都在展示单独一行的对齐效果；而图二的每一部分在展示多行整体的对齐效果</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3cmxaa8qj30e40af0st.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3dig29ipj30gx0e10su.jpg" alt=""></p>
+<h3 id="弹性项目-1"><a href="#弹性项目-1" class="headerlink" title="弹性项目"></a>弹性项目</h3><h4 id="order"><a href="#order" class="headerlink" title="order"></a>order</h4><blockquote>
+<p><code>order</code> 属性通过将这些元素分配到序数分组来控制它们出现的顺序</p>
+</blockquote>
+<p>排序规则：有最小值的项目排在第一个，若有多个相同的值，这些项目按照文件顺序排序</p>
+<p><strong>语法</strong></p>
+<p><code>order: number;</code></p>
+<p>默认值：0</p>
+<p>number值是整数（正、负、0）</p>
+<p><strong>demo</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="undefined">            display: flex;</span></span><br><span class="line"><span class="undefined">            width: 300px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.demo</span> &#123;</span></span><br><span class="line"><span class="undefined">            width: 75px;</span></span><br><span class="line"><span class="undefined">            height: 50px;</span></span><br><span class="line"><span class="undefined">            border: 1px solid red;</span></span><br><span class="line"><span class="undefined">            box-sizing: border-box;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-class">.demo</span><span class="selector-pseudo">:nth-child(1)</span> &#123; <span class="attribute">order</span>: <span class="number">2</span>; &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-class">.demo</span><span class="selector-pseudo">:nth-child(2)</span> &#123; <span class="attribute">order</span>: -<span class="number">1</span>; &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-class">.demo</span><span class="selector-pseudo">:nth-child(3)</span> &#123; <span class="attribute">order</span>: <span class="number">0</span>; &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3e5gccekj309n03e0n1.jpg" alt=""></p>
+<h4 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h4><blockquote>
+<p><code>flex</code> 是 <code>flex-flow</code>，<code>flex-shrink</code>，<code>flex-basis</code> 三个属性的简写</p>
+</blockquote>
+<ul>
+<li>第二个和第三个参数是可选值，默认值是 <code>flex: 0 1 auto</code></li>
+<li><code>flex: none</code> 与 <code>flex: 0 0 auto;</code> 等效</li>
+<li>注意 <code>flex-grow</code> 与 <code>flex-basis</code> 的初始值与它们在 <code>flex</code> 简写被省略时的默认值不同。这里的设计是为了让 <code>flex</code> 简写在最常见的情景下比较好用</li>
+</ul>
+<p>在具体学习  <code>flex-flow</code>，<code>flex-shrink</code>，<code>flex-basis</code> 三个属性之前，先来了解一些概念</p>
+<ul>
+<li><p>min-content / max-content</p>
+<p><a href="https://www.zhangxinxu.com/wordpress/2016/05/css3-width-max-contnet-min-content-fit-content/" target="_blank" rel="noopener">https://www.zhangxinxu.com/wordpress/2016/05/css3-width-max-contnet-min-content-fit-content/</a></p>
+</li>
+<li><p>正负自由空间</p>
+<p>Flex 布局中有flex容器和flex子元素， flex子元素包含在flex容器中， 那么当flex子元素在主轴上的尺寸（大小）之和小于flex容器 的尺寸时， flex容器中就会有多余的空间没有被填充， 这些空间就被叫做 <strong>positive free space</strong>。当flex子元素在主轴上的尺寸之和大于flex容器的尺寸时， flex容器的空间就不够用，此时flex子元素的尺寸之和减去flex容器的尺寸（flex 子元素溢出的尺寸）就是<strong>negative free space</strong>, 这个negative free space加上flex容器的尺寸刚好可以容纳flex子元素 </p>
+</li>
+</ul>
+<h5 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h5><p>当flex容器中存在 positive free space 时，如果想要消除这部分空间，则需要把这些空间转移到flex项目身上，而<code>flex-grow</code> 属性是用来确定每个flex项目所分配空间的比例</p>
+<p><strong>语法</strong></p>
+<p><code>flex-grow: number;</code></p>
+<p>number是非负整数，默认值是0</p>
+<p><strong>计算方法</strong></p>
+<p>某一flex项目负责消除positive free space空间的比例的计算方法：</p>
+<p>该项目的<code>flex-grow</code> 属性值 <strong>除以</strong> 所有参与分配的flex项目的 <code>flex-grow</code> 值的总和</p>
+<p><strong>实例解释</strong></p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3h59r8d6j30jo06dmxb.jpg" alt=""></p>
+<p>图中的 positive free space 就是我们要分配给三个flex项目的空间，看以下几种情况：</p>
+<ul>
+<li><p>三个flex项目都不设置<code>flex-grow</code> 属性</p>
+<p>都不设置，按照默认值来，默认值是0，所以flex1，flex2，flex3分配到的负责消除的空间是</p>
+<p>100px * (0 / (0 + 0 + 0))</p>
+<p>结果如下图：</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3hruxfewj30eg07n0sq.jpg" alt=""></p>
+<p>因为他们分配到的空间都是0 ，所以默认情况下是不对剩余空间进行分配的</p>
+</li>
+<li><p>三个flex项目 <code>flex-grow: 1;</code></p>
+<p>三个flex的值相同，所以计算方法相同，每个flex项目负责分配的空间是</p>
+<p>100px * (1 / (1 + 1 + 1))</p>
+<p>结果如下图</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3htfrv3ij30cp07cglo.jpg" alt=""></p>
+<p>这种情况中，三个flex项目positive free space 均分了，注意如果这里三个 <code>flex-grow</code> 的值均为2或者均为100，结果和1是一样的，因为这个值是用来计算比例的，看的是他们之间的比例关系</p>
+</li>
+<li><p>三个flex项目分别是 <code>flex-grow: 1;</code> ，<code>flex-grow: 2;</code>，<code>flex-grow: 3</code></p>
+<p>flex1项目分配空间：100px * (1 / (1 + 2 + 3))</p>
+<p>flex2项目分配空间：100px * (2 / (1 + 2 + 3))</p>
+<p>flex3项目分配空间：100px * (3 / (1 + 2 + 3))</p>
+<p>结果如图：</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3hx87xn9j30dc072q2x.jpg" alt=""></p>
+</li>
+</ul>
+<blockquote>
+<p>在所有flex项目中，只要有一个flex项目的<code>flex-grow</code> 属性不为0，则positive free space就会被分配掉（没有剩余空间）</p>
+</blockquote>
+<h5 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h5><p>当flex容器中存在 negative free space 时，如果想要消除这部分空间，则需要从每个flex项目身上减掉一些他们原来的空间，而<code>flex-shrink</code> 属性是用来确定每个flex项目所分配空间的比例</p>
+<p><strong>语法</strong></p>
+<p><code>flex-shrink: number;</code></p>
+<p>number是非负整数，默认值是1</p>
+<p>默认值是1，也就是说，在默认情况下flex 项目不会溢出容器，因为按照默认情况，一旦溢出，negative free space这部分就被等比例的拆分成n份，n个flex项目各减掉一份的大小</p>
+<p><strong>实例解释</strong></p>
+<p>与 <code>flex-shrink</code> 的用法功能相同，对比理解即可</p>
+<h5 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h5><blockquote>
+<p>flex-basis 属性在任何空间分配发生之前初始化flex子元素的尺寸</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<p><code>flex-basis: auto(默认) | content | length;</code></p>
+<p>此属性的初始值为 <code>auto</code>. 如果 <code>flex-basis</code> 设置为 <code>auto</code> , 浏览器会先检查flex子元素的主尺寸是否设置了绝对值再计算出flex子元素的初始值. 比如说你已经给你的felx子元素设置了200px 的宽，则200px 就是这个flex子元素的 <code>flex-basis</code>.</p>
+<p>如果你的flex子元素 为自动调整大小， 则<code>auto</code> 会解析为其内容的大小.  此时你所熟知的min-content和max-content大小会变得有用,  flexbox 会将flex子元素的 <code>max-content</code> 大小作为 <code>flex-basis</code>. </p>
+<p>除了关键字 <code>auto</code> 以外, 你还可以使用关键字 <code>content</code> 作为 <code>flex-basis</code>的值. 这会导致 <code>flex-basis</code> 根据内容大小设置即使flex子元素 设置了宽度. 这是一个新关键字而且获得浏览器支持的比较少, 但是你还是可以通过设置<code>flex-basis: auto</code>并确保你的flex子元素没有设置宽度来达到相同的效果 , 以便它能自动调整大小.</p>
+<p>length代表整非负长度值，单位可以是px、em等</p>
+<p>空间分配时， 如果你想flexbox 完全忽略flex子元素的尺寸就设置<code>flex-basis</code> 为 <code>0</code>. 这基本上告诉flexbox所有空间都可以抢占，并按比例分享.</p>
+<p><strong>demo</strong></p>
+<p>继续使用前面<code>flex-grow</code>中的例子，对于第三种情况（ <code>flex-grow: 1;</code> ，<code>flex-grow: 2;</code>，<code>flex-grow: 3</code>），我们让每个盒子所承担的 positive free space 的比例是1:2:3，但是最终分配完成后他们的比例不是1:2:3（显然a+m: a+2m:a+3m 不是1:2:3），如果我们想让分配结果是1:2:3的关系，可以将<code>flex-basis</code> 属性设为0，这样分配的比例即为最终每个flex元素所占的比例</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3kn84n9wj30cf0350m3.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="undefined">            display: flex;</span></span><br><span class="line"><span class="undefined">            width: 400px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.demo</span> &#123;</span></span><br><span class="line"><span class="undefined">            width: 200px;</span></span><br><span class="line"><span class="undefined">            height: 50px;</span></span><br><span class="line"><span class="undefined">            border: 1px solid red;</span></span><br><span class="line"><span class="undefined">            box-sizing: border-box;</span></span><br><span class="line"><span class="undefined">            flex-basis: 0px;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-class">.demo</span><span class="selector-pseudo">:nth-child(1)</span> &#123; <span class="attribute">flex-grow</span>: <span class="number">1</span>;&#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-class">.demo</span><span class="selector-pseudo">:nth-child(2)</span> &#123; <span class="attribute">flex-grow</span>: <span class="number">2</span>;&#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-class">.demo</span><span class="selector-pseudo">:nth-child(3)</span> &#123; <span class="attribute">flex-grow</span>: <span class="number">3</span>;&#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>实际 coding 中，建议使用 <code>flex</code> 简写 <code>flex-grow</code>，<code>flex-shrink</code>，<code>flex-basis</code>三个属性，而不是单独设置这些属性</p>
+</blockquote>
+<h4 id="algin-self"><a href="#algin-self" class="headerlink" title="algin-self"></a>algin-self</h4><p><strong>定义</strong></p>
+<blockquote>
+<p><code>align-self</code> 用来在单独的伸缩项目上覆写默认的对齐方式</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<p><code>align-self: auto(默认) | flex-start | flex-end | center | baseline | stretch;</code></p>
+<p>如果<code>align-self</code>的值为<code>auto</code>，则其计算值为元素的父元素的<code>align-items</code>值，如果该元素没有父元素，则计算值为<code>stretch</code></p>
+<h3 id="flex典型布局"><a href="#flex典型布局" class="headerlink" title="flex典型布局"></a>flex典型布局</h3><h4 id="三栏布局"><a href="#三栏布局" class="headerlink" title="三栏布局"></a>三栏布局</h4><blockquote>
+<p>左右两栏固定，中间自适应</p>
+</blockquote>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft3r8t57fnj312r0bkwel.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        html,body &#123;</span></span><br><span class="line"><span class="undefined">            display: flex;</span></span><br><span class="line"><span class="undefined">            width: 100%;</span></span><br><span class="line"><span class="undefined">            height: 100%;</span></span><br><span class="line"><span class="undefined">            margin: 0px;</span></span><br><span class="line"><span class="undefined">            padding: 0px;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.left</span>, <span class="selector-class">.right</span> &#123;</span></span><br><span class="line"><span class="undefined">            width: 200px;</span></span><br><span class="line"><span class="undefined">            height: 100%;</span></span><br><span class="line"><span class="undefined">            background-color: pink;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.center</span> &#123;</span></span><br><span class="line"><span class="undefined">            min-width: 200px;</span></span><br><span class="line"><span class="undefined">            height: 100%;</span></span><br><span class="line"><span class="undefined">            background-color: orange;</span></span><br><span class="line"><span class="undefined">            flex-grow: 1;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://www.w3.org/TR/css-flexbox-1/#justify-content-property" target="_blank" rel="noopener">https://www.w3.org/TR/css-flexbox-1/#justify-content-property</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes" target="_blank" rel="noopener">使用CSS弹性盒子</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox" target="_blank" rel="noopener">flex布局的基本概念</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Mixins" target="_blank" rel="noopener">使用弹性盒子进行高级布局</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax" target="_blank" rel="noopener">沿主轴控制Flex子元素的比例</a></p>
+<p><a href="https://www.w3cplus.com/css3/a-guide-to-flexbox-new.html" target="_blank" rel="noopener">https://www.w3cplus.com/css3/a-guide-to-flexbox-new.html</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>  
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS3/" rel="tag"> <i class="fa fa-tag"></i> CSS3</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/10/d05_css3/" rel="next" title="CSS3 3D效果">
+                <i class="fa fa-chevron-left"></i> CSS3 3D效果
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/12/d07_css3/" rel="prev" title="CSS3多列布局">
+                CSS3多列布局 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxOS8xNTM0Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg"
+                alt="Qin Haitao" />
+            
+              <p class="site-author-name" itemprop="name">Qin Haitao</p>
+              <p class="site-description motion-element" itemprop="description">搭一座不倒的积木塔</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/qinhaitao97" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:15634313305@163.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#弹性盒子简介"><span class="nav-number">1.</span> <span class="nav-text">弹性盒子简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹性布局"><span class="nav-number">2.</span> <span class="nav-text">弹性布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动布局的问题"><span class="nav-number">2.2.</span> <span class="nav-text">浮动布局的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弹性盒子如何处理"><span class="nav-number">2.3.</span> <span class="nav-text">弹性盒子如何处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关词汇"><span class="nav-number">2.4.</span> <span class="nav-text">相关词汇</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#弹性容器"><span class="nav-number">2.4.1.</span> <span class="nav-text">弹性容器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#弹性项目"><span class="nav-number">2.4.2.</span> <span class="nav-text">弹性项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#轴"><span class="nav-number">2.4.3.</span> <span class="nav-text">轴</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方向"><span class="nav-number">2.4.4.</span> <span class="nav-text">方向</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#行"><span class="nav-number">2.4.5.</span> <span class="nav-text">行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#尺寸"><span class="nav-number">2.4.6.</span> <span class="nav-text">尺寸</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义一个弹性盒子"><span class="nav-number">3.</span> <span class="nav-text">定义一个弹性盒子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">3.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#兼容"><span class="nav-number">3.2.</span> <span class="nav-text">兼容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不影响弹性盒子的属性"><span class="nav-number">3.3.</span> <span class="nav-text">不影响弹性盒子的属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹性容器-1"><span class="nav-number">4.</span> <span class="nav-text">弹性容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-direction"><span class="nav-number">4.1.</span> <span class="nav-text">flex-direction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-wrap"><span class="nav-number">4.2.</span> <span class="nav-text">flex-wrap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-flow"><span class="nav-number">4.3.</span> <span class="nav-text">flex-flow</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#justify-content"><span class="nav-number">4.4.</span> <span class="nav-text">justify-content</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#align-items"><span class="nav-number">4.5.</span> <span class="nav-text">align-items</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#align-content"><span class="nav-number">4.6.</span> <span class="nav-text">align-content</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹性项目-1"><span class="nav-number">5.</span> <span class="nav-text">弹性项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#order"><span class="nav-number">5.1.</span> <span class="nav-text">order</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex"><span class="nav-number">5.2.</span> <span class="nav-text">flex</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#flex-grow"><span class="nav-number">5.2.1.</span> <span class="nav-text">flex-grow</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#flex-shrink"><span class="nav-number">5.2.2.</span> <span class="nav-text">flex-shrink</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#flex-basis"><span class="nav-number">5.2.3.</span> <span class="nav-text">flex-basis</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#algin-self"><span class="nav-number">5.3.</span> <span class="nav-text">algin-self</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex典型布局"><span class="nav-number">6.</span> <span class="nav-text">flex典型布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#三栏布局"><span class="nav-number">6.1.</span> <span class="nav-text">三栏布局</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">7.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qin Haitao</span>
+
+  
+
+  
+</div>
+
+
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">已经写了 169.7k 字啦~</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=6.4.0"></script>
+
+
+  
+
+  
+
+</body>
+</html>

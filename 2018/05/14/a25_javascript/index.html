@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.0',
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="JavaScript,DOM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM续">
+<meta property="og:url" content="http://yoursite.com/2018/05/14/a25_javascript/index.html">
+<meta property="og:site_name" content="码瓜">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-14T16:44:22.776Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM续">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/14/a25_javascript/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>DOM续 | 码瓜</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">码瓜</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/14/a25_javascript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qin Haitao">
+      <meta itemprop="description" content="搭一座不倒的积木塔">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码瓜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">DOM续
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <!-- 置顶文字 -->
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-14 12:43:01" itemprop="dateCreated datePublished" datetime="2018-05-14T12:43:01+08:00">2018-05-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-15 00:44:22" itemprop="dateModified" datetime="2018-08-15T00:44:22+08:00">2018-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description"> </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="查看滚动条位置"><a href="#查看滚动条位置" class="headerlink" title="查看滚动条位置"></a>查看滚动条位置</h3><h4 id="W3C-标准方法"><a href="#W3C-标准方法" class="headerlink" title="W3C 标准方法"></a>W3C 标准方法</h4><ul>
+<li>window.pageXOffset / window.pageYOffset</li>
+</ul>
+<h4 id="IE9-以下版本方法"><a href="#IE9-以下版本方法" class="headerlink" title="IE9 以下版本方法"></a>IE9 以下版本方法</h4><ul>
+<li>document.body.scrollLeft / document.body.scrollTop</li>
+<li>document.bodyElement.scrollLeft / document.bodyElement.scrollTop</li>
+</ul>
+<p>IE9以下版本的浏览器，不支持 w3c 的标准方法，只能用这两种方法查看滚动条位置，但是这两种方法兼容性也很混乱，为了解决这个兼容性混乱的问题，对于这两种方法，一般使用两者之和，因为当一个方法有值时，另外一个方法的值一定是0</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查看x轴方向的滚动条位置</span></span><br><span class="line"><span class="built_in">document</span>.body.scrollLeft + <span class="built_in">document</span>.documentElement.scrollLeft</span><br><span class="line"><span class="comment">// 查看y轴方向的滚动条位置</span></span><br><span class="line"><span class="built_in">document</span>.body.scrollTop + <span class="built_in">document</span>.documentElement.scrollTop</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>调试的时候可以先在页面中加一个大的盒子，让滚动条显示出来</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:2000px;height:1000px"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="兼容性方法"><a href="#兼容性方法" class="headerlink" title="兼容性方法"></a>兼容性方法</h4><p>为了解决不同版本浏览器的兼容性问题，封装一个查看滚动条位置的兼容性方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getScrollOffset</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.pageXOffset) &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            x: <span class="built_in">window</span>.pageXOffset,</span><br><span class="line">            y: <span class="built_in">window</span>.pageYOffset</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            x: <span class="built_in">document</span>.body.scrollLeft + <span class="built_in">document</span>.documentElement.scrollLeft,</span><br><span class="line">            y: <span class="built_in">document</span>.body.scrollTop + <span class="built_in">document</span>.documentElement.scrollTop</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="让滚动条滚动"><a href="#让滚动条滚动" class="headerlink" title="让滚动条滚动"></a>让滚动条滚动</h3><h4 id="让滚动条滚动到指定位置"><a href="#让滚动条滚动到指定位置" class="headerlink" title="让滚动条滚动到指定位置"></a>让滚动条滚动到指定位置</h4><ul>
+<li>window.scroll(x, y)</li>
+<li>window.scrollTo(x, y)</li>
+</ul>
+<blockquote>
+<p>滚动到指定位置，重复的操作是不累加的</p>
+</blockquote>
+<h4 id="让滚动条滚动了指定距离"><a href="#让滚动条滚动了指定距离" class="headerlink" title="让滚动条滚动了指定距离"></a>让滚动条滚动了指定距离</h4><p>window.scrollBy(x, y)</p>
+<blockquote>
+<p>滚动了指定的距离，重复操作是累加的</p>
+</blockquote>
+<h3 id="查看可视窗口尺寸"><a href="#查看可视窗口尺寸" class="headerlink" title="查看可视窗口尺寸"></a>查看可视窗口尺寸</h3><h4 id="W3C-标准方法-1"><a href="#W3C-标准方法-1" class="headerlink" title="W3C 标准方法"></a>W3C 标准方法</h4><p>window.innerWidth / window.innerHeight</p>
+<ul>
+<li><p>现在网站的标准宽度一般是 1440px</p>
+</li>
+<li><p>对于同一个大小的浏览器窗口，如果页面的缩放比例是不同的，那么他的可视区的大小也是不同的</p>
+<p>即把一个浏览器窗口固定大小，在页面缩放比例 100% 下求得一个 window.innerWidth，在缩放比例 150%下求得一个 window.innerWidth，后者的值小于前者的值。相当于是拿放大镜看同一块区域，看到的内容肯定要少了</p>
+</li>
+</ul>
+<h4 id="IE9-以下版本方法-1"><a href="#IE9-以下版本方法-1" class="headerlink" title="IE9 以下版本方法"></a>IE9 以下版本方法</h4><p>IE9 以下浏览器不兼容 w3c 的方法，使用以下两种方法</p>
+<ul>
+<li><p>标准模式下使用</p>
+<p>document.documentElement.clientWidth / document.documentElement.clientHeigth</p>
+</li>
+<li><p>非标准模式下使用</p>
+<p>document.body.clientWidth / document.body.clientHeight</p>
+</li>
+</ul>
+<blockquote>
+<p>标准模式、非标准模式(怪异模式 / 混杂模式)</p>
+<p>这里的模式说的是浏览器的渲染模式，如果把页面中的&lt;!doctype html&gt;去掉，就进入了怪异模式，加上就是标准模式怪异模式是为了解决浏览器向下兼容的问题: 浏览器升级的过程中，会更新一些语法规则，这些准则在标准模式下是不兼容的，那想象这样一个场景，一个工程师在IE8版本写的一个页面，当更新到IE9时，一些语法不兼容的情况下，该怎么去访问这个页面，怪异模式就是为了解决这样的问题，浏览器使用怪异模式渲染的情况下，可以向下兼容几个版本(具体几个版本不同的浏览器是不一样的)</p>
+<p>怎么判断浏览器处于标准模式还是非标准模式：</p>
+<p>利用 document.compatMode</p>
+<ul>
+<li>标准模式下的返回值：’CSS1Compat’</li>
+<li>怪异模式下的返回值：’BACKCompat’</li>
+</ul>
+</blockquote>
+<h4 id="兼容性方法-1"><a href="#兼容性方法-1" class="headerlink" title="兼容性方法"></a>兼容性方法</h4><p>封装一个解决不同版本浏览器对于查看窗口尺寸兼容性问题的兼容性方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getViewPortOffset</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">window</span>.innerWidth) &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            w: <span class="built_in">window</span>.innerWidth,</span><br><span class="line">            h: <span class="built_in">window</span>.innerHeight</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.compatMode == <span class="string">'CSS1Compat'</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">                w: <span class="built_in">document</span>.documentElement.clientWidth,</span><br><span class="line">                h: <span class="built_in">document</span>.documentElement.clientHeight</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">                w: <span class="built_in">document</span>.body.clientWidth,</span><br><span class="line">                h: <span class="built_in">document</span>.body.clientHeight</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="查看元素尺寸、位置"><a href="#查看元素尺寸、位置" class="headerlink" title="查看元素尺寸、位置"></a>查看元素尺寸、位置</h3><h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><ul>
+<li><p>dom.offsetWidth / dom.offsetHeight</p>
+<ul>
+<li>查看dom元素的宽高</li>
+<li>包含padding、border</li>
+<li>不包含margin</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:100px;height:100px;background-color:red;border:5px solid black;padding:5px;margin-left:20px"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(div.offsetWidth);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(div.offsetHeight);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>dom.offsetLeft / dom.offsetTop</p>
+<ul>
+<li>查看元素位置</li>
+<li>对于父级没有定位的元素的，返回该元素相对于文档的坐标；对于父级有定位的元素，返回该元素相对于最近的有定位的父级的坐标。（这句话只强调了父级元素有没有定位，和被查看的元素本身有没有定位没有关系）</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span> <span class="attr">style</span>=<span class="string">'width:100px;height:100px;background-color:green;'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span> <span class="attr">style</span>=<span class="string">'width:50px;height:50px;background-color:red;'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> divWrapper = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> divInner = divWrapper.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">    divWrapper.style.position = <span class="string">'static'</span>;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// divWrapper.style.position = 'absolute';</span></span></span><br><span class="line"><span class="javascript">    divInner.style.margin = <span class="string">'22px'</span>;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>为了测试父级元素有没有定位对位置的影响， 先测试以上代码，然后将 divWrapper.style.position = ‘static’ 注释掉，将原来的注释关闭，再进行测试，观察两次测试的结果</p>
+<blockquote>
+<p>提示：左右margin相加，上下margin合并</p>
+</blockquote>
+</li>
+<li><p>查看有定位父级元素</p>
+<p>返回最近的有定位的父级，如无，返回body，body.offsetParent 返回 null</p>
+</li>
+</ul>
+<h4 id="不常用方法"><a href="#不常用方法" class="headerlink" title="不常用方法"></a>不常用方法</h4><p>dom.getBoundingClientRect()</p>
+<ul>
+<li>返回一个对象，有top、right、bottom、left、width、height等属性</li>
+<li>兼容性很好，只在老版本IE中，height和width属性没有实现</li>
+<li>返回结果不是实时的</li>
+<li>返回值有时会出现小数</li>
+<li>这个方法不常用，了解即可</li>
+</ul>
+<h3 id="脚本化CSS"><a href="#脚本化CSS" class="headerlink" title="脚本化CSS"></a>脚本化CSS</h3><h4 id="读写css属性"><a href="#读写css属性" class="headerlink" title="读写css属性"></a>读写css属性</h4><p>dom.style</p>
+<ul>
+<li><p>返回值是一个名称为 ‘CSSStyleDeclaration’ 的类数组，这个数组保存了css的所有属性</p>
+</li>
+<li><p>读写操作的对象是dom元素的  <strong>行间样式</strong></p>
+<p>在dom元素行间设置的css样式，才会出现在 CSSSstyleDeclararion 类数组的索引属性上；css所有的属性都在这个类数组中，只不过在行间设置的css属性，它才会以索引属性的形式出现在类数组中。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// head</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo &#123; opacity: 0.5; &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">// body</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span> <span class="attr">style</span>=<span class="string">'width:100px;height:100px;background-color:red;'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(div.style);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个demo一共在两个地方设置css样式，但是在head内设置的css样式，并没有在 CSSStyleDeclaration 中以索引属性的形式展示出来；而在demo行间设置的css样式，都展示了出来，说明 dom.style 只能读写 <strong>行间样式</strong></p>
+</li>
+<li><p><strong>读写行间样式</strong></p>
+<ul>
+<li><p>读</p>
+<p>div.style.prop</p>
+</li>
+<li><p>写</p>
+<p>div.style.prop = ‘…’</p>
+</li>
+<li><p>没有兼容性问题</p>
+</li>
+<li><p>组合单词变成小驼峰式写法</p>
+<p>background-color —&gt; backgroundColor</p>
+</li>
+<li><p>有些css属性名是js中的关键字或者保留字，用另一种名称进行读写</p>
+<p>eg. float —&gt; cssFloat</p>
+</li>
+<li><p>复合属性需要拆解</p>
+<p>eg. background: 1px solid red;</p>
+<p>​       —-&gt;</p>
+<p>​       backgroundWidth: 1px;    backgroundStyle: solid;    backgroundColor: red;</p>
+<blockquote>
+<p>现在的语法不拆解也支持，但是建议拆开来写</p>
+</blockquote>
+</li>
+<li><p>写入的之必须是字符串格式</p>
+<p>dom.style.backgroundColor = ‘green’;</p>
+</li>
+<li><p>JS中可以写入css的方法就这么一个，其他的都只是能够读取，不能写入</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="查询计算样式"><a href="#查询计算样式" class="headerlink" title="查询计算样式"></a>查询计算样式</h4><h5 id="window-getComputedStyle-elem-null"><a href="#window-getComputedStyle-elem-null" class="headerlink" title="window.getComputedStyle(elem, null)"></a>window.getComputedStyle(elem, null)</h5><ul>
+<li><p>两个参数</p>
+<p>元素节点 和 null / 伪元素</p>
+</li>
+<li><p>属性值</p>
+<p>查询到的属性值是元素在浏览器中展现出来的样式的属性值，即这个无论以哪种方式设置的样式，最终展现出来的样式是什么，查询到的就是什么</p>
+</li>
+<li><p>计算样式只读</p>
+<p>window.getComputedStyle(elem, null)[prop]</p>
+</li>
+<li><p>返回的计算样式都是绝对值，没有相对单位</p>
+<p>这里说的绝对值不是数学意义上的那个绝对值，而是说他的返回值都是经过计算的，已经将一些相对单位进行了转换。比如给某元素设置得字体大小是 ‘1em’，用这个方法查询到的字体大小是 ‘16px’</p>
+</li>
+<li><p>IE9以下不兼容</p>
+</li>
+<li><p>关于第二个参数 null</p>
+<p>这个参数是用来读取伪元素的： window.getComputedStyle(elem, ‘after / before’)[prop]</p>
+</li>
+</ul>
+<h5 id="elem-currentStyle"><a href="#elem-currentStyle" class="headerlink" title="elem.currentStyle"></a>elem.currentStyle</h5><ul>
+<li><p>返回一个 CSSSstyleDeclaration 对象</p>
+</li>
+<li><p>样式只读</p>
+<p>elem.currentStyle[prop]</p>
+</li>
+<li><p>属性值不是绝对值</p>
+</li>
+<li><p>IE独有的属性</p>
+</li>
+</ul>
+<h5 id="兼容性方法-2"><a href="#兼容性方法-2" class="headerlink" title="兼容性方法"></a>兼容性方法</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">elem, prop</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.getComputedStyle) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">window</span>.getComputedStyle(elem, <span class="literal">null</span>)[prop];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> elem.currentStyle[prop];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>  
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"> <i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/DOM/" rel="tag"> <i class="fa fa-tag"></i> DOM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/13/a24_javascript/" rel="next" title="DOM基本操作">
+                <i class="fa fa-chevron-left"></i> DOM基本操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/15/a26_javascript/" rel="prev" title="DOM练习">
+                DOM练习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxOS8xNTM0Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg"
+                alt="Qin Haitao" />
+            
+              <p class="site-author-name" itemprop="name">Qin Haitao</p>
+              <p class="site-description motion-element" itemprop="description">搭一座不倒的积木塔</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/qinhaitao97" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:15634313305@163.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看滚动条位置"><span class="nav-number">1.</span> <span class="nav-text">查看滚动条位置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#W3C-标准方法"><span class="nav-number">1.1.</span> <span class="nav-text">W3C 标准方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IE9-以下版本方法"><span class="nav-number">1.2.</span> <span class="nav-text">IE9 以下版本方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#兼容性方法"><span class="nav-number">1.3.</span> <span class="nav-text">兼容性方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#让滚动条滚动"><span class="nav-number">2.</span> <span class="nav-text">让滚动条滚动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#让滚动条滚动到指定位置"><span class="nav-number">2.1.</span> <span class="nav-text">让滚动条滚动到指定位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#让滚动条滚动了指定距离"><span class="nav-number">2.2.</span> <span class="nav-text">让滚动条滚动了指定距离</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看可视窗口尺寸"><span class="nav-number">3.</span> <span class="nav-text">查看可视窗口尺寸</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#W3C-标准方法-1"><span class="nav-number">3.1.</span> <span class="nav-text">W3C 标准方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IE9-以下版本方法-1"><span class="nav-number">3.2.</span> <span class="nav-text">IE9 以下版本方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#兼容性方法-1"><span class="nav-number">3.3.</span> <span class="nav-text">兼容性方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看元素尺寸、位置"><span class="nav-number">4.</span> <span class="nav-text">查看元素尺寸、位置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用方法"><span class="nav-number">4.1.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不常用方法"><span class="nav-number">4.2.</span> <span class="nav-text">不常用方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本化CSS"><span class="nav-number">5.</span> <span class="nav-text">脚本化CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读写css属性"><span class="nav-number">5.1.</span> <span class="nav-text">读写css属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询计算样式"><span class="nav-number">5.2.</span> <span class="nav-text">查询计算样式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#window-getComputedStyle-elem-null"><span class="nav-number">5.2.1.</span> <span class="nav-text">window.getComputedStyle(elem, null)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#elem-currentStyle"><span class="nav-number">5.2.2.</span> <span class="nav-text">elem.currentStyle</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#兼容性方法-2"><span class="nav-number">5.2.3.</span> <span class="nav-text">兼容性方法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qin Haitao</span>
+
+  
+
+  
+</div>
+
+
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">已经写了 169.7k 字啦~</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=6.4.0"></script>
+
+
+  
+
+  
+
+</body>
+</html>

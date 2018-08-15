@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.0',
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="CSS3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3 3D效果">
+<meta property="og:url" content="http://yoursite.com/2018/06/10/d05_css3/index.html">
+<meta property="og:site_name" content="码瓜">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1fske5noljyj30fe07lmwy.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1fskf5cjjlaj307304xt8h.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1fskf6abgc4j30ax066a9u.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5obbnu3gj30dh055t8i.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5obp35uaj30f306u0sk.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5pcvvlv8j30ga077743.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5pkrfmw2j304h03udfl.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5pm5ws7pj30cj04o741.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5ppy66lfj306u04i3y9.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5qaegygpj308m0afgle.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5qdm5zzaj3065093t8h.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5qt08udhj30n30bmwfd.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5rwj1i5rj305f0af0sh.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft65dxxqx8g30q30ct48f.gif">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1ft67cd37d0g30bf0bxwks.gif">
+<meta property="og:updated_time" content="2018-08-15T05:46:43.029Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3 3D效果">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006eYMu7ly1fske5noljyj30fe07lmwy.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/10/d05_css3/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>CSS3 3D效果 | 码瓜</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">码瓜</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/10/d05_css3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qin Haitao">
+      <meta itemprop="description" content="搭一座不倒的积木塔">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码瓜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS3 3D效果
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <!-- 置顶文字 -->
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-10 03:14:12" itemprop="dateCreated datePublished" datetime="2018-06-10T03:14:12+08:00">2018-06-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-15 13:46:43" itemprop="dateModified" datetime="2018-08-15T13:46:43+08:00">2018-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CSS3/" itemprop="url" rel="index"><span itemprop="name">CSS3</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description"> </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="3D变换"><a href="#3D变换" class="headerlink" title="3D变换"></a>3D变换</h3><p>利用<code>transform: rotate();</code> 的一些列值可以实现3D变换的效果</p>
+<h4 id="rotate"><a href="#rotate" class="headerlink" title="rotate()"></a>rotate()</h4><p>以x轴，y轴，z轴或者某个合成的矢量轴为旋转轴进行指定角度的旋转，默认情况下是以z轴为旋转轴</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1fske5noljyj30fe07lmwy.jpg" alt=""></p>
+<ul>
+<li><p>rotate(deg)</p>
+<p>这是默认情况，以z轴为旋转轴进行旋转。deg是旋转的角度，当角度值为正时，正视图顺时针旋转</p>
+</li>
+<li><p>rotateX(deg)</p>
+<p>以x轴为旋转轴进行旋转。deg是旋转的角度，当角度值为正时，右视图顺时针旋转</p>
+</li>
+<li><p>rotateY(deg)</p>
+<p>以y轴为旋转轴进行旋转。deg是旋转的角度，当角度值为正时，仰视图顺时针旋转</p>
+</li>
+<li><p>rotateZ(deg)</p>
+<p>以z轴为旋转轴进行旋转。deg是旋转的角度，当角度值为正时，正视图顺时针旋转</p>
+</li>
+<li><p>rotate3d(x, y, z, deg)</p>
+<p>以x，y，z三个轴方向上的矢量合成的矢量为旋转轴进行旋转。x，y，z均为number类型，可以是0到1之间的数值，表示x、y、z方向上的矢量；deg代表旋转的角度</p>
+</li>
+</ul>
+<p><strong>注意</strong></p>
+<ol>
+<li><p>当元素进行旋转的同时，非旋转轴也会跟着元素一同进行旋转。比如 <code>rotateX(90deg);</code>，旋转结束后，旋转轴x方向不变水平向右，非旋转轴y轴和z轴分别垂直屏幕向外和竖直向上</p>
+</li>
+<li><p><code>transform: rotateX(45deg) rotateY(45deg) rotateZ(45deg);</code> 和 <code>transform: rotate3d(1, 1, 1, 45deg);</code> 的效果是不一样的：前者是有先后顺序，先沿x轴旋转，再沿y轴旋转，再沿z轴旋转；后者直接沿合成的轴进行旋转</p>
+<p>前者</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1fskf5cjjlaj307304xt8h.jpg" alt=""></p>
+<p>后者</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1fskf6abgc4j30ax066a9u.jpg" alt=""></p>
+</li>
+</ol>
+<h3 id="保留3D效果"><a href="#保留3D效果" class="headerlink" title="保留3D效果"></a>保留3D效果</h3><p>前面介绍了利用<code>transform</code> 可以实现一系列的3D变换效果，但是实际看来，好像并没有我们想象中的3D效果，都是一些平面效果，没错是这样的，因为虽然我们实现了3D变换的效果，但是在默认情况下，这个效果是展示在二维平面中的，如果想要看到3D的效果，就要设置保留3D效果，让元素再三维空间内展示，这就要用到下面的属性</p>
+<p><strong>transform-style: preserve-3d</strong></p>
+<ul>
+<li><p><strong>定义</strong></p>
+<p>为进行3D变换的元素保留3D效果，让其在三维空间内展示</p>
+</li>
+<li><p><strong>语法</strong></p>
+<p><code>transform-style: flat(默认) | preserve-3d;</code></p>
+<p>flat 是默认值，元素只能在二维平面内展示，看不到3D效果</p>
+</li>
+<li><p><strong>注意</strong></p>
+<ul>
+<li><code>transform-style: preserve-3d;</code> 要设置在实现了3D效果元素的<strong>父元素（即舞台元素）</strong>上使用</li>
+<li>要与 <code>transform</code> 属性一同使用</li>
+<li>设置了 <code>transform-style: preserve-3d</code> 的元素就不能为了防止子元素溢出而设置 <code>overflow: hidden;</code> 属性，该做法会导致 <code>preserve-3d</code> 失效</li>
+</ul>
+</li>
+<li><p><strong>demo</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .wrapper &#123;</span></span><br><span class="line"><span class="undefined">        ......;</span></span><br><span class="line"><span class="undefined">        transform: preserve-3d; /* 这个属性在父元素上设置 */</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .wrapper .demo &#123;</span></span><br><span class="line"><span class="undefined">        .......;</span></span><br><span class="line"><span class="undefined">        transform: rotateX(angle);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="理解景深"><a href="#理解景深" class="headerlink" title="理解景深"></a>理解景深</h3><p>首先来看一组设置了 <code>transform</code> 属性的元素，在二维平面和在三维空间的效果</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5obbnu3gj30dh055t8i.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5obp35uaj30f306u0sk.jpg" alt=""></p>
+<p>两组中三个子元素的3D变换操作分别是 <code>transform: rotateX(45deg);</code>，<code>transform: rotateY(45deg);</code>，<code>transform: rotateZ(45deg);</code>，但是很明显第一组看不出来3D效果，第二组才能看出来3D效果，那你可能想是不是第一组没有使用 <code>transform-style</code> 属性来保留3D效果，但可以明确说明的是，两组都设置了 <code>transform-stye</code> 属性来保留3D效果，那为什么第一组我们看不到3D效果呢，这就要介绍下一个属性<strong>景深</strong></p>
+<p><strong>定义</strong></p>
+<blockquote>
+<p><strong>景深</strong>（DOF），是指在摄影机镜头或其他成像器前沿能够取得清晰图像的成像所测定的被摄物体前后距离范围。 而光圈、镜头、及拍摄物的距离是影响<strong>景深</strong>的重要因素。 在聚焦完成后，焦点前后的范围内所呈现的清晰图像，这一前一后的距离范围，便叫做<strong>景深</strong>。                       __百度百科</p>
+</blockquote>
+<p>可以简单的把景深理解为人距离显示器的距离，此值的大小会决定你看物体的程度，比如距离100米和1米去看一个边长为1米的立方体的效果是不一样的（自行脑补）</p>
+<p><strong>语法</strong></p>
+<p><code>transform: perspective(length);</code></p>
+<p>默认值是none，length代表景深的大小，单位是像素</p>
+<p><strong>demo</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .wrapper &#123;</span></span><br><span class="line"><span class="undefined">        ......;</span></span><br><span class="line"><span class="undefined">        transform: preserve-3d;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .wrapper .demo &#123;</span></span><br><span class="line"><span class="undefined">        .......;</span></span><br><span class="line"><span class="undefined">        transform: perspective(length) rotateX(angle);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="视点"><a href="#视点" class="headerlink" title="视点"></a>视点</h3><p>在理解了景深的后，介绍其语法之前我们先来了解另一个概念 “视点”</p>
+<p><strong>定义</strong></p>
+<p>简单的理解，视点就是我们观察物体的角度，默认位置在物体(x, y) (50%, 50%)的位置上，y的距离（即远近）可以自己调整</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5pcvvlv8j30ga077743.jpg" alt=""></p>
+<p><strong>语法</strong></p>
+<p><code>perspective-origin: locX locY;</code></p>
+<p>locX, locY 表示视点在x轴，y轴上的距离，默认是50%，50%</p>
+<p>这里的值可以是百分比、像素、关键词（center、top、left、bottom）</p>
+<p><strong>demo</strong></p>
+<p>不同视点看到的3D效果是不一样的</p>
+<p>以元素沿x轴旋转为例，默认视点下，我们让物体旋转45度，效果如下</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5pkrfmw2j304h03udfl.jpg" alt=""></p>
+<p>改变旋转的角度为90度，效果如下</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5pm5ws7pj30cj04o741.jpg" alt=""></p>
+<p>我们发现，元素消失了，其实不是元素消失了，而是在当前视点下，我们看不到它了，想想一下，你的视线与在x轴与z轴构成的平面上且与x轴垂直，那么当元素沿x轴旋转90度以后，是不是就看不到了，那么如果我们想要看到它，可以调整视点，比如我们把视点调整到（center，top）的位置，效果如下</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5ppy66lfj306u04i3y9.jpg" alt=""></p>
+<h3 id="景深的两种写法"><a href="#景深的两种写法" class="headerlink" title="景深的两种写法"></a>景深的两种写法</h3><p>前面我们提到过一种设置景深的方法，是利用 <code>transform: perspective(length);</code> 来设置，除了这种方法外，还可以通过利用 <code>perspective: length;</code> 方法来设置景深，不同的是 <code>transform: perspective(length);</code> 设置在变换的子元素上，而 <code>perspective: length;</code> 设置在舞台元素上（形变元素的父元素），这两种设置方法所造成的不同，我们来讲解一下</p>
+<p>现有一舞台元素，它有三个子元素均沿x轴旋转80度，默认视点</p>
+<ul>
+<li><p>在舞台元素上设置景深</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5qaegygpj308m0afgle.jpg" alt=""></p>
+</li>
+<li><p>在子元素上设置景深</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5qdm5zzaj3065093t8h.jpg" alt=""></p>
+</li>
+</ul>
+<p>可以看到，元素发生的3D变换是相同的，但在舞台元素上设置景深和在子元素上设置景深的效果明显不一样，前者每一个子元素看起来好像都不一样，而后者所有子元素看起来都相同，其实这是视点不同而造成的问题</p>
+<p>如果在舞台元素上设置景深，那么<strong>视点就只有一个</strong>，即在舞台元素（50%，50%）处，这个视点看第一个元素还正常，但是看下面的子元素就会是俯视的效果，所以看到的形状不同；而如果在子元素中设置景深，那么每一个元素都会拥有一个<strong>单独的视点</strong>，所以每一个看起来都是正视的效果</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5qt08udhj30n30bmwfd.jpg" alt=""></p>
+<h3 id="backface-visibility"><a href="#backface-visibility" class="headerlink" title="backface-visibility"></a>backface-visibility</h3><p><strong>定义</strong></p>
+<p>在元素运动的过程中是否展示背面</p>
+<p><strong>语法</strong></p>
+<p><code>backface-visibility: visible | hidden;</code></p>
+<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><p>3D动画很消耗页面的性能，所以使用3D动画时要进行一些性能优化</p>
+<ul>
+<li><p>使用3D变形开启GPU加速</p>
+<p>GPU加速属于系统硬件能力，使用3D变化能开启GPU加速，提高性能</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.demo</span> &#123;</span><br><span class="line">	......;</span><br><span class="line">    <span class="comment">/* bad */</span></span><br><span class="line">    <span class="selector-tag">transform</span>: <span class="selector-tag">rotateX</span>(10<span class="selector-tag">deg</span>);</span><br><span class="line">    </span><br><span class="line">	<span class="comment">/* good */</span></span><br><span class="line">    <span class="selector-tag">transform</span>: <span class="selector-tag">rotate3d</span>(10<span class="selector-tag">deg</span>, 0, 0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是一定要注意<code>transform: rotateX(45deg) rotateY(45deg) rotateZ(45deg);</code> 和 <code>transform: rotate3d(1, 1, 1, 45deg);</code> 的效果是不一样的，这一点之前就提到过</p>
+</li>
+<li><p>尽可能的少用<code>box-shadow</code>，<code>text-shadow</code>，<code>gradient</code> 这些很消耗行呢的属性，他们被称为性能杀手，所以尽量减少使用</p>
+</li>
+<li><p>尽可能让动画元素脱离文档流，以减少重排</p>
+</li>
+</ul>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ol>
+<li><p>当元素进行旋转的同时，非旋转轴也会跟着元素一同进行旋转。比如 <code>rotateX(90deg);</code>，旋转结束后，旋转轴x方向不变水平向右，非旋转轴y轴和z轴分别垂直屏幕向外和竖直向上</p>
+<p>比如，现在有两个要进行3D变换的元素，两元素均沿x轴旋转，一个旋转90度，另一个旋转-90度，然后两元素均沿z轴平移100px，为了旋转90度以后能看到元素，我们把视点调到（center， top）的位置，想一下结果是什么效果</p>
+<p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft5rwj1i5rj305f0af0sh.jpg" alt=""></p>
+<p>结果两个元素相差在竖直方向上相差了200px，此时的竖直方向是z轴的方向，因为元素进行西旋转的同时，坐标轴也跟着旋转了</p>
+</li>
+<li><p>如果动画有闪烁，通常发生在动画开始的时候，可以尝试以下解决方法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-backface-visibility</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line"><span class="selector-tag">-moz-backface-visibility</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line"><span class="selector-tag">-ms-backface-visibility</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line"><span class="selector-tag">backface-visibility</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line"><span class="selector-tag">-webkit-perspective</span>: 1000;</span><br><span class="line"><span class="selector-tag">-moz-perspective</span>: 1000;</span><br><span class="line"><span class="selector-tag">-ms-perspective</span>: 1000;</span><br><span class="line"><span class="selector-tag">perspective</span>: 1000;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><h4 id="3D透视旋转照片墙"><a href="#3D透视旋转照片墙" class="headerlink" title="3D透视旋转照片墙"></a>3D透视旋转照片墙</h4><p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft65dxxqx8g30q30ct48f.gif" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        * &#123;</span></span><br><span class="line"><span class="undefined">            margin: 0px;</span></span><br><span class="line"><span class="undefined">            padding: 0px;</span></span><br><span class="line"><span class="undefined">            list-style: none;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        @<span class="keyword">keyframes</span> rotate &#123;</span></span><br><span class="line"><span class="undefined">            from &#123;</span></span><br><span class="line"><span class="undefined">                transform: rotate3d(0, 1, 0, 0);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">            to &#123;</span></span><br><span class="line"><span class="undefined">                transform: rotate3d(0, 1, 0, 360deg);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            top: 50%;</span></span><br><span class="line"><span class="undefined">            left: 50%;</span></span><br><span class="line"><span class="undefined">            width: 800px;</span></span><br><span class="line"><span class="undefined">            height: 500px;</span></span><br><span class="line"><span class="css">            <span class="comment">/* border: 1px solid #000; */</span></span></span><br><span class="line"><span class="undefined">            transform: translate(-50%, -50%);</span></span><br><span class="line"><span class="undefined">            transform-style: preserve-3d;</span></span><br><span class="line"><span class="undefined">            perspective: 1500px;</span></span><br><span class="line"><span class="undefined">            perspective-origin: center top;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> &#123;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            top: 50%;</span></span><br><span class="line"><span class="undefined">            left: 50%;</span></span><br><span class="line"><span class="undefined">            transform: translate3d(-50%, -50%, 0);</span></span><br><span class="line"><span class="undefined">            transform-style: preserve-3d;</span></span><br><span class="line"><span class="undefined">            animation: rotate 3s linear infinite;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            width: 350px;</span></span><br><span class="line"><span class="undefined">            height: 150px;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">opacity</span>: 0<span class="selector-class">.5</span>;</span></span><br><span class="line"><span class="undefined">            font-size: 30px;</span></span><br><span class="line"><span class="undefined">            text-align: center;</span></span><br><span class="line"><span class="undefined">            line-height: 150px;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(1)</span> &#123;</span></span><br><span class="line"><span class="undefined">            background-color: deeppink;</span></span><br><span class="line"><span class="undefined">            transform: translate(-50%, -50%) rotate3d(0, 1, 0, 0) translate3d(0, 0, 323px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2)</span> &#123;</span></span><br><span class="line"><span class="undefined">            background-color: deepskyblue;</span></span><br><span class="line"><span class="undefined">            transform: translate(-50%, -50%) rotate3d(0, 1, 0, 60deg) translate3d(0, 0, 323px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(3)</span> &#123;</span></span><br><span class="line"><span class="undefined">            background-color: greenyellow;</span></span><br><span class="line"><span class="undefined">            transform: translate(-50%, -50%) rotate3d(0, 1, 0, 120deg) translate3d(0, 0, 323px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(4)</span> &#123;</span></span><br><span class="line"><span class="undefined">            background-color: purple;</span></span><br><span class="line"><span class="undefined">            transform: translate(-50%, -50%) rotate3d(0, 1, 0, 180deg) translate3d(0, 0, 323px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(5)</span> &#123;</span></span><br><span class="line"><span class="undefined">            background-color: orange;</span></span><br><span class="line"><span class="undefined">            transform: translate(-50%, -50%) rotate3d(0, 1, 0, 240deg) translate3d(0, 0, 323px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(6)</span> &#123;</span></span><br><span class="line"><span class="undefined">            background-color: red;</span></span><br><span class="line"><span class="undefined">            transform: translate(-50%, -50%) rotate3d(0, 1, 0, 300deg) translate3d(0, 0, 323px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>6<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    1.只要子元素要实现3d效果，就要给其直接父级设置 transform-style: preserve-3d; 属性</span></span><br><span class="line"><span class="comment">    2.子元素要实现3d效果，不是要给每一个子元素的直接父级都设置 perspective，给最外层的那层父级设置即可</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="旋转立方体"><a href="#旋转立方体" class="headerlink" title="旋转立方体"></a>旋转立方体</h4><p><img src="http://ww1.sinaimg.cn/large/006eYMu7ly1ft67cd37d0g30bf0bxwks.gif" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        * &#123;</span></span><br><span class="line"><span class="undefined">            margin: 0px;</span></span><br><span class="line"><span class="undefined">            padding: 0px;</span></span><br><span class="line"><span class="undefined">            list-style: none;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        @<span class="keyword">keyframes</span> rotate &#123;</span></span><br><span class="line"><span class="undefined">            form &#123;</span></span><br><span class="line"><span class="undefined">                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">            to &#123;</span></span><br><span class="line"><span class="undefined">                transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="undefined">            position: relative;</span></span><br><span class="line"><span class="undefined">            width: 300px;</span></span><br><span class="line"><span class="undefined">            height: 300px;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span></span><br><span class="line"><span class="undefined">            margin: 100px;</span></span><br><span class="line"><span class="undefined">            transform-style: preserve-3d;</span></span><br><span class="line"><span class="undefined">            perspective: 800px;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        </span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> &#123;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            top: 50%;</span></span><br><span class="line"><span class="undefined">            left: 50%;</span></span><br><span class="line"><span class="undefined">            width: 200px;</span></span><br><span class="line"><span class="undefined">            height: 200px;</span></span><br><span class="line"><span class="undefined">            margin-left: -100px;</span></span><br><span class="line"><span class="undefined">            margin-top: -100px;</span></span><br><span class="line"><span class="undefined">            transform-style: preserve-3d;</span></span><br><span class="line"><span class="undefined">            animation: rotate 5s linear infinite;   </span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            top: 0%;</span></span><br><span class="line"><span class="undefined">            left: 0%;</span></span><br><span class="line"><span class="undefined">            width: 200px;</span></span><br><span class="line"><span class="undefined">            height: 200px;</span></span><br><span class="line"><span class="undefined">            font-size: 30px;</span></span><br><span class="line"><span class="undefined">            text-align: center;</span></span><br><span class="line"><span class="undefined">            line-height: 200px;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">opacity</span>: 0<span class="selector-class">.5</span>;</span></span><br><span class="line"><span class="undefined">            transform-style: preserve-3d;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(1)</span> &#123;</span></span><br><span class="line"><span class="undefined">            background-color: deeppink;</span></span><br><span class="line"><span class="undefined">            transform: rotate3d(0, 0, 0, 0deg) translate3d(0, 0, 100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2)</span> &#123;</span></span><br><span class="line"><span class="undefined">            background-color: deepskyblue;</span></span><br><span class="line"><span class="undefined">            transform: rotate3d(0, 1, 0, 90deg) translate3d(0, 0, 100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(3)</span> &#123;</span></span><br><span class="line"><span class="undefined">            background-color: greenyellow;</span></span><br><span class="line"><span class="undefined">            transform: rotate3d(0, 1, 0, 180deg) translate3d(0, 0, 100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(4)</span> &#123;</span></span><br><span class="line"><span class="undefined">            background-color: purple;</span></span><br><span class="line"><span class="undefined">            transform: rotate3d(0, 1, 0, 270deg) translate3d(0, 0, 100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(5)</span> &#123;</span></span><br><span class="line"><span class="undefined">            background-color: orange;</span></span><br><span class="line"><span class="undefined">            transform: rotate3d(1, 0, 0, 90deg) translate3d(0, 0, 100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(6)</span> &#123;</span></span><br><span class="line"><span class="undefined">            background-color: red;</span></span><br><span class="line"><span class="undefined">            transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, 100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>6<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>  
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS3/" rel="tag"> <i class="fa fa-tag"></i> CSS3</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/09/d04_css3/" rel="next" title="CSS3动效">
+                <i class="fa fa-chevron-left"></i> CSS3动效
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/11/d06_css3/" rel="prev" title="CSS3弹性盒子">
+                CSS3弹性盒子 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxOS8xNTM0Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg"
+                alt="Qin Haitao" />
+            
+              <p class="site-author-name" itemprop="name">Qin Haitao</p>
+              <p class="site-description motion-element" itemprop="description">搭一座不倒的积木塔</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/qinhaitao97" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:15634313305@163.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#3D变换"><span class="nav-number">1.</span> <span class="nav-text">3D变换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#rotate"><span class="nav-number">1.1.</span> <span class="nav-text">rotate()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保留3D效果"><span class="nav-number">2.</span> <span class="nav-text">保留3D效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解景深"><span class="nav-number">3.</span> <span class="nav-text">理解景深</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视点"><span class="nav-number">4.</span> <span class="nav-text">视点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#景深的两种写法"><span class="nav-number">5.</span> <span class="nav-text">景深的两种写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backface-visibility"><span class="nav-number">6.</span> <span class="nav-text">backface-visibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能优化"><span class="nav-number">7.</span> <span class="nav-text">性能优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意点"><span class="nav-number">8.</span> <span class="nav-text">注意点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#demo"><span class="nav-number">9.</span> <span class="nav-text">demo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3D透视旋转照片墙"><span class="nav-number">9.1.</span> <span class="nav-text">3D透视旋转照片墙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#旋转立方体"><span class="nav-number">9.2.</span> <span class="nav-text">旋转立方体</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qin Haitao</span>
+
+  
+
+  
+</div>
+
+
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">已经写了 169.7k 字啦~</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=6.4.0"></script>
+
+
+  
+
+  
+
+</body>
+</html>

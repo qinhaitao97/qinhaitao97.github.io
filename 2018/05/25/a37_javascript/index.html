@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.0',
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="运动">
+<meta property="og:url" content="http://yoursite.com/2018/05/25/a37_javascript/index.html">
+<meta property="og:site_name" content="码瓜">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fua7py95xjj30ly08ldh8.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fqbf5stw6jg30b307ft8w.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fqbyq5zqfzg30id0d73yy.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fqbymex0jjg30id0d7glv.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fqcizqvxyyg30xr0eqwf4.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fqeljsddbgg30h906v74v.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fqel6gy3clg312b0afdhs.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fqfvfbf2tag30ma0higml.gif">
+<meta property="og:updated_time" content="2018-08-15T03:15:18.256Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="运动">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fua7py95xjj30ly08ldh8.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/25/a37_javascript/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>运动 | 码瓜</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">码瓜</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/25/a37_javascript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qin Haitao">
+      <meta itemprop="description" content="搭一座不倒的积木塔">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码瓜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">运动
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <!-- 置顶文字 -->
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-25 13:44:14" itemprop="dateCreated datePublished" datetime="2018-05-25T13:44:14+08:00">2018-05-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-15 11:15:18" itemprop="dateModified" datetime="2018-08-15T11:15:18+08:00">2018-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description"> </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fua7py95xjj30ly08ldh8.jpg" alt=""></p>
+<h3 id="匀速运动"><a href="#匀速运动" class="headerlink" title="匀速运动"></a>匀速运动</h3><h4 id="点击开始匀速运动，再次点击停止运动"><a href="#点击开始匀速运动，再次点击停止运动" class="headerlink" title="点击开始匀速运动，再次点击停止运动"></a>点击开始匀速运动，再次点击停止运动</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">// head</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo &#123;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: 0px;</span></span><br><span class="line"><span class="undefined">        top: 0px;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        background-color: green;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">// body</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> divDemo = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'demo'</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="javascript">        key = <span class="literal">true</span>,</span></span><br><span class="line"><span class="undefined">        timer = 0;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">constantMove</span>(<span class="params">obj</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> speed = <span class="number">7</span>;</span></span><br><span class="line"><span class="javascript">        timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            obj.style.left = obj.offsetLeft + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">        &#125;, 100);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    divDemo.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (key) &#123;</span></span><br><span class="line"><span class="javascript">            constantMove(<span class="keyword">this</span>);</span></span><br><span class="line"><span class="javascript">            key = <span class="literal">false</span>;</span></span><br><span class="line"><span class="javascript">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="undefined">            clearInterval(timer);</span></span><br><span class="line"><span class="javascript">            key = <span class="literal">true</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;;      </span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="到达指定位置时停止运动"><a href="#到达指定位置时停止运动" class="headerlink" title="到达指定位置时停止运动"></a>到达指定位置时停止运动</h4><blockquote>
+<p>要求无论是左向右运动还是右向左运动都可以到指定位置停止</p>
+<p>两组测试样例：</p>
+<p>1：下面代码原样测试</p>
+<p>2：将下面代码中的 demo样式中的left改成right，将speed改成负数</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo &#123;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: 0px;</span></span><br><span class="line"><span class="undefined">        top: 0px;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        background-color: green;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .stopLoc &#123;</span></span><br><span class="line"><span class="undefined">        position: fixed;</span></span><br><span class="line"><span class="undefined">        left: 600px;</span></span><br><span class="line"><span class="undefined">        top: 0px;</span></span><br><span class="line"><span class="undefined">        width: 2px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        background-color: #000;</span></span><br><span class="line"><span class="undefined">    &#125;      </span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"stopLoc"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> divDemo = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'demo'</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="javascript">        divStopLoc = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'stopLoc'</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="undefined">        timer = 0,</span></span><br><span class="line"><span class="javascript">        key = <span class="literal">true</span>,</span></span><br><span class="line"><span class="undefined">        stopLoc = divStopLoc.offsetLeft;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">constantMove</span>(<span class="params">obj</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> speed = <span class="number">7</span>;</span></span><br><span class="line"><span class="javascript">        timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> objLoc = obj.offsetLeft;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(stopLoc - objLoc) &gt;= <span class="built_in">Math</span>.abs(speed)) &#123;</span></span><br><span class="line"><span class="javascript">                obj.style.left = objLoc + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                obj.style.left = stopLoc + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">                clearInterval(timer);</span></span><br><span class="line"><span class="javascript">                key = <span class="literal">true</span>;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, 50);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    divDemo.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (key &amp;&amp; (<span class="keyword">this</span>.offsetLeft != stopLoc)) &#123;</span></span><br><span class="line"><span class="javascript">            constantMove(<span class="keyword">this</span>);</span></span><br><span class="line"><span class="javascript">            key = <span class="literal">false</span>;</span></span><br><span class="line"><span class="javascript">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="undefined">            clearInterval(timer);</span></span><br><span class="line"><span class="javascript">            key = <span class="literal">true</span>;</span></span><br><span class="line"><span class="undefined">        &#125;        </span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>从开始到结束的整个过程来看，物体不是一直都在做匀速运动</p>
+<p>方块是以每个单位时间 7 的速度运动的，也就是说每个单位时间方块的 left 的值要加上7，现在想让方块在 600 的位置停止，600 不能被 7 整除，所以方块根本不会经过这个地方，所以不会在这里停止</p>
+<p>在这段代码中方块确实是在指定位置停止的，实现方法是当方块即将要到达停止位置时（不走不到，再走一步就超过），让方块的位置直接等于指定位置，这样，如果最后剩余的距离不等于方块的speed的话，方块就相当于是变了一个较小的速度，单独看，这两个过程都是匀速运动，但是合起来看整个过程，方块做了一次变速</p>
+<blockquote>
+<p>代码中的key是为了控制方块重复点击不加速</p>
+</blockquote>
+<h3 id="缓冲运动"><a href="#缓冲运动" class="headerlink" title="缓冲运动"></a>缓冲运动</h3><h4 id="位置变化"><a href="#位置变化" class="headerlink" title="位置变化"></a>位置变化</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">// head</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo &#123;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: 10px;</span></span><br><span class="line"><span class="undefined">        top: 0px;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        background-color: green;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .stopLoc &#123;</span></span><br><span class="line"><span class="undefined">        position: fixed;</span></span><br><span class="line"><span class="undefined">        left: 600px;</span></span><br><span class="line"><span class="undefined">        top: 0px;</span></span><br><span class="line"><span class="undefined">        width: 2px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        background-color: #000;</span></span><br><span class="line"><span class="undefined">    &#125;      </span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">// body</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"stopLoc"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDivDemo = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'demo'</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="javascript">        key = <span class="literal">true</span>,</span></span><br><span class="line"><span class="undefined">        stopLoc = 600;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">bufferMove</span>(<span class="params">elem</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> elemLoc = elem.offsetLeft;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (elemLoc === stopLoc) &#123;</span></span><br><span class="line"><span class="undefined">                clearInterval(timer);</span></span><br><span class="line"><span class="javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> speed = (stopLoc - elemLoc) / <span class="number">7</span>;</span></span><br><span class="line"><span class="javascript">                speed = speed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(speed) : <span class="built_in">Math</span>.floor(speed);</span></span><br><span class="line"><span class="javascript">                elem.style.left = elemLoc + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, 50);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    oDivDemo.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (key) &#123;</span></span><br><span class="line"><span class="javascript">            bufferMove(<span class="keyword">this</span>);</span></span><br><span class="line"><span class="javascript">            key = <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>举一个实际的例子，实现下图的效果：</p>
+<p>当鼠标移上黑色区域，红色区域缓冲移出；鼠标移开时，红色区域缓冲移入</p>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fqbf5stw6jg30b307ft8w.gif" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .wrapper &#123;</span></span><br><span class="line"><span class="undefined">        width: 300px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        background-color: red;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: -300px;</span></span><br><span class="line"><span class="undefined">        top: 100px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .wrapper::after &#123;</span></span><br><span class="line"><span class="undefined">        content: '';</span></span><br><span class="line"><span class="undefined">        display: block;</span></span><br><span class="line"><span class="undefined">        width: 50px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        background-color: black;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        right: -50px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDivWrapper = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'wrapper'</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="javascript">        key = <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">        timer = <span class="literal">null</span>;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">bufferMove</span>(<span class="params">elem, interval, base, stopLoc</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        clearInterval(timer);</span></span><br><span class="line"><span class="javascript">        timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> elemLoc = elem.offsetLeft;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (elemLoc === stopLoc) &#123;</span></span><br><span class="line"><span class="undefined">                clearInterval(timer);</span></span><br><span class="line"><span class="javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> speed = (stopLoc - elemLoc) / base;</span></span><br><span class="line"><span class="javascript">                speed = speed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(speed) : <span class="built_in">Math</span>.floor(speed);</span></span><br><span class="line"><span class="javascript">                elem.style.left = elemLoc + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, interval);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    oDivWrapper.onmouseenter = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            bufferMove(<span class="keyword">this</span>, <span class="number">30</span>, <span class="number">7</span>, <span class="number">0</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    oDivWrapper.onmouseleave = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            bufferMove(<span class="keyword">this</span>, <span class="number">10</span>, <span class="number">7</span>, <span class="number">-300</span>);</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="透明度变化"><a href="#透明度变化" class="headerlink" title="透明度变化"></a>透明度变化</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo &#123;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        background-color: green;</span></span><br><span class="line"><span class="undefined">        opacity: 0.1;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDivDemo = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'demo'</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="javascript">        timer = <span class="literal">null</span>,</span></span><br><span class="line"><span class="javascript">        key = <span class="literal">true</span>;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">elem, prop</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="built_in">window</span>.getComputedStyle) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="built_in">window</span>.getComputedStyle(elem, <span class="literal">null</span>)[prop];</span></span><br><span class="line"><span class="javascript">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> elem.currentStyle[prop];</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">opacityMove</span>(<span class="params">elem, target</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        clearInterval(timer);</span></span><br><span class="line"><span class="javascript">        timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> curValue = <span class="built_in">parseFloat</span>(getStyle(elem, <span class="string">'opacity'</span>));</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (curValue == target) &#123;</span></span><br><span class="line"><span class="undefined">                clearInterval(timer);</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'stop'</span>);</span></span><br><span class="line"><span class="javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> speed = ((target - curValue) * <span class="number">100</span>) / <span class="number">7</span>;</span></span><br><span class="line"><span class="javascript">                speed = speed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(speed) : <span class="built_in">Math</span>.floor(speed);</span></span><br><span class="line"><span class="undefined">                elem.style.opacity = curValue + speed / 100;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, 150);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    oDivDemo.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (key) &#123;</span></span><br><span class="line"><span class="javascript">            opacityMove(<span class="keyword">this</span>, <span class="number">0.9</span>);</span></span><br><span class="line"><span class="javascript">            key = <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="多物体运动"><a href="#多物体运动" class="headerlink" title="多物体运动"></a>多物体运动</h3><h4 id="多物体单值无关联运动一"><a href="#多物体单值无关联运动一" class="headerlink" title="多物体单值无关联运动一"></a>多物体单值无关联运动一</h4><blockquote>
+<p>主要解决timer问题</p>
+</blockquote>
+<ul>
+<li><p>预期效果：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fqbyq5zqfzg30id0d73yy.gif" alt="widthDemo1"></p>
+</li>
+<li><p>不符合预期的代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo1, .demo2, .demo3, .demo4 &#123;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        border: 1px solid black;</span></span><br><span class="line"><span class="undefined">        margin-bottom: 20px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .demo1 &#123; background-color: red; &#125;</span></span><br><span class="line"><span class="undefined">    .demo2 &#123; background-color: green; &#125;</span></span><br><span class="line"><span class="undefined">    .demo3 &#123; background-color: orange; &#125;</span></span><br><span class="line"><span class="undefined">    .demo4 &#123; background-color: yellow; &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo4"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>),</span></span><br><span class="line"><span class="javascript">        timer = <span class="literal">null</span>;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">elem, prop</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="built_in">window</span>.getComputedStyle) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="built_in">window</span>.getComputedStyle(elem, <span class="literal">null</span>)[prop];</span></span><br><span class="line"><span class="javascript">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> elem.currentStyle[prop];</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">widthMove</span>(<span class="params">elem, target</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        clearInterval(timer);</span></span><br><span class="line"><span class="javascript">        timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> curValue = <span class="built_in">parseInt</span>(getStyle(elem, <span class="string">'width'</span>));</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (curValue === target) &#123;</span></span><br><span class="line"><span class="undefined">                clearInterval(timer);</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'stop'</span>);</span></span><br><span class="line"><span class="javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> speed = (target - curValue) / <span class="number">7</span>;</span></span><br><span class="line"><span class="javascript">                speed = speed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(speed) : <span class="built_in">Math</span>.floor(speed);</span></span><br><span class="line"><span class="javascript">                elem.style.width = curValue + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, 30);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; oDiv.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">        oDiv[i].onmouseenter = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            widthMove(<span class="keyword">this</span>, <span class="number">500</span>);</span></span><br><span class="line"><span class="undefined">        &#125;;</span></span><br><span class="line"><span class="javascript">        oDiv[i].onmouseleave = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            widthMove(<span class="keyword">this</span>, <span class="number">100</span>);</span></span><br><span class="line"><span class="undefined">        &#125;;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不符合预期的效果：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fqbymex0jjg30id0d7glv.gif" alt="demo1"></p>
+</li>
+<li><p>不符合预期的现象：</p>
+<p>鼠标移上时，盒子的宽度能够像预期一样开始缓冲变宽，但是当鼠标移开到其他盒子上时，盒子的宽度不能正常的回复到正常值</p>
+</li>
+<li><p>不符合预期的原因：</p>
+<p>鼠标移上盒子，开始执行这个盒子的widthMove函数，这个盒子有个计时器标志timer，当鼠标在这个timer还没有清除时，移到了其他盒子上，这时timer成为了另一个盒子的timer，导致上一个timer无法被清除</p>
+</li>
+<li><p>解决方法：</p>
+<p>导致这个问题的原因就是每一个盒子的计时标志timer不唯一，无法正常被清除，那么解决问题的方法，就是让每一个盒子都有自己专属的timer，因为这里每一个盒子都是一个对象，所以把timer设置为他们各自的属性即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将widthMove() 函数体中的 timer 都改成 elem.timer 即可</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="多物体单值无关联运动二"><a href="#多物体单值无关联运动二" class="headerlink" title="多物体单值无关联运动二"></a>多物体单值无关联运动二</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo1, .demo2, .demo3, .demo4 &#123;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        border: 1px solid black;</span></span><br><span class="line"><span class="undefined">        margin-bottom: 20px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .demo1 &#123; background-color: red; &#125;</span></span><br><span class="line"><span class="undefined">    .demo2 &#123; background-color: green; &#125;</span></span><br><span class="line"><span class="undefined">    .demo3 &#123; background-color: orange; &#125;</span></span><br><span class="line"><span class="undefined">    .demo4 &#123;</span></span><br><span class="line"><span class="undefined">        background-color: yellow;</span></span><br><span class="line"><span class="undefined">        opacity: 1;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo4"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>);</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; oDiv.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">        oDiv[i].key = <span class="literal">true</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    oDiv[<span class="number">0</span>].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="keyword">this</span>.key) &#123;</span></span><br><span class="line"><span class="javascript">            move(<span class="keyword">this</span>, <span class="string">'width'</span>, <span class="number">400</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.key = <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    oDiv[<span class="number">1</span>].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="keyword">this</span>.key) &#123;</span></span><br><span class="line"><span class="javascript">            move(<span class="keyword">this</span>, <span class="string">'height'</span>, <span class="number">200</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.key = <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    oDiv[<span class="number">2</span>].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="keyword">this</span>.key) &#123;</span></span><br><span class="line"><span class="javascript">            move(<span class="keyword">this</span>, <span class="string">'borderWidth'</span>, <span class="number">10</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.key = <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    oDiv[<span class="number">3</span>].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="keyword">this</span>.key) &#123;</span></span><br><span class="line"><span class="javascript">            move(<span class="keyword">this</span>, <span class="string">'opacity'</span>, <span class="number">0.1</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.key = <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">elem, prop</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="built_in">window</span>.getComputedStyle) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="built_in">window</span>.getComputedStyle(elem, <span class="literal">null</span>)[prop];</span></span><br><span class="line"><span class="javascript">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> elem.currentStyle[prop];</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">elem, prop, target</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        clearInterval(elem.timer);</span></span><br><span class="line"><span class="javascript">        elem.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> curValue = (prop == <span class="string">'opacity'</span>) ? <span class="built_in">parseFloat</span>(getStyle(elem, prop)) : <span class="built_in">parseInt</span>(getStyle(elem, prop));</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (curValue == target) &#123;</span></span><br><span class="line"><span class="undefined">                clearInterval(elem.timer);</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(prop);</span></span><br><span class="line"><span class="javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> speed;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (prop == <span class="string">'opacity'</span>) &#123;</span></span><br><span class="line"><span class="undefined">                    speed = ((target - curValue) * 100) / 7;</span></span><br><span class="line"><span class="javascript">                    speed = speed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(speed) : <span class="built_in">Math</span>.floor(speed);</span></span><br><span class="line"><span class="undefined">                    elem.style.opacity = curValue + speed / 100;</span></span><br><span class="line"><span class="javascript">                &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="undefined">                    speed = (target - curValue) / 7;</span></span><br><span class="line"><span class="javascript">                    speed = speed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(speed) : <span class="built_in">Math</span>.floor(speed);</span></span><br><span class="line"><span class="javascript">                    elem.style[prop] = curValue + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, 50);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="单物体多值无关联运动"><a href="#单物体多值无关联运动" class="headerlink" title="单物体多值无关联运动"></a>单物体多值无关联运动</h4><ul>
+<li><p>一个物体的多个值一起变化（无序）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo1, .demo2 &#123;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: 0px;</span></span><br><span class="line"><span class="undefined">        opacity: 0.2;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .demo1 &#123;</span></span><br><span class="line"><span class="undefined">        top: 200px;</span></span><br><span class="line"><span class="undefined">        background-color: red;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .demo2 &#123;</span></span><br><span class="line"><span class="undefined">        top: 400px;</span></span><br><span class="line"><span class="undefined">        background-color: green;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>);</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; oDiv.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">        oDiv[i].key = <span class="literal">true</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> targetMove1 = &#123;</span></span><br><span class="line"><span class="undefined">        left: 500,</span></span><br><span class="line"><span class="undefined">        width: 300,</span></span><br><span class="line"><span class="undefined">        height: 300,     </span></span><br><span class="line"><span class="undefined">        opacity: 1</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> targetMove2 = &#123;</span></span><br><span class="line"><span class="undefined">        width: 500,</span></span><br><span class="line"><span class="undefined">        height: 50,</span></span><br><span class="line"><span class="undefined">        opacity: 0.5,</span></span><br><span class="line"><span class="undefined">        left: 400</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">elem, prop</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="built_in">window</span>.getComputedStyle) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="built_in">window</span>.getComputedStyle(elem, <span class="literal">null</span>)[prop];</span></span><br><span class="line"><span class="javascript">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> elem.currentStyle[prop];</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">elem, targetObj</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        clearInterval(elem.timer);</span></span><br><span class="line"><span class="javascript">        elem.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> stop = <span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> targetObj) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> curValue = (prop == <span class="string">'opacity'</span>) ? <span class="built_in">parseFloat</span>(getStyle(elem, prop)) : <span class="built_in">parseInt</span>(getStyle(elem, prop)),</span></span><br><span class="line"><span class="javascript">                    speed = (prop == <span class="string">'opacity'</span>) ? ((targetObj[prop] - curValue) * <span class="number">100</span> / <span class="number">7</span>) : ((targetObj[prop] - curValue) / <span class="number">7</span>);</span></span><br><span class="line"><span class="javascript">                speed = speed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(speed) : <span class="built_in">Math</span>.floor(speed);</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (prop == <span class="string">'opacity'</span>) &#123;</span></span><br><span class="line"><span class="undefined">                    elem.style[prop] = curValue + speed / 100;</span></span><br><span class="line"><span class="javascript">                &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                    elem.style[prop] = curValue + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (curValue != targetObj[prop]) &#123;</span></span><br><span class="line"><span class="javascript">                    stop = <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (stop) &#123;</span></span><br><span class="line"><span class="undefined">                clearInterval(elem.timer);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, 50);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    oDiv[<span class="number">0</span>].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="keyword">this</span>.key) &#123;</span></span><br><span class="line"><span class="javascript">            move(<span class="keyword">this</span>, targetMove1);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.key = <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一个物体的多个值连续变化（有序）</p>
+<p>这个代码bug，先放这，想清楚在改</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo1, .demo2 &#123;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: 0px;</span></span><br><span class="line"><span class="undefined">        opacity: 0.2;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .demo1 &#123;</span></span><br><span class="line"><span class="undefined">        top: 200px;</span></span><br><span class="line"><span class="undefined">        background-color: red;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .demo2 &#123;</span></span><br><span class="line"><span class="undefined">        top: 400px;</span></span><br><span class="line"><span class="undefined">        background-color: green;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>);</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; oDiv.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">        oDiv[i].key = <span class="literal">true</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> targetMove1 = &#123;</span></span><br><span class="line"><span class="undefined">        left: 500,</span></span><br><span class="line"><span class="undefined">        width: 300,</span></span><br><span class="line"><span class="undefined">        height: 300,     </span></span><br><span class="line"><span class="undefined">        opacity: 1</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> targetMove2 = &#123;</span></span><br><span class="line"><span class="undefined">        width: 500,</span></span><br><span class="line"><span class="undefined">        height: 50,</span></span><br><span class="line"><span class="undefined">        opacity: 0.5,</span></span><br><span class="line"><span class="undefined">        left: 400</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">elem, prop</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="built_in">window</span>.getComputedStyle) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="built_in">window</span>.getComputedStyle(elem, <span class="literal">null</span>)[prop];</span></span><br><span class="line"><span class="javascript">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> elem.currentStyle[prop];</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">elem, targetObj</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        clearInterval(elem.timer);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> targetObj) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(prop);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> curValue = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">while</span> (curValue != targetObj[prop]) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="number">111</span>);</span></span><br><span class="line"><span class="javascript">                elem.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                    curValue = (prop == <span class="string">'opacity'</span>) ? <span class="built_in">parseFloat</span>(getStyle(elem, prop)) : <span class="built_in">parseInt</span>(getStyle(elem, prop));</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> speed = (prop == <span class="string">'opacity'</span>) ? ((targetObj[prop] - curValue) * <span class="number">100</span> / <span class="number">7</span>) : ((targetObj[prop] - curValue) / <span class="number">7</span>);</span></span><br><span class="line"><span class="javascript">                    speed = speed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(speed) : <span class="built_in">Math</span>.floor(speed);</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">if</span> (prop == <span class="string">'opacity'</span>) &#123;</span></span><br><span class="line"><span class="undefined">                        elem.style[prop] = curValue + speed / 100;</span></span><br><span class="line"><span class="javascript">                    &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                        elem.style[prop] = curValue + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">                    &#125;</span></span><br><span class="line"><span class="undefined">                &#125;, 40);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">            clearInterval(elem.timer);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="多物体多值链式运动"><a href="#多物体多值链式运动" class="headerlink" title="多物体多值链式运动"></a>多物体多值链式运动</h4><ul>
+<li><p>效果图</p>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fqcizqvxyyg30xr0eqwf4.gif" alt=""></p>
+</li>
+<li><p>代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo1, .demo2, .demo3, .demo4 &#123;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        opacity: 0.2;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .demo1 &#123;</span></span><br><span class="line"><span class="undefined">        left: 0px;</span></span><br><span class="line"><span class="undefined">        top: 200px;</span></span><br><span class="line"><span class="undefined">        background-color: red;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .demo2 &#123;</span></span><br><span class="line"><span class="undefined">        left: 0px;</span></span><br><span class="line"><span class="undefined">        top: 400px;</span></span><br><span class="line"><span class="undefined">        background-color: green;</span></span><br><span class="line"><span class="undefined">        opacity: 1;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .demo3 &#123;</span></span><br><span class="line"><span class="undefined">        right: 0px;</span></span><br><span class="line"><span class="undefined">        top: 200px;</span></span><br><span class="line"><span class="undefined">        background-color: orange;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .demo4 &#123;</span></span><br><span class="line"><span class="undefined">        top: 400px;</span></span><br><span class="line"><span class="undefined">        right: 0px;</span></span><br><span class="line"><span class="undefined">        background-color: yellow;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo4"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>);</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; oDiv.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">        oDiv[i].key = <span class="literal">true</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> targetMove1 = &#123;</span></span><br><span class="line"><span class="undefined">        left: 500,</span></span><br><span class="line"><span class="undefined">        width: 300,</span></span><br><span class="line"><span class="undefined">        height: 300,     </span></span><br><span class="line"><span class="undefined">        opacity: 1</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> targetMove2 = &#123;</span></span><br><span class="line"><span class="undefined">        width: 500,</span></span><br><span class="line"><span class="undefined">        height: 50,</span></span><br><span class="line"><span class="undefined">        opacity: 0.5,</span></span><br><span class="line"><span class="undefined">        left: 400</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> targetMove3 = &#123;</span></span><br><span class="line"><span class="undefined">        left: 450,</span></span><br><span class="line"><span class="undefined">        width: 50,</span></span><br><span class="line"><span class="undefined">        height: 50,</span></span><br><span class="line"><span class="undefined">        opacity: 1</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> targetMove4 = &#123;</span></span><br><span class="line"><span class="undefined">        left: 800,</span></span><br><span class="line"><span class="undefined">        top: 200,</span></span><br><span class="line"><span class="undefined">        width: 50,</span></span><br><span class="line"><span class="undefined">        height:50,</span></span><br><span class="line"><span class="undefined">        opacity: 1</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">elem, prop</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="built_in">window</span>.getComputedStyle) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="built_in">window</span>.getComputedStyle(elem, <span class="literal">null</span>)[prop];</span></span><br><span class="line"><span class="javascript">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> elem.currentStyle[prop];</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">elem, targetObj, callback</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        elem.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> stop = <span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> targetObj) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> curValue = (prop == <span class="string">'opacity'</span>) ? <span class="built_in">parseFloat</span>(getStyle(elem, prop)) : <span class="built_in">parseInt</span>(getStyle(elem, prop)),</span></span><br><span class="line"><span class="javascript">                    speed = (prop == <span class="string">'opacity'</span>) ? ((targetObj[prop] - curValue) * <span class="number">100</span> / <span class="number">7</span>) : ((targetObj[prop] - curValue) / <span class="number">7</span>);</span></span><br><span class="line"><span class="javascript">                speed = speed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(speed) : <span class="built_in">Math</span>.floor(speed);</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (prop == <span class="string">'opacity'</span>) &#123;</span></span><br><span class="line"><span class="undefined">                    elem.style[prop] = curValue + speed / 100;</span></span><br><span class="line"><span class="javascript">                &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                    elem.style[prop] = curValue + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (curValue != targetObj[prop]) &#123;</span></span><br><span class="line"><span class="javascript">                    stop = <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (stop) &#123;</span></span><br><span class="line"><span class="undefined">                clearInterval(elem.timer);</span></span><br><span class="line"><span class="javascript">                <span class="keyword">typeof</span>(callback) == <span class="string">'function'</span> ? callback() : <span class="string">''</span>;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, 50);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    oDiv[<span class="number">0</span>].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="keyword">this</span>.key) &#123;</span></span><br><span class="line"><span class="javascript">            move(<span class="keyword">this</span>, targetMove1, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                move(oDiv[<span class="number">1</span>], targetMove2, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                    move(oDiv[<span class="number">2</span>], targetMove3, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">                        move(oDiv[3], targetMove4);</span></span><br><span class="line"><span class="undefined">                    &#125;);</span></span><br><span class="line"><span class="undefined">                &#125;);</span></span><br><span class="line"><span class="undefined">            &#125;);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.key = <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="加速运动"><a href="#加速运动" class="headerlink" title="加速运动"></a>加速运动</h3><h4 id="单向匀加速运动"><a href="#单向匀加速运动" class="headerlink" title="单向匀加速运动"></a>单向匀加速运动</h4><p>初速的为0， 给定一个加速度</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">// head</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo &#123;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: 800px;</span></span><br><span class="line"><span class="undefined">        width: 50px;</span></span><br><span class="line"><span class="undefined">        height: 50px;</span></span><br><span class="line"><span class="undefined">        background-color: orange;</span></span><br><span class="line"><span class="undefined">        border-radius: 50%;</span></span><br><span class="line"><span class="undefined">        line-height: 50px;</span></span><br><span class="line"><span class="undefined">        text-align: center;</span></span><br><span class="line"><span class="undefined">        cursor: pointer;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">// body</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>click<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">'text/javascript'</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDivDemo = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'demo'</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="javascript">        key = <span class="literal">true</span>;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">elem, tarLoc</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> speed = <span class="number">0</span>,</span></span><br><span class="line"><span class="undefined">            a = -3,</span></span><br><span class="line"><span class="undefined">            curValue;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">            curValue = elem.offsetLeft;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(tarLoc - curValue) &lt; <span class="built_in">Math</span>.abs(speed)) &#123;</span></span><br><span class="line"><span class="javascript">                elem.style.left = tarLoc + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">                clearInterval(timer);</span></span><br><span class="line"><span class="javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                elem.style.left = curValue + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">                speed += a;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, 25);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    oDivDemo.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (key) &#123;</span></span><br><span class="line"><span class="javascript">            move(<span class="keyword">this</span>, <span class="number">8</span>);</span></span><br><span class="line"><span class="javascript">            key = <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="匀减速运动"><a href="#匀减速运动" class="headerlink" title="匀减速运动"></a>匀减速运动</h4><p>给定一个非0初速度，给定一个加速度</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo &#123;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: px;</span></span><br><span class="line"><span class="undefined">        top: 0px;</span></span><br><span class="line"><span class="undefined">        width: 50px;</span></span><br><span class="line"><span class="undefined">        height: 50px;</span></span><br><span class="line"><span class="undefined">        background-color: orange;</span></span><br><span class="line"><span class="undefined">        border-radius: 50%;</span></span><br><span class="line"><span class="undefined">        line-height: 50px;</span></span><br><span class="line"><span class="undefined">        text-align: center;</span></span><br><span class="line"><span class="undefined">        cursor: pointer;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>click<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">'text/javascript'</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDivDemo = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'demo'</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="javascript">        key = <span class="literal">true</span>;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">elem, tarLoc</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> speed = <span class="number">100</span>,</span></span><br><span class="line"><span class="undefined">            a = -4,</span></span><br><span class="line"><span class="undefined">            curValue;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">            curValue = elem.offsetLeft;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(tarLoc - curValue) &lt; <span class="built_in">Math</span>.abs(speed)) &#123;</span></span><br><span class="line"><span class="javascript">                elem.style.left = tarLoc + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">                clearInterval(timer);</span></span><br><span class="line"><span class="javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                elem.style.left = curValue + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">                speed += a;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, 25);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    oDivDemo.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (key) &#123;</span></span><br><span class="line"><span class="javascript">            move(<span class="keyword">this</span>, <span class="number">800</span>);</span></span><br><span class="line"><span class="javascript">            key = <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="弹性运动"><a href="#弹性运动" class="headerlink" title="弹性运动"></a>弹性运动</h4><h5 id="没有摩擦力"><a href="#没有摩擦力" class="headerlink" title="没有摩擦力"></a>没有摩擦力</h5><ul>
+<li><p>首先实现这样一个效果</p>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fqeljsddbgg30h906v74v.gif" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">// head</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo &#123;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: 500px;</span></span><br><span class="line"><span class="undefined">        top: 0px;</span></span><br><span class="line"><span class="undefined">        width: 50px;</span></span><br><span class="line"><span class="undefined">        height: 50px;</span></span><br><span class="line"><span class="undefined">        background-color: orange;</span></span><br><span class="line"><span class="undefined">        border-radius: 50%;</span></span><br><span class="line"><span class="undefined">        line-height: 50px;</span></span><br><span class="line"><span class="undefined">        text-align: center;</span></span><br><span class="line"><span class="undefined">        cursor: pointer;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">// body</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>click<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDivDemo = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'demo'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">ele</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        clearInterval(ele.timer);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> curValue,</span></span><br><span class="line"><span class="undefined">                a = 3,</span></span><br><span class="line"><span class="undefined">                speed = 0;</span></span><br><span class="line"><span class="javascript">        ele.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">            curValue = ele.offsetLeft;</span></span><br><span class="line"><span class="undefined">            speed += curValue &lt; 600 ? a : -a;</span></span><br><span class="line"><span class="javascript">            ele.style.left = curValue + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">        &#125;, 30);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    oDivDemo.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        move(<span class="keyword">this</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>坑</p>
+<p>如果将计时器中的</p>
+<p>speed += curValue &lt; 600 ? a : -a;</p>
+<p>ele.style.left = curValue + speed + ‘px’;</p>
+<p>这两条语句的位置换一下顺序的话，效果如下图（对比图）</p>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fqel6gy3clg312b0afdhs.gif" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">// head</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo &#123;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: 500px;</span></span><br><span class="line"><span class="undefined">        top: 0px;</span></span><br><span class="line"><span class="undefined">        width: 50px;</span></span><br><span class="line"><span class="undefined">        height: 50px;</span></span><br><span class="line"><span class="undefined">        background-color: orange;</span></span><br><span class="line"><span class="undefined">        border-radius: 50%;</span></span><br><span class="line"><span class="undefined">        line-height: 50px;</span></span><br><span class="line"><span class="undefined">        text-align: center;</span></span><br><span class="line"><span class="undefined">        cursor: pointer;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .demo1 &#123;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: 500px;</span></span><br><span class="line"><span class="undefined">        top: 100px;</span></span><br><span class="line"><span class="undefined">        width: 50px;</span></span><br><span class="line"><span class="undefined">        height: 50px;</span></span><br><span class="line"><span class="undefined">        background-color: orange;</span></span><br><span class="line"><span class="undefined">        border-radius: 50%;</span></span><br><span class="line"><span class="undefined">        line-height: 50px;</span></span><br><span class="line"><span class="undefined">        text-align: center;</span></span><br><span class="line"><span class="undefined">        cursor: pointer;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">// body</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>click<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">'text/javascript'</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>);</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">ele</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        clearInterval(ele.timer);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> speed = <span class="number">5</span>,</span></span><br><span class="line"><span class="undefined">            a = 5,</span></span><br><span class="line"><span class="undefined">            curValue;</span></span><br><span class="line"><span class="javascript">        ele.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">            curValue = ele.offsetLeft;</span></span><br><span class="line"><span class="javascript">            ele.style.left = curValue + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">            speed += curValue &lt; 600 ? a : -a;</span></span><br><span class="line"><span class="undefined">        &#125;, 50);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">move1</span>(<span class="params">ele</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        clearInterval(ele.timer);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> speed = <span class="number">0</span>,</span></span><br><span class="line"><span class="undefined">            a = 2,</span></span><br><span class="line"><span class="undefined">            curValue;</span></span><br><span class="line"><span class="javascript">        ele.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">            curValue = ele.offsetLeft;</span></span><br><span class="line"><span class="undefined">            speed += curValue &lt; 600 ? a : -a;         </span></span><br><span class="line"><span class="javascript">            ele.style.left = curValue + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">        &#125;, 50);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    oDiv[<span class="number">0</span>].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        move(<span class="keyword">this</span>);</span></span><br><span class="line"><span class="undefined">        move1(oDiv[1]);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>原因</strong></p>
+<p>首先来理解整个这个过程：</p>
+<p>物体以一定的初速度开始做匀加速运动，到达中间点后开始做匀减速运动；速度减为0后开始做反向匀加速运动，到达中间点后开始做匀减速运动，如此反复(上面代码中设定的中间点是600)</p>
+<p>下面介绍两种写法的区别：</p>
+<p>复合预期的写法，到达中间点后加速度立即变为负数，然后改变物体的位置；</p>
+<p>不符合预期的写法，到达中间点后先改变物体的位置，然后才改变加速的，这样的话，过了中间点后，物体仍然处于加速原来的状态，所以会继续运动一段时间，等下一次再次判定时，才会按照上一次改的加速的运动，这样多次反复，运动距离会越来越远</p>
+</li>
+</ul>
+<h5 id="有摩擦力"><a href="#有摩擦力" class="headerlink" title="有摩擦力"></a>有摩擦力</h5><p>加上摩擦力后，物体的加速的就不能保持不变了，会逐渐减小</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo &#123;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: 100px;</span></span><br><span class="line"><span class="undefined">        top: 0px;</span></span><br><span class="line"><span class="undefined">        width: 50px;</span></span><br><span class="line"><span class="undefined">        height: 50px;</span></span><br><span class="line"><span class="undefined">        background-color: orange;</span></span><br><span class="line"><span class="undefined">        border-radius: 50%;</span></span><br><span class="line"><span class="undefined">        line-height: 50px;</span></span><br><span class="line"><span class="undefined">        text-align: center;</span></span><br><span class="line"><span class="undefined">        cursor: pointer;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>click<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDivDemo = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'demo'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">ele, tarLoc</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        clearInterval(ele.timer);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> curValue,</span></span><br><span class="line"><span class="undefined">            a,</span></span><br><span class="line"><span class="undefined">            speed = 0,</span></span><br><span class="line"><span class="undefined">            u = 0.9;</span></span><br><span class="line"><span class="javascript">        ele.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">            curValue = ele.offsetLeft;</span></span><br><span class="line"><span class="undefined">            a = (tarLoc - curValue) / 9;</span></span><br><span class="line"><span class="undefined">            speed += a;</span></span><br><span class="line"><span class="undefined">            speed *= u;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(speed);</span></span><br><span class="line"><span class="javascript">            ele.style.left = curValue + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">        &#125;, 30);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    oDivDemo.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        move(<span class="keyword">this</span>, <span class="number">600</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="让运动停下来"><a href="#让运动停下来" class="headerlink" title="让运动停下来"></a>让运动停下来</h5><p>上面的代码中没有清除计时器，所以物体并没有真正的停下来</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">// head</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo &#123;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: 100px;</span></span><br><span class="line"><span class="undefined">        top: 0px;</span></span><br><span class="line"><span class="undefined">        width: 50px;</span></span><br><span class="line"><span class="undefined">        height: 50px;</span></span><br><span class="line"><span class="undefined">        background-color: orange;</span></span><br><span class="line"><span class="undefined">        border-radius: 50%;</span></span><br><span class="line"><span class="undefined">        line-height: 50px;</span></span><br><span class="line"><span class="undefined">        text-align: center;</span></span><br><span class="line"><span class="undefined">        cursor: pointer;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">// body</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>click<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDivDemo = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'demo'</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="javascript">        key = <span class="literal">true</span>;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">ele, tarLoc</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        clearInterval(ele.timer);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> curValue,</span></span><br><span class="line"><span class="undefined">            a,</span></span><br><span class="line"><span class="undefined">            speed = 0,</span></span><br><span class="line"><span class="undefined">            u = 0.9;</span></span><br><span class="line"><span class="javascript">        ele.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">            curValue = ele.offsetLeft;</span></span><br><span class="line"><span class="undefined">            a = (tarLoc - curValue) / 9;</span></span><br><span class="line"><span class="undefined">            speed += a;</span></span><br><span class="line"><span class="undefined">            speed *= u;</span></span><br><span class="line"><span class="javascript">            ele.style.left = curValue + speed + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(tarLoc - curValue) &lt;= <span class="number">1</span> &amp;&amp; <span class="built_in">Math</span>.abs(speed) &lt;= <span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="undefined">                clearInterval(ele.timer);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, 30);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    oDivDemo.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (key) &#123;</span></span><br><span class="line"><span class="javascript">            move(<span class="keyword">this</span>, <span class="number">600</span>);</span></span><br><span class="line"><span class="javascript">            key = <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="模拟重力场（加拖拽）"><a href="#模拟重力场（加拖拽）" class="headerlink" title="模拟重力场（加拖拽）"></a>模拟重力场（加拖拽）</h4><p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fqfvfbf2tag30ma0higml.gif" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">// head</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .demo &#123;</span></span><br><span class="line"><span class="undefined">        position: absolute;</span></span><br><span class="line"><span class="undefined">        left: 0px;</span></span><br><span class="line"><span class="undefined">        top: 0px;</span></span><br><span class="line"><span class="undefined">        width: 50px;</span></span><br><span class="line"><span class="undefined">        height: 50px;</span></span><br><span class="line"><span class="undefined">        background-color: orange;</span></span><br><span class="line"><span class="undefined">        border-radius: 50%;</span></span><br><span class="line"><span class="undefined">        text-align: center;</span></span><br><span class="line"><span class="undefined">        line-height: 50px;</span></span><br><span class="line"><span class="undefined">        font-weight: bold;</span></span><br><span class="line"><span class="undefined">        cursor: pointer;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">// body</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>drag<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">ele, speedX, speedY</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> curLocX,</span></span><br><span class="line"><span class="undefined">            curLocY,</span></span><br><span class="line"><span class="undefined">            xLoc,</span></span><br><span class="line"><span class="undefined">            yLoc,</span></span><br><span class="line"><span class="undefined">            g = 4.5,</span></span><br><span class="line"><span class="undefined">            u = 0.9;</span></span><br><span class="line"><span class="javascript">        ele.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">            curLocX = ele.offsetLeft;</span></span><br><span class="line"><span class="undefined">            curLocY = ele.offsetTop;</span></span><br><span class="line"><span class="undefined">            speedY += g;</span></span><br><span class="line"><span class="undefined">            xLoc = curLocX + speedX;</span></span><br><span class="line"><span class="undefined">            yLoc = curLocY + speedY;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (<span class="built_in">window</span>.innerHeight - ele.offsetHeight &lt;= yLoc) &#123;</span></span><br><span class="line"><span class="javascript">                yLoc = <span class="built_in">window</span>.innerHeight - ele.offsetHeight;</span></span><br><span class="line"><span class="undefined">                speedX *= u;</span></span><br><span class="line"><span class="undefined">                speedY *= u;</span></span><br><span class="line"><span class="undefined">                speedY *= -1;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (yLoc &lt; <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="undefined">                yLoc = 0;</span></span><br><span class="line"><span class="undefined">                speedX *= u;</span></span><br><span class="line"><span class="undefined">                speedY *= u;</span></span><br><span class="line"><span class="undefined">                speedY *= -1;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (<span class="built_in">window</span>.innerWidth - ele.offsetWidth &lt;= xLoc) &#123;</span></span><br><span class="line"><span class="javascript">                xLoc = <span class="built_in">window</span>.innerWidth - ele.offsetWidth;</span></span><br><span class="line"><span class="undefined">                speedX *= u;</span></span><br><span class="line"><span class="undefined">                speedY *= u;                   </span></span><br><span class="line"><span class="undefined">                speedX *= -1;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (xLoc &lt; <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="undefined">                xLoc = 0;</span></span><br><span class="line"><span class="undefined">                speedX *= u;</span></span><br><span class="line"><span class="undefined">                speedY *= u;                   </span></span><br><span class="line"><span class="undefined">                speedX *= -1;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">            ele.style.left = xLoc + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="javascript">            ele.style.top = yLoc + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(curLocX - xLoc) &lt; <span class="number">0.1</span> &amp;&amp; curLocY == yLoc) &#123;</span></span><br><span class="line"><span class="undefined">                clearInterval(ele.timer);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="undefined">        &#125;, 20);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    oDiv.onmousedown = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        clearInterval(<span class="keyword">this</span>.timer);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> event = e || <span class="built_in">window</span>.event,</span></span><br><span class="line"><span class="javascript">            deviationX = event.clientX - <span class="keyword">this</span>.offsetLeft,</span></span><br><span class="line"><span class="javascript">            deviationY = event.clientY - <span class="keyword">this</span>.offsetTop,</span></span><br><span class="line"><span class="undefined">            speedX = 0,</span></span><br><span class="line"><span class="undefined">            speedY = 0;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.onmousemove = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> event = e || <span class="built_in">window</span>.event,</span></span><br><span class="line"><span class="undefined">                xLoc = event.clientX - deviationX,</span></span><br><span class="line"><span class="undefined">                yLoc = event.clientY - deviationY;</span></span><br><span class="line"><span class="undefined">            speedX = xLoc - oDiv.offsetLeft;</span></span><br><span class="line"><span class="undefined">            speedY = yLoc - oDiv.offsetTop;</span></span><br><span class="line"><span class="javascript">            oDiv.style.left = xLoc + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="javascript">            oDiv.style.top = yLoc + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.onmouseup = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.onmousemove = <span class="literal">null</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.onmouseup = <span class="literal">null</span>;</span></span><br><span class="line"><span class="undefined">            move(oDiv, speedX, speedY);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>  
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"> <i class="fa fa-tag"></i> JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/22/a35_javascript/" rel="next" title="BOM">
+                <i class="fa fa-chevron-left"></i> BOM
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/25/a38_javascript/" rel="prev" title="简单原生轮播图">
+                简单原生轮播图 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxOS8xNTM0Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg"
+                alt="Qin Haitao" />
+            
+              <p class="site-author-name" itemprop="name">Qin Haitao</p>
+              <p class="site-description motion-element" itemprop="description">搭一座不倒的积木塔</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/qinhaitao97" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:15634313305@163.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#匀速运动"><span class="nav-number">1.</span> <span class="nav-text">匀速运动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#点击开始匀速运动，再次点击停止运动"><span class="nav-number">1.1.</span> <span class="nav-text">点击开始匀速运动，再次点击停止运动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#到达指定位置时停止运动"><span class="nav-number">1.2.</span> <span class="nav-text">到达指定位置时停止运动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓冲运动"><span class="nav-number">2.</span> <span class="nav-text">缓冲运动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#位置变化"><span class="nav-number">2.1.</span> <span class="nav-text">位置变化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#透明度变化"><span class="nav-number">2.2.</span> <span class="nav-text">透明度变化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多物体运动"><span class="nav-number">3.</span> <span class="nav-text">多物体运动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多物体单值无关联运动一"><span class="nav-number">3.1.</span> <span class="nav-text">多物体单值无关联运动一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多物体单值无关联运动二"><span class="nav-number">3.2.</span> <span class="nav-text">多物体单值无关联运动二</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单物体多值无关联运动"><span class="nav-number">3.3.</span> <span class="nav-text">单物体多值无关联运动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多物体多值链式运动"><span class="nav-number">3.4.</span> <span class="nav-text">多物体多值链式运动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加速运动"><span class="nav-number">4.</span> <span class="nav-text">加速运动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单向匀加速运动"><span class="nav-number">4.1.</span> <span class="nav-text">单向匀加速运动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匀减速运动"><span class="nav-number">4.2.</span> <span class="nav-text">匀减速运动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弹性运动"><span class="nav-number">4.3.</span> <span class="nav-text">弹性运动</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#没有摩擦力"><span class="nav-number">4.3.1.</span> <span class="nav-text">没有摩擦力</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#有摩擦力"><span class="nav-number">4.3.2.</span> <span class="nav-text">有摩擦力</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#让运动停下来"><span class="nav-number">4.3.3.</span> <span class="nav-text">让运动停下来</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模拟重力场（加拖拽）"><span class="nav-number">4.4.</span> <span class="nav-text">模拟重力场（加拖拽）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qin Haitao</span>
+
+  
+
+  
+</div>
+
+
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">已经写了 169.7k 字啦~</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=6.4.0"></script>
+
+
+  
+
+  
+
+</body>
+</html>

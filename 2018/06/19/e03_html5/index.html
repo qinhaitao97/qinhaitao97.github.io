@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.0',
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="HTML5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="定时器优化、客户端存储、history、worker">
+<meta property="og:url" content="http://yoursite.com/2018/06/19/e03_html5/index.html">
+<meta property="og:site_name" content="码瓜">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1ftqqlyq80bg30ey098q2u.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1ftrqgyif4og30fw08nk0b.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1ftrsvr6xk6j309r01lwe9.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1ftrsy1dil3j30la01u0sn.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1ftrwyyo2t0j30cz01xjr8.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1ftrx3vgdr3j30cw01xt8k.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fts1ja7k8yg30ik0c548f.gif">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fts5zu9bl4g30sp0a60x2.gif">
+<meta property="og:updated_time" content="2018-08-15T06:54:26.846Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="定时器优化、客户端存储、history、worker">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1ftqqlyq80bg30ey098q2u.gif">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/19/e03_html5/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>定时器优化、客户端存储、history、worker | 码瓜</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">码瓜</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/19/e03_html5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qin Haitao">
+      <meta itemprop="description" content="搭一座不倒的积木塔">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码瓜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">定时器优化、客户端存储、history、worker
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <!-- 置顶文字 -->
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-19 15:42:09" itemprop="dateCreated datePublished" datetime="2018-06-19T15:42:09+08:00">2018-06-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-15 14:54:26" itemprop="dateModified" datetime="2018-08-15T14:54:26+08:00">2018-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HTML5/" itemprop="url" rel="index"><span itemprop="name">HTML5</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description"> </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="requestAniamtionFrame"><a href="#requestAniamtionFrame" class="headerlink" title="requestAniamtionFrame"></a>requestAniamtionFrame</h3><h4 id="setInterval-做动画的缺点"><a href="#setInterval-做动画的缺点" class="headerlink" title="setInterval 做动画的缺点"></a>setInterval 做动画的缺点</h4><ul>
+<li><p>动画延迟执行</p>
+<p>js是单线程的，当某一个进程在排队期间，插入了其他执行时间过长的进程，会导致原排队进程延迟执行</p>
+</li>
+<li><p>延迟不准确</p>
+<p>如果把动画延迟时间设置太长了，则会感觉到动画卡顿，那就设置延迟短一点，但是实际执行的延迟不是我们设置的准确的延迟，因为要把计时器放到异步执行当中，再放到异步执行当中，然后主线程访问看拿哪个计时器；所以即使设置了0ms的响应时间，也不会立即执行，还是会有一个大概4ms的延迟</p>
+</li>
+<li><p>丢帧问题</p>
+<p>我们能看到的动画是由一帧一帧的静态效果所连成的，比我们使用setInterval方法让一个物体每隔4ms动一次，即每隔4ms都是新的一帧，但是浏览器大概是每隔16ms才刷新一次，浏览器不刷新我们也就看不到帧的变化，这部分我们看不到的效果就叫做丢帧，设置的延迟时间越小，丢帧越多，但是设置的延迟时间大了又会造成视觉卡顿，比较合理的时间是浏览器的刷新周期，前面说了浏览器大概16ms刷新一次，但是也只是大概的时间，并不是说准确的就是16ms，所以如果使用setInterval，那么把延迟时间设置成16ms比较合理，但也不是最好的方法</p>
+</li>
+</ul>
+<h4 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h4><ol>
+<li><p>页面刷新前执行一次</p>
+</li>
+<li><p>1000ms 60fps -&gt; 16ms</p>
+</li>
+<li><p>用法类似于setTimeout，而不是setInterval</p>
+</li>
+<li><p>cancelAnimationFrame 取消</p>
+</li>
+<li><p>兼容性（IE10以上）</p>
+<p>在不能使用这个方法的浏览器中，还是要用setTimeout方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置的兼容性写法</span></span><br><span class="line"><span class="built_in">window</span>.requestAnimationFrame = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">window</span>.requestAnimationFrame ||</span><br><span class="line">        <span class="built_in">window</span>.webkitRequestAnimationFrame ||</span><br><span class="line">        <span class="built_in">window</span>.mozRequestAnimationFrame ||</span><br><span class="line">        <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</span><br><span class="line">       		<span class="built_in">window</span>.setTimeout(callback, <span class="number">1000</span> / <span class="number">60</span>);</span><br><span class="line">    	&#125;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消的兼容性写法</span></span><br><span class="line"><span class="built_in">window</span>.cancelAnimationFrame = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">window</span>.cancelAnimationFrame ||</span><br><span class="line">        <span class="built_in">window</span>.webkitCancelAnimationFrame ||</span><br><span class="line">        <span class="built_in">window</span>.mozCancelAnimationFrame ||</span><br><span class="line">        <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">window</span>.clearTimeout(id);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>使用实例</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-id">#box</span> &#123;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            top: 0px;</span></span><br><span class="line"><span class="undefined">            left: 0px;</span></span><br><span class="line"><span class="undefined">            width: 100px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            background-color: deepskyblue;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.requestAnimationFrame = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="built_in">window</span>.requestAnimationFrame ||</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.webkitRequestAnimationFrame ||</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.mozRequestAnimationFrame ||</span></span><br><span class="line"><span class="javascript">                <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">window</span>.setTimeout(callback, <span class="number">1000</span> / <span class="number">60</span>);</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined">        &#125;)();</span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.cancelAnimationFrame = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="built_in">window</span>.cancelAnimationFrame ||</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.webkitCancelAnimationFrame ||</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.mozCancelAnimationFrame ||</span></span><br><span class="line"><span class="javascript">                <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">window</span>.clearTimeout(id);</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined">        &#125;)();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> req;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (box.offsetLeft &gt;= <span class="number">300</span>) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.cancelAnimationFrame(req);</span></span><br><span class="line"><span class="javascript">                box.style.left = <span class="string">'300px'</span>;</span></span><br><span class="line"><span class="javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                box.style.left = box.offsetLeft + <span class="number">10</span> + <span class="string">'px'</span>;</span></span><br><span class="line"><span class="javascript">                req = <span class="built_in">window</span>.requestAnimationFrame(move);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        move();</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1ftqqlyq80bg30ey098q2u.gif" alt=""></p>
+<h3 id="客户端存储"><a href="#客户端存储" class="headerlink" title="客户端存储"></a>客户端存储</h3><h4 id="storage简介"><a href="#storage简介" class="headerlink" title="storage简介"></a>storage简介</h4><p>之前介绍过利用cookie实现客户端存储，但是cookie有一些限制、不足：</p>
+<ul>
+<li>使用cookie要在http请求头中设置字段，服务器接收到请求后，在响应头中返回相应的信息，所以cookie是随着http传输的，会浪费一些宽带</li>
+<li>有路径的限制</li>
+<li>cookie只能存储少量的数据</li>
+</ul>
+<p>现在介绍另一中客户端存储技术 storage，不需要通过http传输，可以存储大量的数据</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>cookie</th>
+<th>localStorage</th>
+<th>sessionStorage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据的生命周期</td>
+<td>一般有服务器生成，可设置失效时间。如果在浏览器端生成cookie，默认是关闭浏览器后失效</td>
+<td>除非被清除，否则永久保存</td>
+<td>尽在当前会话下有效，关闭页面或者浏览器后被清除</td>
+</tr>
+<tr>
+<td>存放数据大小</td>
+<td>4k左右</td>
+<td>一般为5MB</td>
+<td>同localStorage</td>
+</tr>
+<tr>
+<td>与服务器端通信</td>
+<td>每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题</td>
+<td>尽在客户端（即浏览器）中保存，不参与和服务器的通信</td>
+<td>同localStorage</td>
+</tr>
+<tr>
+<td>易用性</td>
+<td>需要程序员自己封装，原生的cookie接口不友好</td>
+<td>原生接口可以接受，亦可再次封装来对Object 和 Array有更友好的支持</td>
+<td>同localStorage</td>
+</tr>
+</tbody>
+</table>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
+<li><p>localstorage</p>
+<p>永久存储</p>
+</li>
+<li><p>sessionStorage</p>
+<p>临时存储</p>
+</li>
+</ul>
+<h4 id="属性方法"><a href="#属性方法" class="headerlink" title="属性方法"></a>属性方法</h4><p>查看storage</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 1.直接打开控制台，在 application -&gt; localStorage / sessionStorage / files 下查看</span><br><span class="line"></span><br><span class="line">- 2.window.localStorage / window.sessionStorage</span><br><span class="line"></span><br><span class="line">注： localStorage / sessionStorage 是window上的属性，cookie是document上的属性</span><br></pre></td></tr></table></figure>
+<p>存储数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 存储的数据必须是字符串格式</span></span><br><span class="line">localStorage.name = <span class="string">'qht'</span>;</span><br><span class="line">localStorage.info = <span class="built_in">JSON</span>.stringify(&#123;<span class="string">"name"</span>: <span class="string">"qht"</span>, <span class="string">"age"</span>: <span class="number">20</span>&#125;);</span><br><span class="line"></span><br><span class="line">sessionStorage.name = <span class="string">'qht'</span>;</span><br><span class="line">sessionStorage.info = <span class="built_in">JSON</span>.stringify(&#123;<span class="string">"name"</span>: <span class="string">"qht"</span>, <span class="string">"age"</span>: <span class="number">20</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>取出数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">localStorage.name</span><br><span class="line">localStorage.info</span><br><span class="line"></span><br><span class="line">sessionStorage.name</span><br><span class="line">sessionStorage.info</span><br></pre></td></tr></table></figure>
+<p>查看数据个数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">localStorage.length</span><br><span class="line"></span><br><span class="line">sessionStorage.length</span><br></pre></td></tr></table></figure>
+<p>存取的有效期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- localStorage：  永久的，除非手动删除</span><br><span class="line">- sessionStorage：临时的，窗口关闭就没有了</span><br></pre></td></tr></table></figure>
+<p>作用域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- localStorage:   受文档源限制（同源）</span><br><span class="line">- sessionStorage：受文档源限制（同源）+ 受窗口限制</span><br></pre></td></tr></table></figure>
+<p>API</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置属性</span></span><br><span class="line">localStorage.setItem(name, value)</span><br><span class="line"><span class="comment">// 获取属性值</span></span><br><span class="line">localStorage.getItem(name)</span><br><span class="line"><span class="comment">// 移除属性值</span></span><br><span class="line">localStorage.removeItem(name);</span><br><span class="line"><span class="comment">// 清除所有属性</span></span><br><span class="line">localStorage.clear();</span><br><span class="line"></span><br><span class="line"><span class="comment">// sessionStorage的使用方法一样</span></span><br></pre></td></tr></table></figure>
+<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p><code>window.history</code> 指向 history 对象，表示浏览器当前窗口的浏览历史；history对象保存了当前窗口访问过的所有页面地址，可以通过前进/后退操作或者history的方法来前进/后退到后/前一个网址，出于安全性的考虑，我们只能通过前进后退操作进行导航，但是不能获取这些历史网页的地址</p>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><blockquote>
+<ul>
+<li>history.length</li>
+<li>history.state</li>
+</ul>
+</blockquote>
+<h5 id="length"><a href="#length" class="headerlink" title="length"></a>length</h5><p>获得浏览器当前窗口历史记录的条数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history.length;</span><br></pre></td></tr></table></figure>
+<h5 id="state"><a href="#state" class="headerlink" title="state"></a>state</h5><p>history堆栈最上层的状态值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history.state</span><br></pre></td></tr></table></figure>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><blockquote>
+<p>html中的方法</p>
+<ul>
+<li>history.back()</li>
+<li>history.forward()</li>
+<li>history.go()</li>
+</ul>
+<p>html5新增的方法</p>
+<ul>
+<li>history.pushState()</li>
+<li>history.replaceState()</li>
+</ul>
+</blockquote>
+<h5 id="back"><a href="#back" class="headerlink" title="back()"></a>back()</h5><p>回退到上一条历史记录对应的页面，相当于浏览器后退按钮的作用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history.back();</span><br></pre></td></tr></table></figure>
+<h5 id="forward"><a href="#forward" class="headerlink" title="forward()"></a>forward()</h5><p>前进到下一条历史记录对应的页面，相当于浏览器前进按钮的作用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history.forward();</span><br></pre></td></tr></table></figure>
+<h5 id="go"><a href="#go" class="headerlink" title="go()"></a>go()</h5><p>跳转到历史记录中相对于当前页面的前/后 n 个页面</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">history.go(n);</span><br><span class="line"><span class="comment">// 举例:</span></span><br><span class="line"><span class="comment">// history.go(0)	跳转到当前页面，相当于刷新操作</span></span><br><span class="line"><span class="comment">// history.go(1)	跳转到当前页面的下一个页面</span></span><br><span class="line"><span class="comment">// history.go(-1)	跳转到当前页面的上一个页面</span></span><br></pre></td></tr></table></figure>
+<p>通过以上三个方法，浏览器跳转到某个页面，页面通常是从浏览器缓存中加载的，而不是重新向服务器发送请求</p>
+<h5 id="pushState"><a href="#pushState" class="headerlink" title="pushState()"></a>pushState()</h5><ul>
+<li><p>功能</p>
+<p>在当前历史记录中，添加一条新的记录</p>
+</li>
+<li><p>语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history.pushState(state, title, url);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参数</p>
+<ul>
+<li><p>state</p>
+<p>一个对象或者字符串，用于描述新纪录的一些特性，由开发者自由给出，以便后续使用(主要用于 <code>popstate</code> 事件，该事件触发时，该参数被传入回调函数，浏览器会将这个参数序列化之后保存在本地，重新载入这个页面的时候，可以拿到这个参数)</p>
+</li>
+<li><p>title</p>
+<p>新页面的标题，现在所有的浏览器都会忽略这个参数，所以一般传 <code>null</code> 即可</p>
+</li>
+<li><p>url</p>
+<p>新页面的地址，与当前页面要在同一个域下</p>
+</li>
+</ul>
+</li>
+<li><p>强调</p>
+<ul>
+<li><p><strong>该方法受同源策略的限制</strong></p>
+<p>新添加的记录的地址要和当前页面在同一个域下</p>
+</li>
+<li><p><strong>使用该方法后，浏览器地址栏会立即显示新添加的地址</strong></p>
+<p>浏览器的历史记录可以看做一个栈，前进操作或者打开新的网页或者添加新的历史记录，新的网址入栈；后退操作会使最上面的记录出栈，而浏览器向用户展示的是栈顶的记录，所以，使用了这个方法添加了一条新的记录后，栈顶记录就成了新的网址，浏览器的地址栏就会显示这个网址</p>
+</li>
+<li><p><strong>使用该方法不会刷新网页</strong></p>
+<p>使用这个方法可以是地址栏显示新的地址，但是却不会刷新当前的页面，也就是说在使用js添加了一条新的历史记录后，只有地址栏会产生变化（显示新的地址），页面还是显示当前的页面，不会进行刷新</p>
+</li>
+</ul>
+</li>
+<li><p>举例</p>
+<blockquote>
+<p>样例1：展示整个过程</p>
+</blockquote>
+<p>我们在服务器中创建一个 “history-pushState” 文件夹作为测试文件夹，在此文件夹中创建两个文件 “currentPage.html” 和 “newPage”，分别代表当前页面和新的页面，我们要做的就是在当前页面中把新的页面添加到历史记录中，为了区别当前页面和新页面，在两个页面中写入了不同的文字</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- currentPage.html --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>currentPage<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- currentPage 页面中显示的内容 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>This is currentPage!<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 添加新的记录</span></span></span><br><span class="line"><span class="javascript">        history.pushState(<span class="literal">null</span>, <span class="literal">null</span>, <span class="string">'./newPage.html'</span>);</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- newPage.html --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>newPage<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>This is newPage!<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>接下类，为了能看清楚当前页面在执行了 <code>pushState()</code> 方法后有哪些变化，我们通过输入 “currentPage.html” 的地址来打开这个页面</p>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1ftrqgyif4og30fw08nk0b.gif" alt=""></p>
+<p>可以看到，我们输入地址是 “currentPage.html” 的地址，按下回车后，地址栏却变成了 “newPage.html” 的地址，这是因为我们在 “currentPage.html” 页面中使用 <code>pushState()</code> 方法添加了一条新的历史记录，这条记录的地址就是 “newPage.html” 页面的地址，所以地址栏会立即变成当前新记录的地址；不过虽然地址栏变成了新纪录的地址，但显示的还是 “currentPage.html” 的页面，这因为使用 <code>pushState()</code> 方法不执行刷新操作，即便地址栏已经改成了新页面的地址，但如果我们不进行手动刷新，它依然会显示当前的页面</p>
+<blockquote>
+<p>样例2：读取 <code>history.state</code> 状态属性</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>currentPage<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- currentPage 页面中显示的内容 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>This is currentPage!<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 添加新的记录</span></span></span><br><span class="line"><span class="javascript">        history.pushState(&#123;<span class="attr">name</span>: <span class="string">'new'</span>&#125;, <span class="literal">null</span>, <span class="string">'./newPage.html'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 读取状态属性</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(history.state);</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1ftrsvr6xk6j309r01lwe9.jpg" alt=""></p>
+<blockquote>
+<p>样例3：禁止添加跨域站点</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>currentPage<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- currentPage 页面中显示的内容 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>This is currentPage!<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 添加跨域的新记录</span></span></span><br><span class="line"><span class="javascript">        history.pushState(<span class="literal">null</span>, <span class="literal">null</span>, <span class="string">'https://www.baidu.com'</span>);</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1ftrsy1dil3j30la01u0sn.jpg" alt=""></p>
+</li>
+</ul>
+<blockquote>
+<p>样例4：”query string” 形式的url</p>
+</blockquote>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>currentPage<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- currentPage 页面中显示的内容 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>This is currentPage!<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        history.pushState(<span class="literal">null</span>, <span class="literal">null</span>, <span class="string">'./newPage.html?page=newPage'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 如果只写查询字符串，则会被拼接到当前页面url后面</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// history.pushState(null, null, '?page=currentPage');</span></span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="replaceState"><a href="#replaceState" class="headerlink" title="replaceState()"></a>replaceState()</h5><ul>
+<li><p>功能</p>
+<p>修改history对象当前记录</p>
+</li>
+<li><p>语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history.repalceState(state, title, url);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参数</p>
+<p>同 pushState</p>
+</li>
+<li><p>强调</p>
+<p>同 pushState</p>
+</li>
+</ul>
+<h4 id="popstate-事件"><a href="#popstate-事件" class="headerlink" title="popstate 事件"></a>popstate 事件</h4><ul>
+<li><p>触发条件</p>
+<p>同一个文档的浏览历史(即 history 对象)发生变化时，该事件被触发</p>
+</li>
+<li><p>注意</p>
+<ul>
+<li><code>pushState()</code> 和 <code>replaceState()</code> 方法不会触发该事件</li>
+<li>点击浏览器的前进 / 后退按钮、JS调用 <code>history.back()</code>、<code>history.forward()</code>、<code>history.go()</code>等方法可以触发该事件</li>
+<li>该事件只针对同一个文档，如果浏览器历史的切换导致加载了不同的文档，该事件不会触发</li>
+<li>页面第一次加载的时候，不会触发该事件</li>
+</ul>
+</li>
+<li><p>event.state</p>
+<p>该事件的事件对象的属性 <code>event.state</code> 指向 <code>pushState()</code> 、<code>replaceState()</code> 方法为当前URL提供的状态对象（即这两个方法的第一个参数 state），这个 state 对象也可以通过 <code>history.state</code> 方法直接获取，但获取的条件和 popstate 事件触发的条件相同</p>
+</li>
+<li><p>举例</p>
+<blockquote>
+<p>样例1：同一个文档</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- currentPage.html --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>currentPage<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>This is currentPage!<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        history.pushState(&#123;<span class="attr">name</span>: <span class="string">'current'</span>&#125;, <span class="literal">null</span>, <span class="string">'?page=currentPage'</span>);</span></span><br><span class="line"><span class="undefined">        </span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onpopstate = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(e.state);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>以上代码意思是当 popstate 事件触发时，打印事件对象 event 即 状态属性 event.state，当我们在浏览器中打开这个页面时，地址栏地址显示 <code>http://localhost/test/history-pushState/currentPage.html?page=currentPage</code>，此时控制台没有任何输出，因为还没有历史记录变化触发 popstate 事件；我们点击浏览器的回退按钮，此时浏览器地址栏显示 <code>http://localhost/test/history-pushState/currentPage.html</code>，控制台打印结果如下</p>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1ftrwyyo2t0j30cz01xjr8.jpg" alt=""></p>
+<p>首先有东西打印出来，说明刚才的回退操作造成了历史记录变化，触发了 popstate 事件，所以才会执行 popstate 事件的回调函数；下面我们来关注打印内容的第二个值 <code>event.state</code> ，它的值是 <code>null</code> ，明明我们在使用 <code>pushState()</code> 方法时，第一个参数设置了 <code>{name: &#39;current&#39;}</code> ，为什么这里是 <code>null</code> 呢？别急，接下来，我们再点击浏览器的前进按钮，地址栏显示 <code>http://localhost/test/history-pushState/currentPage.html?page=currentPage</code>，控制台又增加了两条打印内容，结果如下</p>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1ftrx3vgdr3j30cw01xt8k.jpg" alt=""></p>
+<p>有打印内容说明出发了 popstate 事件这个就不再多说了，继续来关注第二个打印内容 <code>event.state</code> ，这次它的值变成了我们给他设置的值，结合地址栏中不同的url，发现在 <code>http://localhost/test/history-pushState/currentPage.html</code> 这个地址下，<code>event.state</code> 结果为 <code>null</code>，而在 <code>http://localhost/test/history-pushState/currentPage.html?page=currentPage</code>这个地址下，<code>event.state</code> 结果为 <code>{name: &#39;current&#39;}</code>，这是因为我们在使用 <code>pushState()</code> 方法的时候，参数是这样设置的 <code>pushState({name: &quot;current&quot;}, null, &#39;?page=currentPage&#39;)</code>，关注第一个和第三个参数，我们把state状态传给了 <code>http://localhost/test/history-pushState/currentPage.html?page=currentPage</code> 这个地址的页面，所以只有在这个地址页面下，才能打印我们设置的state</p>
+<blockquote>
+<p>样例2：不同文档</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- currentPage.html --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>currentPage<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>This is currentPage!<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        history.pushState(&#123;<span class="attr">name</span>: <span class="string">'current'</span>&#125;, <span class="literal">null</span>, <span class="string">'?page=currentPage'</span>);</span></span><br><span class="line"><span class="undefined">        </span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onpopstate = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(e.state);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>与上一个样例一样的代码，操作的步骤有所不同，首先打开一个新标签页（新标签页是为了保证历史记录的干净），然后在地址栏中输入 <code>https://www.baidu.com</code>，回车打开百度页面，打开后将地址栏中百度的url删除，输入 <code>http://localhost/test/history-pushState/currentPage.html</code> ，回车打开页面，此时地址栏中显示的是 <code>http://localhost/test/history-pushState/currentPage.html?page=currentPage</code>，我们点击浏览器的回退按钮，地址回退到 <code>http://localhost/test/history-pushState/currentPage.html</code>，此时控制台中有打印内容，这个过程上面一个样例已经解释清楚，接下来我们继续点击回退按钮，使地址回退到 <code>https://www.baidu.com</code>，这时控制台没有任何打印内容，因为历史记录变化的过程中加载百度页面，这与我们的 “currentPage.html” 是不同的文档，所以不会触发 popState 事件</p>
+</li>
+</ul>
+<h4 id="pjax"><a href="#pjax" class="headerlink" title="pjax"></a>pjax</h4><p>pushState + ajax的应用</p>
+<p>如果我们要做一个单页应用，简单地说我们要是实现的内容是通过ajax请求获得实现的，而不是通过页面跳转的其他页面显示内容实现的；但是仅仅通过ajax实现单页应用也有一定的限制，因为ajax是局部刷新而不刷新整个页面，这也就意味着我们虽然可以通过点击不同的标签显示不同的内容，但是因为过程种地址栏中的url没有发生变化导致我们无法通过前进或者是后退操作访问我们已经访问过的内容，这样对用户的习惯很不友好，而 history API 正好可以弥补这一缺陷，它只改变地址栏而不刷新页面的特性，使我们能够轻松的修改url，模拟出多页面的效果，实现前进或者后退的导航</p>
+<p>下面做一个简单的例子来描述整个过程</p>
+<p>功能演示</p>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fts1ja7k8yg30ik0c548f.gif" alt=""></p>
+<p>index.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>pajx<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./index.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn"</span> <span class="attr">name</span>=<span class="string">"one"</span>&gt;</span>one<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn"</span> <span class="attr">name</span>=<span class="string">"two"</span>&gt;</span>two<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn"</span> <span class="attr">name</span>=<span class="string">"three"</span>&gt;</span>three<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./ajax.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>index.css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">450px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrapper</span> <span class="selector-class">.header</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrapper</span> <span class="selector-class">.header</span> <span class="selector-class">.btn</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">33.3%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">box-sizing</span>: content-box;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line">    <span class="attribute">outline</span>: none;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrapper</span> <span class="selector-class">.content</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>getDate.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">'content-type:text/html;charset="utf-8"'</span>);</span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">$page = $_GET[<span class="string">'page'</span>];</span><br><span class="line"><span class="keyword">if</span> ($page == <span class="string">'one'</span>) &#123;</span><br><span class="line">    $data = <span class="string">'This is page one'</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> ($page == <span class="string">'two'</span>) &#123;</span><br><span class="line">    $data = <span class="string">'This is page two'</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> ($page == <span class="string">'three'</span>) &#123;</span><br><span class="line">    $data = <span class="string">'This is page three'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"$data"</span>;</span><br></pre></td></tr></table></figure>
+<p>ajax.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">method, url, data, flag, callback</span>) </span>&#123;</span><br><span class="line">    method = method.toUpperCase();</span><br><span class="line">    <span class="keyword">var</span> xhr = <span class="built_in">window</span>.XMLHttpRequest ? <span class="keyword">new</span> XMLHttpRequest() : <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHttp'</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> (method == <span class="string">'GET'</span>) &#123;</span><br><span class="line">        xhr.open(<span class="string">'GET'</span>, url + <span class="string">'?'</span> + data, flag);</span><br><span class="line">        xhr.send();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method == <span class="string">'POST'</span>) &#123;</span><br><span class="line">        xhr.open(<span class="string">'POST'</span>, url, flag);</span><br><span class="line">        xhr.setRequestHeader(<span class="string">'Content-type'</span>, <span class="string">'application/x-www-form-urlencoded'</span>);</span><br><span class="line">        xhr.send(data);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">            callback(xhr.responseText);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>index.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> header = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'header'</span>)[<span class="number">0</span>],</span><br><span class="line">    content = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'content'</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 页面第一次加载默认显示第一个页的内容</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = <span class="string">'page=one'</span>;</span><br><span class="line">    ajax(<span class="string">'GET'</span>, <span class="string">'./getData.php'</span>, data, <span class="literal">true</span>, sovle);</span><br><span class="line">    history.replaceState(&#123; <span class="attr">dataFlag</span>: data &#125;, <span class="literal">null</span>, <span class="string">'?'</span> + data);</span><br><span class="line">&#125;</span><br><span class="line">init();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定点击事件，点击不同的按钮，发送不同的ajax请求</span></span><br><span class="line">header.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> event = e || <span class="built_in">window</span>.event,</span><br><span class="line">        target = event.target || event.srcElement,</span><br><span class="line">        data;</span><br><span class="line"></span><br><span class="line">    data = <span class="string">'page='</span> + target.getAttribute(<span class="string">'name'</span>);</span><br><span class="line">    ajax(<span class="string">'GET'</span>, <span class="string">'./getData.php'</span>, data, <span class="literal">true</span>, sovle);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 发送ajax请求后，在当前页面的url后拼接不同的页面标记</span></span><br><span class="line">    history.pushState(&#123; <span class="attr">dataFlag</span>: data &#125;, <span class="literal">null</span>, <span class="string">'?'</span> + data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ajax请求成功的回调函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sovle</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 调用添加文本的方法</span></span><br><span class="line">    addContent(data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将ajax响应数据添加到dom结构中</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addContent</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    content.innerText = data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每当有state的变化(导航操作)，重新发送ajax请求，获得当前页面标记对应的数据</span></span><br><span class="line"><span class="built_in">window</span>.onpopstate = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> event = e || <span class="built_in">window</span>.event,</span><br><span class="line">        data = event.state.dataFlag || <span class="string">'page=one'</span>;</span><br><span class="line">    ajax(<span class="string">'GET'</span>, <span class="string">'./getData.php'</span>, data, <span class="literal">true</span>, sovle);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主要是index.js文件中的内容</p>
+<h3 id="worker"><a href="#worker" class="headerlink" title="worker"></a>worker</h3><p>我们都知道JavaScript是由一个主线程单线程执行的，这样的机制会有一些问题，如果在他执行的过程中，某一个方法需要大量大计算，那这个方法就会占用主线程很多的时间，性能不好，所以我们可不可以单独开辟一个线程，去处理这些非常耗时的操作呢？</p>
+<ul>
+<li><p>方法</p>
+<p>使用worker创建子线程</p>
+</li>
+<li><p>语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> worker = <span class="keyword">new</span> Worker(<span class="string">'worker.js'</span>);</span><br><span class="line"><span class="comment">// 主线程所在的文件和子线程worker所在的文件要满足同源策略</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>worker和主线程之间的通信</p>
+<ul>
+<li><p>postMessage() 方法</p>
+<p>用于主线程和子线程之间的消息传递</p>
+</li>
+<li><p>message 事件</p>
+<p>用于监听主线程和子线程之间的消息传递</p>
+</li>
+</ul>
+</li>
+<li><p>结束worker线程</p>
+<ul>
+<li><p>close() 方法</p>
+<p>在worker的作用域中调用，来结束自己（相当于辞职）</p>
+</li>
+<li><p>terminate() 方法</p>
+<p>在主线程的作用域中调用，来结束worker线程（相当于解雇）</p>
+</li>
+</ul>
+<p>一般使用第二种方法比较好</p>
+</li>
+<li><p>其他特性</p>
+<ul>
+<li><p>importScripts(‘./math1.js’, ‘./math2.js’)</p>
+<p>worker 是window的子集，只能实现部分功能，不能获取到window、document，所以也就不能使用jQuery、zepto等类库，通常都是引入一些计算行的类库进行运算</p>
+</li>
+<li><p>navigator</p>
+<p>可以使用navigator对象的某些属性方法，不是全部</p>
+</li>
+<li><p>XMLHttpRequest</p>
+<p>可以发送ajax请求</p>
+</li>
+<li><p>setTimeout / setInterval</p>
+<p>可以使用定时器、计时器</p>
+</li>
+</ul>
+</li>
+<li><p>demo</p>
+<p>简单的使用范例，这里以平方运算为例（假装平方运算是高计算量的运算，hh~）</p>
+<p>index.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>worker<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./worker.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>main.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> worker = <span class="keyword">new</span> Worker(<span class="string">'worker.js'</span>);</span><br><span class="line"></span><br><span class="line">worker.postMessage(data);</span><br><span class="line"></span><br><span class="line">worker.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>worker.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> res = e.data * e.data;</span><br><span class="line">    <span class="keyword">this</span>.postMessage(res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>canvas图片处理的样例</p>
+<p>index.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-id">#myCanvas</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        button &#123;</span></span><br><span class="line"><span class="undefined">            display: block;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"500"</span> <span class="attr">height</span>=<span class="string">"300"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>start<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./worker.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>main.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oImg = <span class="keyword">new</span> Image();</span><br><span class="line"></span><br><span class="line">oImg.src = <span class="string">'./xiaohei.png'</span>;</span><br><span class="line">oImg.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'myCanvas'</span>),</span><br><span class="line">        canvasWidth = canvas.width,</span><br><span class="line">        canvasHeight = canvas.height;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> worker = <span class="keyword">new</span> Worker(<span class="string">'worker.js'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'button'</span>)[<span class="number">0</span>];</span><br><span class="line">    btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        sovle();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sovle</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (canvas.getContext) &#123;</span><br><span class="line">            <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line">            <span class="keyword">var</span> imageData;</span><br><span class="line"></span><br><span class="line">            ctx.drawImage(oImg, <span class="number">0</span>, <span class="number">0</span>, canvasWidth, canvasHeight);</span><br><span class="line"></span><br><span class="line">            imageData = ctx.getImageData(<span class="number">0</span>, <span class="number">0</span>, canvasWidth, canvasHeight);</span><br><span class="line"></span><br><span class="line">            worker.postMessage(imageData);</span><br><span class="line">            worker.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">                ctx.putImageData(e.data, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">                <span class="keyword">var</span> url = canvas.toDataURL(<span class="string">'image/jpeg'</span>, <span class="number">0.5</span>);</span><br><span class="line">                <span class="built_in">document</span>.getElementsByTagName(<span class="string">'img'</span>)[<span class="number">0</span>].src = url;</span><br><span class="line">                worker.terminate();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>worker.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> imageData = e.data,</span><br><span class="line">        imageDataLen;</span><br><span class="line"></span><br><span class="line">    imageDataLen = imageData.data.length / <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; imageDataLen; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> red = imageData.data[i * <span class="number">4</span>];</span><br><span class="line">        <span class="keyword">var</span> green = imageData.data[i * <span class="number">4</span> + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">var</span> blue = imageData.data[i * <span class="number">4</span> + <span class="number">2</span>];</span><br><span class="line">        <span class="keyword">var</span> gray = <span class="number">0.3</span> * red + <span class="number">0.59</span> * green + <span class="number">0.11</span> * blue;</span><br><span class="line">    </span><br><span class="line">        imageData.data[i * <span class="number">4</span>] = gray;</span><br><span class="line">        imageData.data[i * <span class="number">4</span> + <span class="number">1</span>] = gray;</span><br><span class="line">        imageData.data[i * <span class="number">4</span> + <span class="number">2</span>] = gray;</span><br><span class="line">    &#125;</span><br><span class="line">    postMessage(imageData);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fts5zu9bl4g30sp0a60x2.gif" alt=""></p>
+<p>第二次点击start没有对图片进行处理是因为子第一遍处理完毕后，主线程关闭了worker线程，所以后面无法对图形进行处理</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>  
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML5/" rel="tag"> <i class="fa fa-tag"></i> HTML5</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/19/e02_html5/" rel="next" title="SVG详细总结">
+                <i class="fa fa-chevron-left"></i> SVG详细总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/20/e04_html5/" rel="prev" title="地理信息、重力感应、方向判断">
+                地理信息、重力感应、方向判断 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxOS8xNTM0Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg"
+                alt="Qin Haitao" />
+            
+              <p class="site-author-name" itemprop="name">Qin Haitao</p>
+              <p class="site-description motion-element" itemprop="description">搭一座不倒的积木塔</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/qinhaitao97" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:15634313305@163.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#requestAniamtionFrame"><span class="nav-number">1.</span> <span class="nav-text">requestAniamtionFrame</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#setInterval-做动画的缺点"><span class="nav-number">1.1.</span> <span class="nav-text">setInterval 做动画的缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#requestAnimationFrame"><span class="nav-number">1.2.</span> <span class="nav-text">requestAnimationFrame</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端存储"><span class="nav-number">2.</span> <span class="nav-text">客户端存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#storage简介"><span class="nav-number">2.1.</span> <span class="nav-text">storage简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类"><span class="nav-number">2.2.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性方法"><span class="nav-number">2.3.</span> <span class="nav-text">属性方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history"><span class="nav-number">3.</span> <span class="nav-text">history</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述"><span class="nav-number">3.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性"><span class="nav-number">3.2.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#length"><span class="nav-number">3.2.1.</span> <span class="nav-text">length</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#state"><span class="nav-number">3.2.2.</span> <span class="nav-text">state</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-number">3.3.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#back"><span class="nav-number">3.3.1.</span> <span class="nav-text">back()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#forward"><span class="nav-number">3.3.2.</span> <span class="nav-text">forward()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#go"><span class="nav-number">3.3.3.</span> <span class="nav-text">go()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#pushState"><span class="nav-number">3.3.4.</span> <span class="nav-text">pushState()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#replaceState"><span class="nav-number">3.3.5.</span> <span class="nav-text">replaceState()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#popstate-事件"><span class="nav-number">3.4.</span> <span class="nav-text">popstate 事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pjax"><span class="nav-number">3.5.</span> <span class="nav-text">pjax</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#worker"><span class="nav-number">4.</span> <span class="nav-text">worker</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qin Haitao</span>
+
+  
+
+  
+</div>
+
+
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">已经写了 169.7k 字啦~</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=6.4.0"></script>
+
+
+  
+
+  
+
+</body>
+</html>

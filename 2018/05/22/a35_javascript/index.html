@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.0',
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="JavaScript,BOM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BOM">
+<meta property="og:url" content="http://yoursite.com/2018/05/22/a35_javascript/index.html">
+<meta property="og:site_name" content="码瓜">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fua7a09hiqj30d509z74t.jpg">
+<meta property="og:updated_time" content="2018-08-15T03:01:20.128Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BOM">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fua7a09hiqj30d509z74t.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/22/a35_javascript/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>BOM | 码瓜</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">码瓜</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/22/a35_javascript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qin Haitao">
+      <meta itemprop="description" content="搭一座不倒的积木塔">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码瓜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">BOM
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <!-- 置顶文字 -->
+          
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-22 19:24:24" itemprop="dateCreated datePublished" datetime="2018-05-22T19:24:24+08:00">2018-05-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-15 11:01:20" itemprop="dateModified" datetime="2018-08-15T11:01:20+08:00">2018-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description"> </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fua7a09hiqj30d509z74t.jpg" alt=""></p>
+<h3 id="BOM简介"><a href="#BOM简介" class="headerlink" title="BOM简介"></a>BOM简介</h3><p>BOM是 “Browser Object Modle” 的缩写，简称 “浏览器对象模型”。主要处理浏览器窗口和框架，描述了与浏览器进行交互的方法和接口，可以对浏览器窗口进行访问和操作。</p>
+<h3 id="BOM与DOM的关系"><a href="#BOM与DOM的关系" class="headerlink" title="BOM与DOM的关系"></a>BOM与DOM的关系</h3><ul>
+<li>JavaScript 是通过访问 BOM 来访问、控制、修改浏览器的</li>
+<li>BOM 的 window 包含了document，因此通过 window 对象的 document 属性可以访问、检索、修改文档内容与结构</li>
+<li>document 对象是 DOM 模型的根节点</li>
+</ul>
+<p>综上所述，BOM 包含 DOM，访问浏览器的是 BOM 对象，从 BOM 对象访问 DOM 对象，从而 js 可以操作浏览器以及浏览器读取到文档；除此之外，W3C 规定了关于 DOM 的标准规范，但是对于 BOM 来说，因为它是对浏览器的操作，而每个浏览器各自的实现不尽相同，所以有些方法在某些浏览器上适用，有些浏览器上不适用</p>
+<h3 id="BOM-对象"><a href="#BOM-对象" class="headerlink" title="BOM 对象"></a>BOM 对象</h3><p>BOM 对象包含以下内容</p>
+<ul>
+<li><p>Window</p>
+<p>JavaScript 层级中的顶级对象，表示浏览器窗口</p>
+</li>
+<li><p>Navigator</p>
+<p>包含了客户端浏览器信息</p>
+</li>
+<li><p>History</p>
+<p>包含了浏览器访问过的URL</p>
+</li>
+<li><p>Location</p>
+<p>包含了浏览器当前访问的URL</p>
+</li>
+<li><p>Screen</p>
+<p>包含了客户端显示屏的信息</p>
+</li>
+</ul>
+<h4 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h4><p>window对 象有很多属性和方法，这里只记录一些常用的，其他可以到 w3c 查找</p>
+<h5 id="对象方法"><a href="#对象方法" class="headerlink" title="对象方法"></a>对象方法</h5><ul>
+<li><p>close()</p>
+<p>关闭当前的浏览器窗口</p>
+</li>
+<li><p>alert()</p>
+<p>显示一段消息的弹出框</p>
+</li>
+<li><p>comfirm()</p>
+<p>显示一段消息以及确认按钮和取消按钮的对话框，返回值是Boolean类型</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> value = confirm(<span class="string">'真的要关闭当前窗口么?'</span>);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (value) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.close();</span></span><br><span class="line"><span class="javascript">    &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.alert(<span class="string">'没有关闭!'</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>open(URL, name, features, replace)</p>
+<p>打开一个新的浏览器窗口或者查找一个已命名的窗口，新的文档对第四个标准不支持了，所以不考虑第四个参数</p>
+<ul>
+<li>参数都可以为空，但是如果不写第三个参数的话，是在当前浏览器中打开一个新的窗口（一个新的标签页），除非是打开已存在的窗口（比如第四点）</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.open(<span class="string">''</span>, <span class="string">''</span>, <span class="string">''</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开一个宽高为设定值的新的窗口</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.open(<span class="string">''</span>, <span class="string">''</span>, <span class="string">'width=500, height=400'</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开一个指定路径或网址的新的窗口</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.open(<span class="string">'./new.html'</span>, <span class="string">''</span>, <span class="string">'width=500, height=400'</span>);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.open(<span class="string">'https://www.baidu.com'</span>, <span class="string">''</span>, <span class="string">'width=500, height=400'</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里如果打开文件是自身的话，会循环无止境的打开新的窗口</p>
+</blockquote>
+<ul>
+<li>打开一个新的窗口，并为之命名</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.open(<span class="string">''</span>, <span class="string">'newName'</span>, <span class="string">'width=500, height=400'</span>);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.open(<span class="string">'https://www.baidu.com'</span>, <span class="string">'newName'</span>, <span class="string">''</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果要关闭某一个新建的窗口，要用一个变量来接受这个窗口对象</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> newWindow = <span class="built_in">window</span>.open(<span class="string">''</span>, <span class="string">'newW'</span>, <span class="string">'width=500, height=400'</span>);</span></span><br><span class="line"><span class="javascript">    <span class="comment">// neW.close();  这样是不行的</span></span></span><br><span class="line"><span class="undefined">    newWindow.close();</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>moveBy(x, y)</p>
+<p>相对窗口的当前坐标，把他移动一定的距离（往右移x，往下移y）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> newWindow = <span class="built_in">window</span>.open(<span class="string">''</span>, <span class="string">'newW'</span>, <span class="string">'width=500, height=400'</span>);</span></span><br><span class="line"><span class="undefined">    newWindow.moveBy(200, 200);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>操作对 window 无效</p>
+</blockquote>
+</li>
+<li><p>moveTo(x, y)</p>
+<p>把窗口移动到指定位置</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> newWindow = <span class="built_in">window</span>.open(<span class="string">''</span>, <span class="string">'newW'</span>, <span class="string">'width=500, height=400'</span>);</span></span><br><span class="line"><span class="undefined">    newWindow.moveTo(200, 200);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>操作对 window 无效</p>
+</blockquote>
+</li>
+<li><p>print()</p>
+<p>打印当前窗口的内容</p>
+</li>
+<li><p>prompt()</p>
+<p>显示可提示用户输入的对话框，点击确认返回值是输入内容，点击取消返回值是null</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> name = <span class="built_in">window</span>.prompt(<span class="string">'请输入用户名'</span>);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(name);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>scrollBy(x, y)</p>
+<p>滚动条滚动指定的距离</p>
+</li>
+<li><p>scrollTo(x, y)</p>
+<p>滚动条滚动到指定位置</p>
+</li>
+</ul>
+<h5 id="对象属性"><a href="#对象属性" class="headerlink" title="对象属性"></a>对象属性</h5><ul>
+<li><p>closed</p>
+<p>判断窗口是否被关闭，返回Boolean值</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> newW = <span class="built_in">window</span>.open(<span class="string">''</span>, <span class="string">''</span>,<span class="string">'width=100, height'</span>);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(newW.closed);</span></span><br><span class="line"><span class="undefined">    newW.close();</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(newW.closed);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>innerHeight / innerWidth</p>
+<p>返回窗口的文档显示区的高度、宽度</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'width:'</span> + <span class="built_in">window</span>.innerWidth);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'height:'</span> + <span class="built_in">window</span>.innerHeight);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>outerHeight / outerWidth</p>
+<p>返回浏览器窗口的高度、宽度</p>
+</li>
+<li><p>length</p>
+<p>设置或返回窗口中的框架数量（后面用到再补充）</p>
+</li>
+<li><p>name</p>
+<p>窗口的名称（后面会借助 window.name 实现数据的跨域）</p>
+</li>
+<li><p>pageXOffset / pageYOffset</p>
+<p>设置或者返回当前页面相对于窗口显示区左上角 X / Y 的位置</p>
+<blockquote>
+<p>这个的一个用途是：可以做页面中固定位置的广告，一般用position：fixed实现，但是position：fixed在IE中会存在兼容性问题，可以用这个做</p>
+</blockquote>
+</li>
+<li><p>screenLeft / screenTop</p>
+<p>screenX / screenY</p>
+<p>只读整数，声明了窗口左上角在屏幕上的x坐标和y坐标。IE、Safari、chrome、Opera 支持 screenLeft，chrome、Firefox、Safari 支持 screenX</p>
+</li>
+</ul>
+<h4 id="Navigator对象"><a href="#Navigator对象" class="headerlink" title="Navigator对象"></a>Navigator对象</h4><p>Navigator 对象包含的属性描述了正在使用的浏览器的。可以使用这些属性进行平台专用配置。虽然这个对象的名称显而易见是 Netscape 的 Navigator 浏览器，但是 JavaScript 的浏览器也支持这个对象</p>
+<h5 id="对象属性-1"><a href="#对象属性-1" class="headerlink" title="对象属性"></a>对象属性</h5><ul>
+<li><p>appVersion</p>
+<p>返回浏览器的平台和版本信息</p>
+</li>
+<li><p>cookieEnabled</p>
+<p>返回指定浏览器是否启用cookie的布尔值</p>
+</li>
+<li><p>onLine</p>
+<p>返回指定系统是否处于联机模式的布尔值</p>
+<blockquote>
+<p>做离线缓存可以用到这个</p>
+</blockquote>
+</li>
+<li><p>userAgent</p>
+<p>返回客户机发送服务器的 user-agent 头部的值，这个是有用的方法，后面讲</p>
+</li>
+<li><p>plugins</p>
+<p>返回包含客户端安装的所有插件的数组</p>
+</li>
+</ul>
+<h5 id="对象方法-1"><a href="#对象方法-1" class="headerlink" title="对象方法"></a>对象方法</h5><h4 id="History对象"><a href="#History对象" class="headerlink" title="History对象"></a>History对象</h4><p>History 对象包含用户（在浏览器中）访问过的 URL</p>
+<h5 id="对象属性-2"><a href="#对象属性-2" class="headerlink" title="对象属性"></a>对象属性</h5><ul>
+<li><p>length</p>
+<p>返回浏览器历史列表中访问过的URL</p>
+</li>
+</ul>
+<h5 id="对象方法-2"><a href="#对象方法-2" class="headerlink" title="对象方法"></a>对象方法</h5><ul>
+<li><p>back()</p>
+<p>加载 history 列表中的前一个 URL</p>
+</li>
+<li><p>forward()</p>
+<p>加载 history 列表中后一个 URL</p>
+</li>
+<li><p>go(num)</p>
+<p>加载 history 列表中前 / 后 num 个页面</p>
+</li>
+</ul>
+<h4 id="Location对象"><a href="#Location对象" class="headerlink" title="Location对象"></a>Location对象</h4><p>Location 对象包含有关当前URL的信息</p>
+<h5 id="对象属性-3"><a href="#对象属性-3" class="headerlink" title="对象属性"></a>对象属性</h5><ul>
+<li><p>hash</p>
+<p>设置或返回从 # 开始的 URL（锚）</p>
+</li>
+<li><p>host</p>
+<p>设置或返回主机名和当前URL的端口号，如果端口号是默认端口号，就不显示端口号；如果是设置的别的端口号，就会返回端口号</p>
+</li>
+<li><p>hostname</p>
+<p>设置或者返回当前URL的主机名</p>
+</li>
+<li><p>post</p>
+<p>设置或者返回当前URL的端口号</p>
+</li>
+<li><p>href</p>
+<p>设置或者返回完整的URL</p>
+</li>
+<li><p>pathname</p>
+<p>设置或返回当前URL的路径部分</p>
+</li>
+<li><p>protocol</p>
+<p>设置或返回当前URL的协议</p>
+</li>
+<li><p>search</p>
+<p>设置或返回从 ？ 开始的 URL 部分</p>
+</li>
+</ul>
+<h5 id="对象方法-3"><a href="#对象方法-3" class="headerlink" title="对象方法"></a>对象方法</h5><ul>
+<li><p>assign()</p>
+<p>加载新的文档</p>
+</li>
+<li><p>reload(‘force’)</p>
+<p>重新加载当前文档，参数不可选，不填或填false则取浏览器缓存文档</p>
+</li>
+<li><p>replace()</p>
+<p>用新的文档替换当前文档</p>
+</li>
+</ul>
+<h4 id="Screen对象"><a href="#Screen对象" class="headerlink" title="Screen对象"></a>Screen对象</h4><p>Screen 对象包含有关客户端显示屏幕的信息。每个 Window 对象的 screen 属性都引用一个 Screen 对象。JavaScript 将利用这些信息来优化他们的输出，已达到用户的显示要求。例如，一个程序可以根据显示器的尺寸选择大图像还是小图像，他还可以根据显示器的颜色深度选择使用16为色还是8为色的图形。另外，JavaScript 还能根据浏览器屏幕信息，将新的浏览器窗口固定到屏幕中间</p>
+<h5 id="对象属性-4"><a href="#对象属性-4" class="headerlink" title="对象属性"></a>对象属性</h5><ul>
+<li><p>availHeight / avaliWidth</p>
+<p>返回显示器高度 / 宽度 （不包含任务栏）</p>
+</li>
+<li><p>height / width</p>
+<p>返回显示屏幕的高度 / 宽度（不管是任务栏还是什么都包括）</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>  
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"> <i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/BOM/" rel="tag"> <i class="fa fa-tag"></i> BOM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/22/a34_javascript/" rel="next" title="页面渲染机制">
+                <i class="fa fa-chevron-left"></i> 页面渲染机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/25/a37_javascript/" rel="prev" title="运动">
+                运动 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxOS8xNTM0Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://ws1.sinaimg.cn/large/006eYMu7ly1fuah83g41nj308j07uweb.jpg"
+                alt="Qin Haitao" />
+            
+              <p class="site-author-name" itemprop="name">Qin Haitao</p>
+              <p class="site-description motion-element" itemprop="description">搭一座不倒的积木塔</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/qinhaitao97" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:15634313305@163.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BOM简介"><span class="nav-number">1.</span> <span class="nav-text">BOM简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BOM与DOM的关系"><span class="nav-number">2.</span> <span class="nav-text">BOM与DOM的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BOM-对象"><span class="nav-number">3.</span> <span class="nav-text">BOM 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#window对象"><span class="nav-number">3.1.</span> <span class="nav-text">window对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对象方法"><span class="nav-number">3.1.1.</span> <span class="nav-text">对象方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象属性"><span class="nav-number">3.1.2.</span> <span class="nav-text">对象属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Navigator对象"><span class="nav-number">3.2.</span> <span class="nav-text">Navigator对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对象属性-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">对象属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象方法-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">对象方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#History对象"><span class="nav-number">3.3.</span> <span class="nav-text">History对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对象属性-2"><span class="nav-number">3.3.1.</span> <span class="nav-text">对象属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象方法-2"><span class="nav-number">3.3.2.</span> <span class="nav-text">对象方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Location对象"><span class="nav-number">3.4.</span> <span class="nav-text">Location对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对象属性-3"><span class="nav-number">3.4.1.</span> <span class="nav-text">对象属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象方法-3"><span class="nav-number">3.4.2.</span> <span class="nav-text">对象方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Screen对象"><span class="nav-number">3.5.</span> <span class="nav-text">Screen对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对象属性-4"><span class="nav-number">3.5.1.</span> <span class="nav-text">对象属性</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qin Haitao</span>
+
+  
+
+  
+</div>
+
+
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">已经写了 169.7k 字啦~</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=6.4.0"></script>
+
+
+  
+
+  
+
+</body>
+</html>
