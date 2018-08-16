@@ -126,7 +126,7 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1ftvcmf4pu3j30l10g674u.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1ftvcp3buvcj30tv0f7dga.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1ftvhxyo77qj30l90bc0u3.jpg">
-<meta property="og:updated_time" content="2018-08-15T07:28:26.150Z">
+<meta property="og:updated_time" content="2018-08-16T02:29:55.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git入门">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1ftvcrvzubmj30hr07vdfv.jpg">
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-15 15:28:26" itemprop="dateModified" datetime="2018-08-15T15:28:26+08:00">2018-08-15</time>
+                <time title="修改时间：2018-08-16 10:29:55" itemprop="dateModified" datetime="2018-08-16T10:29:55+08:00">2018-08-16</time>
               
             
           </span>
@@ -517,14 +517,14 @@
 <p>本地分支与远程分支建立关联</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add &lt;name&gt; &lt;repository&gt;</span><br></pre></td></tr></table></figure>
-<p>之前我们已经创建好了本地仓库和远程仓库，那怎么把两者关联起来了呢？使用上述命令进行关联，注意 \&lt;&gt; 内的内容为自定义，其代表的含义如下</p>
+<p>之前我们已经创建好了本地仓库和远程仓库，那怎么把两者关联起来了呢？使用上述命令进行关联，注意 <code>&lt;&gt;</code> 内的内容为自定义，其代表的含义如下</p>
 <p>name：给要关联的远端仓库起个别名</p>
 <p>repository：要关联的远端仓库的地址</p>
 <p>别名可以自定义，那这个远端仓库的地址在哪获取呢？步骤如下：</p>
 <ol>
 <li>打开GitHub网站，登录后点击头像，选择 <code>Your repositories</code></li>
 <li>选择你要关联的远端仓库(如之前教程中创建的test仓库)</li>
-<li>点击右侧绿色的 <code>Clone or download</code> 按钮，复制下面的地址，此地址即为上面命令中的 \<repository></repository></li>
+<li>点击右侧绿色的 <code>Clone or download</code> 按钮，复制下面的地址，此地址即为上面命令中的 <code>&lt;repository&gt;</code></li>
 </ol>
 <blockquote>
 <p>查看远端仓库的别名</p>
@@ -534,7 +534,7 @@
 <p>重命名远端仓库</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rename &lt;oldname&gt; &lt;newname&gt;</span><br></pre></td></tr></table></figure>
-<p>如果想给远程仓库重命名，使用这条指令，注意 \&lt;&gt; 内的内容为自定义，其含义如下</p>
+<p>如果想给远程仓库重命名，使用这条指令，注意 <code>&lt;&gt;</code> 内的内容为自定义，其含义如下</p>
 <p>oldname：远端仓库原来的名字</p>
 <p>newname：远端仓库新的名字</p>
 <blockquote>
@@ -555,12 +555,12 @@
 <p>添加到暂存区</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;file&gt;</span><br><span class="line"></span><br><span class="line">git add .</span><br></pre></td></tr></table></figure>
-<p>第一条指令表示要添加哪个文件到暂存区，\<file> 代表文件，第二条指令表示将工作目录中所有文件都添加到暂存区中去；把文件添加到暂存区是为了临时保存，比如在开发过程中临时有事，暂时不能开发，那就先把文件添加到暂存区中，方便后续继续进行修改；如果我们已经确定开发完成，那么就可以把暂存区中的内容提交到本地仓库，方法如下</file></p>
+<p>第一条指令表示要添加哪个文件到暂存区，<code>&lt;file&gt;</code> 代表文件，第二条指令表示将工作目录中所有文件都添加到暂存区中去；把文件添加到暂存区是为了临时保存，比如在开发过程中临时有事，暂时不能开发，那就先把文件添加到暂存区中，方便后续继续进行修改；如果我们已经确定开发完成，那么就可以把暂存区中的内容提交到本地仓库，方法如下</p>
 <blockquote>
 <p>提交到本地仓库</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &lt;description&gt;</span><br></pre></td></tr></table></figure>
-<p>-m 是 message 的意思，代表这次提交的描述信息，比如这是第几次提交、这是第几次修改等等，\<description> 就是用来写这个描述信息</description></p>
+<p>-m 是 message 的意思，代表这次提交的描述信息，比如这是第几次提交、这是第几次修改等等，<code>&lt;description&gt;</code> 就是用来写这个描述信息</p>
 <blockquote>
 <p>提交内容到远程仓库</p>
 </blockquote>
@@ -577,7 +577,7 @@
 <p>查看提交日志</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
-<p>查看所有的提交记录，包括 commit信息、作者、时间、描述信息，以及 <code>HEAD -&gt; branch</code> 当前指向哪个版本</p>
+<p>查看所有的提交记录，包括 commit 信息、作者、时间、描述信息，以及 <code>HEAD -&gt; branch</code> 当前指向哪个版本</p>
 <p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1ftvhxyo77qj30l90bc0u3.jpg" alt=""></p>
 <blockquote>
 <p>查看提交id</p>
@@ -607,15 +607,15 @@
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>比较暂存区和本地仓库最近一次commit内容</p>
+<p>比较暂存区和本地仓库最近一次 commit 内容</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --cached</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>比较工作区与本地仓库最近一次commit内容</p>
+<p>比较工作区与本地仓库最近一次 commit 内容</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff HEAD</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>比较两个commit之间的差异</p>
+<p>比较两个 commit 之间的差异</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;commit ID&gt; &lt;commit ID&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>不同分支之间互不影响</p>
@@ -1031,8 +1031,6 @@
 
 
 
-  
-
 
 
 
@@ -1058,11 +1056,6 @@
   
   
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
