@@ -129,7 +129,7 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fu1hgm1i7uj30s202ut8i.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fu1i9bu7gaj30s0038743.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fu1idgxghmj30s201e0p8.jpg">
-<meta property="og:updated_time" content="2018-08-15T08:45:10.097Z">
+<meta property="og:updated_time" content="2018-08-16T06:38:03.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="预编译">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fu1ijdeqxij31900j242g.jpg">
@@ -414,7 +414,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-15 16:45:10" itemprop="dateModified" datetime="2018-08-15T16:45:10+08:00">2018-08-15</time>
+                <time title="修改时间：2018-08-16 14:38:03" itemprop="dateModified" datetime="2018-08-16T14:38:03+08:00">2018-08-16</time>
               
             
           </span>
@@ -495,8 +495,7 @@
 <p>执行结果是报错，错误信息是 “a is not defined”，原因是我们没有声明变量 a，就使用了变量 a</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">var</span> a;</span><br></pre></td></tr></table></figure>
 <p>这段代码的执行结果和第一段代码是一样的，但是我们来想一个问题，JS 是逐行解释执行的，那就是说先执行</p>
-<p><code>console.log(a)</code> 然后才会执行 <code>var a</code>，那说明在打印 a 的时候，a 还没有被声明，那为什么没有报的错说 a 没</p>
-<p>有被声明呢？</p>
+<p><code>console.log(a)</code> 然后才会执行 <code>var a</code>，那说明在打印 a 的时候，a 还没有被声明，那为什么没有报的错说 a 没有被声明呢？</p>
 <p>回顾文章开始介绍的 JS 执行的三个过程，原因就在第二个过程中的预编译中</p>
 <blockquote>
 <p>在预编译过程中，所有的<strong>变量声明</strong>会整体提升，所有的<strong>函数声明</strong>也会整体提升</p>
