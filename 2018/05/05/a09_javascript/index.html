@@ -133,7 +133,7 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fu5iswu6hdj30hs02g3ya.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fu5kc6n83sj30bc01a0si.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fu5keqvffgj30cd0283y9.jpg">
-<meta property="og:updated_time" content="2018-08-15T09:25:53.239Z">
+<meta property="og:updated_time" content="2018-08-18T01:44:02.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fu5mn0uu74j30dc0a3mxv.jpg">
@@ -418,7 +418,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-15 17:25:53" itemprop="dateModified" datetime="2018-08-15T17:25:53+08:00">2018-08-15</time>
+                <time title="修改时间：2018-08-18 09:44:02" itemprop="dateModified" datetime="2018-08-18T09:44:02+08:00">2018-08-18</time>
               
             
           </span>
@@ -527,10 +527,22 @@
 <p>答案当然和 <code>__proto__</code> 有关，对象的 <code>__proto__</code> 属性指向它构造函数的原型，也就是说当我们要访问对象所继承原型时，就要通过 <code>__proto__</code> 属性来 “引路”。</p>
 <p>当然，我们也可以对 <code>__proto__</code> 的属性值进行修改，比如：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo();</span><br><span class="line"><span class="built_in">console</span>.log(foo.__proto__ == Foo.prototype);    <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">foo.__proto__ = Bar.prototype;</span><br><span class="line"><span class="built_in">console</span>.log(foo.__proto__ == Bar.prototype);    <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>并非所有JavaScript引擎都支持 <code>__proto__</code> 属性的访问和修改，通过修改 <code>__proto__</code> 改变原型并不是一种兼容性方案。 </p>
-<p>总结一下，对象被构造时，在其内部会产生一个 <code>__proto__</code> 属性，该属指向此对象所继承的原型</p>
+<p>但并非所有 JavaScript 引擎都支持 <code>__proto__</code> 属性的访问和修改，通过修改 <code>__proto__</code> 改变原型并不是一种兼容性方案，而且非常不建议修改对象的 <code>__proto__</code> 属性，原因有以下几点：</p>
+<ul>
+<li><p>兼容性</p>
+<p>不是所有的 JavaScript 执行环境都支持这个属性，所以使用了 <code>__proto__</code> 这一个属性之后，代码在那些不支持该属性的环境中就无法良好的执行了</p>
+</li>
+<li><p>性能</p>
+<p>JavaScript 引擎的实现会针对对象的存取做出大量的优化，因为这些操作是很常用的；如果修改了对象的 <code>__proto__</code> 后，就相当于修改了整个对象的继承结构，这样会导致很多优化不能使用</p>
+</li>
+<li><p>可靠性</p>
+<p> 当修改对象的 <code>__proto__</code> 属性之后，对象所继承的原型链也会发生改变，这会使代码中依赖原来原型链的部分产生错误；一般来讲，要尽量保持原型链的稳定</p>
+</li>
+</ul>
+<p>对于获取对象的原型，建议首先使用 ES5 增加的 <code>Object.getPrototypeOf</code> 方法，该方法作为获取原型对象的标准 API，对于不支持 ES5 语法的情况我们可以封装一个兼容性的写法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">Object</span>.getPrototypeOf === <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="built_in">Object</span>.getPrototypeOf = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> t = <span class="keyword">typeof</span> obj;</span><br><span class="line">        <span class="keyword">if</span> (!obj || (t !== <span class="string">'object'</span> &amp;&amp; t !== <span class="string">'function'</span>)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'not an object'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> obj.__proto__;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h2><p><code>prototype</code> 中的这个属性是比较好理解的，对于这个属性我们可以通过 “顾明思议” 的方式来理解，<code>constructor</code> 的意思是 “构造函数”，所以没错，他记录了原型对象的构造函数</p>
-<p>理解了它的定义，关于它的作用可以参考<a href="https://segmentfault.com/q/1010000000347868" target="_blank" rel="noopener">这篇文章</a>，这里想介绍的重点不在这里，而是关于原型改变时对 <code>constructor</code> 所造成的影响，上代码</p>
+<p>理解了它的定义，关于它的作用可以参考 <a href="https://segmentfault.com/q/1010000000347868" target="_blank" rel="noopener">这篇文章</a>，这里想介绍的重点不在这里，而是关于原型改变时对 <code>constructor</code> 所造成的影响，上代码</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Foo.prototype.constructor);	<span class="comment">// Foo() &#123;&#125;</span></span><br></pre></td></tr></table></figure>
 <p><code>Foo.prototype</code> 的构造函数是 <code>Foo() {}</code>，没什么毛病，接下来，我们尝试改变 <code>Foo.prototype</code></p>
 <p>方法一：</p>
@@ -676,8 +688,8 @@
 <p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fu5kc6n83sj30bc01a0si.jpg" alt=""></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改引用类型值</span></span><br><span class="line"><span class="comment">// ......</span></span><br><span class="line">c.foo.a = <span class="number">1111111</span>;</span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br><span class="line"><span class="built_in">console</span>.log(c.foo.a);</span><br><span class="line"><span class="built_in">console</span>.log(b.foo.a);</span><br><span class="line"><span class="built_in">console</span>.log(a.foo.a);</span><br></pre></td></tr></table></figure>
 <p><img src="https://ws1.sinaimg.cn/large/006eYMu7ly1fu5keqvffgj30cd0283y9.jpg" alt=""></p>
-<h2 id="确定原型和实例的关系"><a href="#确定原型和实例的关系" class="headerlink" title="确定原型和实例的关系"></a>确定原型和实例的关系</h2><h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以此例为基础进行讲解</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">C</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> A();</span><br><span class="line">B.prototype = a;</span><br><span class="line">B.prototype.constructor = B;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> B();</span><br><span class="line">C.prototype = b;</span><br><span class="line">C.prototype.constructor = C;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> C();</span><br></pre></td></tr></table></figure>
-<blockquote>
+<h2 id="确定原型和实例的关系"><a href="#确定原型和实例的关系" class="headerlink" title="确定原型和实例的关系"></a>确定原型和实例的关系</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以此例为基础进行讲解</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">C</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> A();</span><br><span class="line">B.prototype = a;</span><br><span class="line">B.prototype.constructor = B;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> B();</span><br><span class="line">C.prototype = b;</span><br><span class="line">C.prototype.constructor = C;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> C();</span><br></pre></td></tr></table></figure>
+<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><blockquote>
 <p>语法</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">object <span class="keyword">instanceof</span> <span class="keyword">constructor</span></span><br></pre></td></tr></table></figure>
@@ -832,7 +844,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-count">57</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1005,7 +1017,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">已经写了 169.7k 字啦~</span>
+  <span class="post-count">已经写了 171.2k 字啦~</span>
 </div>
         
 <div class="busuanzi-count">
