@@ -123,7 +123,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fu1apo5stlj315g0io0w1.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fu1ah1cxngj30se04dglj.jpg">
-<meta property="og:updated_time" content="2018-08-15T08:24:45.845Z">
+<meta property="og:updated_time" content="2018-08-19T10:35:57.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006eYMu7ly1fu1apo5stlj315g0io0w1.jpg">
@@ -404,7 +404,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-15 16:24:45" itemprop="dateModified" datetime="2018-08-15T16:24:45+08:00">2018-08-15</time>
+                <time title="修改时间：2018-08-19 18:35:57" itemprop="dateModified" datetime="2018-08-19T18:35:57+08:00">2018-08-19</time>
               
             
           </span>
@@ -471,6 +471,9 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'param'</span>, <span class="string">'//...'</span>);</span><br></pre></td></tr></table></figure>
 <p>与普通对象不同的是</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="built_in">Function</span>;	<span class="comment">// "function"</span></span><br><span class="line"><span class="keyword">typeof</span> foo;		    <span class="comment">// "function"</span></span><br></pre></td></tr></table></figure>
+<p>ES5 规定，函数只能在顶层作用域和函数作用域中声明，以下声明方法都是非法的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 违反 ES5 规范</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 违反 ES5 规范</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是，浏览器没有遵守这个规定，为了兼容以前的旧代码，还是支持在块级作用域之中声明函数，因此上面两种情况实际都能运行，不会报错。</p>
 <h2 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h2><h3 id="命名函数表达式"><a href="#命名函数表达式" class="headerlink" title="命名函数表达式"></a>命名函数表达式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(foo.name);		<span class="comment">// fn</span></span><br></pre></td></tr></table></figure>
 <h3 id="匿名函数表达式"><a href="#匿名函数表达式" class="headerlink" title="匿名函数表达式"></a>匿名函数表达式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(foo.name);		<span class="comment">// foo</span></span><br></pre></td></tr></table></figure>
 <p>不同命名方式的区别，可以从打印的函数的名字中看出：对于函数声明和匿名函数表达式来说，只有一个函数名，所以没有分歧，而对于命名函数表达式，以上面定义中的例子来说，它的函数名是 fn，但是无法通过 <code>fn()</code> 的方法来调用该函数，必须使用 <code>foo()</code> 的方法来调用它，这个一定要注意</p>
@@ -812,7 +815,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">已经写了 171.2k 字啦~</span>
+  <span class="post-count">已经写了 171.4k 字啦~</span>
 </div>
         
 <div class="busuanzi-count">
